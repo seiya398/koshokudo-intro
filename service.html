@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>サービス内容｜好色堂</title>
+<meta name="description" content="好色堂は、成人向けの漫画を全国100超の電子書店へお届けする出版社です。原稿をお預けいただくだけで、表紙・電子化・入稿・配信まですべて代行。">
+<style>
+  :root{
+    --paper:#f6f1e7; --paper2:#efe7d6; --card:#fbf8f1;
+    --sumi:#1d1812; --sumi2:#5a5044; --muted:#8a7d6a;
+    --enji:#9b2d27; --enji-hover:#82231e; --enji-soft:#f0ddd9;
+    --gold:#a8884e; --gold-soft:#cbb37e; --line:#e0d4bd; --line2:#d7c9ad;
+    --footer:#16120e;
+    --serif:'Shippori Mincho','Hiragino Mincho ProN','YuMincho','Yu Mincho','Noto Serif JP',serif;
+    --sans:'Noto Sans JP','Hiragino Sans','Hiragino Kaku Gothic ProN','YuGothic','Yu Gothic',sans-serif;
+    --max:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--sumi);font-size:15px;line-height:1.9;letter-spacing:.015em;-webkit-font-smoothing:antialiased;
+    background:var(--paper) url('assets/img-5ab5c6c8.jpg');background-size:560px;background-blend-mode:multiply}
+  .serif{font-family:var(--serif)}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 40px}
+  section{padding:88px 0;position:relative}
+  .alt{background:rgba(233,222,201,.55)}
+  .eyebrow{font-family:var(--serif);font-size:12px;font-weight:700;letter-spacing:.34em;color:var(--enji);display:inline-block}
+  .eyebrow .dash{display:block;width:34px;height:1px;background:var(--gold);margin:14px auto 0;position:relative}
+  .eyebrow .dash:after{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;background:var(--enji);transform:translate(-50%,-50%) rotate(45deg)}
+  .s-title{font-family:var(--serif);font-size:37px;font-weight:800;line-height:1.5;letter-spacing:.04em;margin:20px 0 12px;text-wrap:balance}
+  .s-sub{color:var(--sumi2);font-size:16.5px;max-width:720px;line-height:1.95}
+  .center{text-align:center}.center .s-sub{margin-left:auto;margin-right:auto}
+  .subhead{font-family:var(--serif);font-size:23px;font-weight:700;letter-spacing:.06em;color:var(--sumi);margin:56px 0 20px;display:flex;align-items:center;gap:12px}
+  .subhead:before{content:"";width:16px;height:16px;background:var(--enji);transform:rotate(45deg);flex:none;box-shadow:0 0 0 4px var(--enji-soft)}
+  .subhead.first{margin-top:8px}
+
+  /* seal marks */
+  .seal-css{background:var(--enji);color:#fbf3ea;font-family:var(--serif);font-weight:800;display:grid;place-items:center;border-radius:8px;line-height:1;letter-spacing:0;box-shadow:0 2px 8px rgba(155,45,39,.25)}
+  .seal-img{mix-blend-mode:multiply}
+  /* トップのページ案内カード（build_site.py が index にだけ差し込む） */
+  a.scard{transition:transform .18s ease,box-shadow .18s ease}
+  a.scard:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(29,24,18,.10)}
+  a.scard h3{color:var(--enji)}
+  a.scard .arr{font-size:14px}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:60;background:rgba(246,241,231,.93);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  header.nav:before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(var(--gold) 0 1px,transparent 1px 2px,var(--gold-soft) 2px 3px)}
+  .nav-in{max-width:var(--max);margin:0 auto;padding:15px 40px;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:11px;flex:none}
+  .brand .brand-seal{width:50px;height:50px;flex:none;margin:-4px 0}
+  .brand-tt{display:flex;flex-direction:column;line-height:1;white-space:nowrap}
+  .brand-name{font-family:var(--serif);font-weight:800;font-size:25px;letter-spacing:.12em;white-space:nowrap}
+  .brand-sub{font-size:9px;color:var(--muted);letter-spacing:.34em;margin-top:5px}
+  /* 7ページ構成では横に7リンク並ぶため、ロゴ脇のキャッチは出さない（2026-09-01）。
+     nav-in は max-width:1120px 固定なので画面を広げても入らない。 */
+  .brand-tag{display:none}
+  .nav-links{display:flex;align-items:center}
+  .nav-links .lnk{font-family:var(--serif);font-size:13.5px;font-weight:600;color:var(--sumi);padding:8px 11px;position:relative;white-space:nowrap}
+  .nav-links .lnk:hover{color:var(--enji)}
+  /* 7ページ構成でナビが溢れないための逃がし（2026-09-01）。
+     1240px以下でキャッチコピー、1120px以下でロゴのローマ字を畳む。 */
+  /* 7ページ構成での現在地表示（build_site.py が .on を付ける） */
+  .nav-links .lnk.on{color:var(--enji)}
+  .nav-links .lnk.on:after{content:"";position:absolute;left:11px;right:11px;bottom:2px;height:2px;background:var(--enji);border-radius:1px}
+  .nav-links .lnk+.lnk:before{content:"";position:absolute;left:-1px;top:50%;transform:translateY(-50%);width:3px;height:3px;border-radius:50%;background:var(--gold-soft)}
+  .nav-cta{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;flex:none;font-family:var(--serif);font-weight:700;font-size:13.5px;color:var(--enji);
+    border:1.5px solid var(--enji);border-radius:5px;padding:9px 17px 9px 11px;margin-left:22px;position:relative}
+  .nav-cta:before{content:"";position:absolute;left:-22px;top:50%;transform:translateY(-50%);height:24px;width:1px;background:var(--line2)}
+  .nav-cta .cta-seal{width:21px;height:21px;background:var(--enji);color:#fbf3ea;border-radius:4px;display:grid;place-items:center;font-size:12.5px;font-weight:800;line-height:1}
+  .nav-cta:hover{background:var(--enji);color:#fff}
+  .nav-cta:hover .cta-seal{background:#fff;color:var(--enji)}
+  .navToggle{display:none;background:none;border:none;font-size:22px;color:var(--sumi);cursor:pointer}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:700;font-size:14px;border-radius:6px;padding:15px 28px;cursor:pointer;transition:.2s;border:none;letter-spacing:.04em}
+  .btn .arr{font-size:13px}
+  .btn-primary{background:var(--enji);color:#fff}
+  .btn-primary:hover{background:var(--enji-hover);box-shadow:0 8px 20px rgba(155,45,39,.22);transform:translateY(-1px)}
+  .btn-outline{background:transparent;color:var(--sumi);border:1.5px solid var(--line2)}
+  .btn-outline:hover{border-color:var(--enji);color:var(--enji)}
+
+  /* hero */
+  .hero{border-bottom:1px solid var(--line);padding:0}
+  .hero-in{max-width:var(--max);margin:0 auto;padding:70px 40px 82px;display:grid;grid-template-columns:1.1fr .9fr;gap:54px;align-items:center}
+  .hero-kicker{display:inline-block;font-size:12.5px;letter-spacing:.1em;color:#fff;background:var(--enji);border-radius:100px;padding:7px 17px;margin-bottom:24px;font-weight:700}
+  .hero h1{font-family:var(--serif);font-weight:800;font-size:49px;line-height:1.5;letter-spacing:.035em}
+  .hero h1 .ul{position:relative;white-space:nowrap}
+  .hero h1 .ul:after{content:"";position:absolute;left:0;right:0;bottom:6px;height:3px;background:var(--enji);border-radius:3px;opacity:.85}
+  .hero .lead{margin:26px 0 32px;font-size:15.5px;line-height:2.1;color:var(--sumi2);max-width:520px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-note{margin-top:20px;font-size:13.5px;color:var(--muted);display:flex;align-items:center;gap:8px}
+  .hero-note .i{width:18px;height:18px;border:1px solid var(--gold);border-radius:50%;display:inline-grid;place-items:center;font-style:normal;font-size:11px;color:var(--gold);font-family:var(--serif);flex:none}
+  /* 誤解を招きやすい注記（100書店の内訳）は必ず目に留まる強調版で出す（社長指示 2026-09-01） */
+  .hero-note.emph{align-items:flex-start;background:var(--enji-soft);border-left:3px solid var(--enji);
+    border-radius:0 4px 4px 0;padding:11px 14px;color:var(--sumi);font-size:14px;line-height:1.9;max-width:520px}
+  .hero-note.emph .i{border-color:var(--enji);color:var(--enji);margin-top:2px}
+  .hero-note.emph b{color:var(--enji);font-weight:700}
+  .hero-art{position:relative}
+  .hero-bg{display:none}
+  .hero-sumi{width:100%;max-width:430px;height:auto;margin-left:auto;mix-blend-mode:multiply}
+  .hero-tate{position:absolute;left:1%;top:7%;display:flex;flex-direction:column;align-items:center;gap:18px}
+  .hero-tate-t{writing-mode:vertical-rl;font-family:var(--serif);font-weight:600;font-size:15px;letter-spacing:.3em;color:var(--sumi2);line-height:1}
+  .hero-tate .agem{width:1px;height:34px;background:var(--gold)}
+  .hero-art-seal{width:46px;height:46px}
+
+  /* strip */
+  .strip{background:rgba(251,248,241,.7);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .strip-in{max-width:var(--max);margin:0 auto;padding:30px 40px;display:flex;justify-content:space-around;flex-wrap:wrap;gap:22px;text-align:center}
+  .strip .cell{position:relative;padding:0 18px}
+  .strip .cell+.cell:before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:1px;background:var(--line)}
+  .strip b{font-family:var(--serif);font-size:46px;font-weight:800;color:var(--enji);display:block;line-height:1.15;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+  .strip b small{font-size:22px;margin-left:1px}
+  .strip span{font-size:12px;color:var(--sumi2);letter-spacing:.06em}
+
+  /* problem cards */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;text-align:left}
+  .pcard{position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:34px 30px;overflow:hidden}
+  .pcard:after{content:"";position:absolute;right:0;bottom:0;width:46px;height:46px;
+     background:linear-gradient(135deg,transparent 50%,var(--gold-soft) 50%,var(--gold-soft) 51%,transparent 51%)}
+  .pcard .idx{font-family:var(--serif);font-size:14px;font-weight:700;letter-spacing:.3em;color:var(--enji)}
+  .pcard .gline{width:34px;height:1px;background:var(--gold);margin:11px 0 15px}
+  .pcard h3{font-family:var(--serif);font-size:20px;font-weight:700;line-height:1.55;margin-bottom:12px}
+  .pcard p{font-size:15px;color:var(--sumi2)}
+
+  /* solution cards */
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:46px}
+  .scard{display:flex;gap:18px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:28px 30px;text-align:left}
+  .scard .badge{width:46px;height:46px;font-size:22px;flex:none}
+  .scard h3{font-family:var(--serif);font-size:20px;font-weight:700;margin-bottom:6px}
+  .scard .gline{width:36px;height:1px;background:var(--gold);margin:10px 0 12px}
+  .scard p{font-size:15px;color:var(--sumi2)}
+
+  /* flow */
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:48px;text-align:left}
+  .flow.six{grid-template-columns:repeat(3,1fr)}
+  .flow-item{position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:32px 26px;overflow:hidden}
+  .flow-item:after{content:"";position:absolute;right:0;bottom:0;width:44px;height:44px;
+     background:linear-gradient(135deg,transparent 50%,var(--gold) 50%,var(--gold) 51%,transparent 51%)}
+  .flow-no{font-family:var(--serif);font-size:16px;letter-spacing:.16em;color:var(--enji);font-weight:700;text-align:center}
+  .flow-rule{width:36px;height:1px;background:var(--gold);margin:12px auto}
+  .knot{width:18px;height:18px;margin:0 auto 14px;color:var(--enji);display:block}
+  .flow-item h3{font-family:var(--serif);font-size:19px;font-weight:700;text-align:center;margin-bottom:13px;line-height:1.5}
+  .flow-item .hr{height:1px;background:var(--line);margin:0 0 13px}
+  /* 各段で「誰が動くか」を明示する札（2026-09-01 追加） */
+  .flow-who{display:inline-block;margin-top:14px;font-family:var(--serif);font-size:11.5px;font-weight:700;
+    letter-spacing:.06em;padding:4px 11px;border-radius:3px;border:1px solid var(--line2);background:var(--paper2);color:var(--sumi2)}
+  .flow-who.you{border-color:var(--enji);background:var(--enji-soft);color:var(--enji-hover)}
+  .flow-item p{font-size:14.5px;color:var(--sumi2)}
+
+  /* two column deliverables */
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:44px;text-align:left}
+  .panel{background:var(--card);border:1px solid var(--line2);border-radius:12px;padding:36px 38px}
+  .col-label{font-family:var(--serif);font-size:11px;font-weight:700;letter-spacing:.28em;color:var(--gold)}
+  .col-title{font-family:var(--serif);font-size:20px;font-weight:700;margin:8px 0 20px}
+  .flist{list-style:none;display:flex;flex-direction:column;gap:12px}
+  .flist li{position:relative;padding-left:26px;font-size:15px;color:var(--sumi2);line-height:1.9}
+  .flist li:before{content:"";position:absolute;left:2px;top:9px;width:8px;height:8px;background:var(--enji);transform:rotate(45deg)}
+  .flist.gold li:before{background:var(--gold)}
+
+  /* note box */
+  .note-box{background:var(--enji-soft);border:1px solid #e6cfc9;border-left:4px solid var(--enji);border-radius:8px;padding:26px 30px;margin-top:36px;text-align:left}
+  .note-box strong{display:block;font-family:var(--serif);font-size:17px;font-weight:700;color:var(--enji-hover);margin-bottom:9px;letter-spacing:.02em}
+  .note-box p{font-size:15px;color:var(--sumi2);line-height:1.95}
+  /* 「100書店＝全年齢込み」の注記は誤解されやすいので、通常の note-box より一段強く出す（社長指示 2026-09-01） */
+  .note-box.emph{border-left-width:6px;box-shadow:0 2px 14px rgba(155,45,39,.10)}
+  .note-box.emph strong{font-size:19px}
+  .note-box.emph p{color:var(--sumi)}
+  /* 契約書の全文（2026-09-01 追加） */
+  .deed{margin-top:22px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:34px 34px 30px;text-align:left}
+  .deed-title{font-size:19px;font-weight:700;letter-spacing:.08em;text-align:center;color:var(--sumi);
+    padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:20px}
+  .deed-pre{font-size:14px;line-height:1.95;color:var(--sumi2);margin-bottom:8px}
+  .deed-art{padding:18px 0;border-top:1px solid var(--line)}
+  .deed-art:first-of-type{border-top:none}
+  .deed-no{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--enji)}
+  .deed-art h4{font-size:17px;font-weight:700;color:var(--sumi);margin:4px 0 10px;letter-spacing:.04em}
+  .deed-p{font-size:14px;line-height:1.95;color:var(--sumi2);margin-bottom:5px}
+  .deed-item{font-size:14px;line-height:1.95;color:var(--sumi2);margin:0 0 5px 1.2em;text-indent:-1.2em}
+  .deed-sign{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);font-size:14px;line-height:1.95;color:var(--sumi2)}
+  @media(max-width:720px){ .deed{padding:24px 18px} }
+
+  /* money mechanism */
+  .money{background:var(--card);border:1px solid var(--line2);border-radius:14px;padding:40px 40px;margin-top:44px;text-align:left}
+  .money h3{font-family:var(--serif);font-size:17px;font-weight:700;margin-bottom:16px}
+  .bar{display:flex;height:52px;border-radius:8px;overflow:hidden;font-size:14px;font-weight:700;color:#fff}
+  .bar>div{display:grid;place-items:center;letter-spacing:.04em}
+  .seg-store{background:var(--gold);flex:0 0 70%}
+  .seg-ks{background:var(--enji);flex:0 0 30%}
+  .bar-labels{display:flex;margin-top:8px;font-size:11.5px;color:var(--muted)}
+  .bar-labels div:first-child{flex:0 0 70%;text-align:center}
+  .bar-labels div:last-child{flex:0 0 30%;text-align:center}
+  .inner{background:var(--paper2);border:1px solid var(--line);border-radius:10px;padding:24px 24px;margin-top:24px}
+  .inner h4{font-family:var(--serif);font-size:14.5px;font-weight:700;margin-bottom:14px;color:var(--sumi)}
+  .bar.small{height:44px;font-size:13.5px}
+  .split-author{background:var(--enji);flex:0 0 60%;display:grid;place-items:center;color:#fff;font-weight:700}
+  .split-ks{background:var(--muted);flex:0 0 40%;display:grid;place-items:center;color:#fff;font-weight:700}
+  .fine{font-size:12px;color:var(--sumi2);margin-top:10px;line-height:1.8}
+  .example{background:var(--paper);border:1px dashed var(--gold-soft);border-radius:10px;padding:24px 26px;margin-top:24px}
+  .example h4{font-family:var(--serif);font-size:15px;font-weight:700;margin-bottom:14px}
+  .erow{display:flex;justify-content:space-between;align-items:center;padding:9px 4px;border-bottom:1px solid var(--line);font-size:15px}
+  .erow:last-of-type{border-bottom:none}
+  .erow span:last-child{font-weight:700;font-variant-numeric:tabular-nums}
+  .erow.hl{background:var(--enji-soft);border-radius:6px;padding:11px 10px;border-bottom:none;margin-top:4px}
+  .erow.hl span{color:var(--enji-hover)}
+  .erow.hl2{background:#efe3cf;border-radius:6px;padding:11px 10px;border-bottom:none;margin-top:4px}
+  .erow.hl2 span{color:var(--gold)}
+  .enote{font-size:12px;color:var(--muted);margin-top:12px}
+
+  /* simulation grid */
+  .sim{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:6px}
+  .simc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px 18px;text-align:center}
+  .simc .l{font-size:14px;color:var(--muted);letter-spacing:.04em}
+  .simc .v{font-family:var(--serif);font-size:27px;font-weight:800;color:var(--enji);margin:6px 0 3px;font-variant-numeric:tabular-nums}
+  .simc .s{font-size:11.5px;color:var(--sumi2);font-variant-numeric:tabular-nums}
+
+  /* table */
+  .tbl-wrap{margin-top:6px;overflow-x:auto;border:1px solid var(--line2);border-radius:10px}
+  table.ks{width:100%;border-collapse:collapse;background:var(--card);font-size:14.5px;min-width:440px}
+  table.ks th{font-family:var(--serif);font-weight:700;text-align:left;padding:14px 20px;background:var(--paper2);color:var(--sumi);border-bottom:1px solid var(--line2);letter-spacing:.04em}
+  table.ks td{padding:14px 20px;border-bottom:1px solid var(--line);color:var(--sumi2)}
+  table.ks tr:last-child td{border-bottom:none}
+  table.ks td.em{font-weight:700;color:var(--enji);font-variant-numeric:tabular-nums}
+
+  /* comparison duel */
+  .duel{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:46px;position:relative}
+  .dcol{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:28px 26px}
+  .dcol.ks{border:1.5px solid var(--enji);box-shadow:0 10px 30px rgba(155,45,39,.09)}
+  .dhead{text-align:center;padding-bottom:16px;margin-bottom:8px;border-bottom:1px solid var(--line)}
+  .dhead .n{font-family:var(--serif);font-size:23px;font-weight:800;letter-spacing:.08em}
+  .dcol.ks .dhead .n{color:var(--enji)}
+  .dcol.other .dhead .n{color:var(--muted)}
+  .dhead .sub{font-size:11.5px;color:var(--muted);margin-top:5px;letter-spacing:.06em}
+  .dlist{list-style:none;display:flex;flex-direction:column}
+  .dlist li{display:flex;gap:12px;align-items:flex-start;padding:12px 2px;border-bottom:1px dashed var(--line)}
+  .dlist li:last-child{border-bottom:none}
+  .dic{width:20px;height:20px;flex:none;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:800;margin-top:1px}
+  .dic.star{background:var(--enji);color:#fff}
+  .dic.ok{background:var(--enji-soft);color:var(--enji)}
+  .dic.ng{background:#e7ddd0;color:var(--muted)}
+  .dic.no{background:#eadfd0;color:var(--muted)}
+  .ditem{display:flex;flex-direction:column;line-height:1.4}
+  .ditem .dl{font-size:11px;color:var(--muted);letter-spacing:.04em}
+  .ditem .dv{font-size:15px;font-weight:700;color:var(--sumi)}
+  .dcol.other .ditem .dv{color:var(--muted);font-weight:500}
+  .duel-seal{position:absolute;left:50%;top:16px;transform:translateX(-50%);width:40px;height:40px;background:var(--enji);color:#fbf3ea;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-weight:800;font-size:18px;z-index:2;box-shadow:0 3px 10px rgba(155,45,39,.3)}
+
+  /* timeline */
+  .tl{margin-top:44px;position:relative;padding-left:8px}
+  .tl:before{content:"";position:absolute;left:15px;top:10px;bottom:10px;width:2px;background:linear-gradient(var(--gold-soft),var(--line2))}
+  .tl-item{position:relative;padding:0 0 26px 46px}
+  .tl-item:last-child{padding-bottom:0}
+  .tl-item:before{content:"";position:absolute;left:8px;top:4px;width:16px;height:16px;background:var(--enji);border-radius:50%;box-shadow:0 0 0 4px var(--paper),0 0 0 5px var(--enji-soft)}
+  .tl-item strong{display:block;font-family:var(--serif);font-size:15.5px;font-weight:700;color:var(--sumi)}
+  .tl-item span{font-size:12.5px;color:var(--muted)}
+
+  /* editor */
+  .editor{display:grid;grid-template-columns:.72fr 1.28fr;gap:46px;align-items:center}
+  .editor-aside{text-align:center}
+  .editor-aside .bigseal{width:150px;height:150px;margin:0 auto 6px}
+  .editor-aside .agem{width:120px;height:1px;background:var(--gold);margin:18px auto 14px;position:relative}
+  .editor-aside .agem:after{content:"";position:absolute;left:50%;top:50%;width:6px;height:6px;background:var(--gold);transform:translate(-50%,-50%) rotate(45deg)}
+  .editor-aside .cap{font-family:var(--serif);font-size:15px;letter-spacing:.18em;color:var(--sumi)}
+  .editor-card{position:relative;background:var(--card);border:1px solid var(--line2);border-radius:12px;padding:44px 46px}
+  .editor-card .rule{position:absolute;left:0;top:34px;bottom:34px;width:2px;background:var(--enji);border-radius:2px}
+  .editor blockquote{font-family:var(--serif);font-size:32px;font-weight:700;line-height:1.7;letter-spacing:.03em;margin-bottom:22px}
+  .editor p{font-size:15.5px;color:var(--sumi2);margin-bottom:10px;line-height:2.0}
+  .editor .sign{font-family:var(--serif);font-size:17px;margin-top:22px;text-align:right;letter-spacing:.12em}
+
+  /* dark band */
+  .band{background:var(--footer);color:#e8ddc9;text-align:center}
+  .band .eyebrow{color:var(--gold-soft)}
+  .band .eyebrow .dash{background:var(--gold-soft)}
+  .band .eyebrow .dash:after{background:var(--gold)}
+  .band h2{font-family:var(--serif);font-size:32px;font-weight:800;letter-spacing:.04em;margin:18px 0 26px;color:#fff;text-wrap:balance}
+  .band p{max-width:720px;margin:0 auto;font-size:15px;line-height:2.15;color:#cdbfa6}
+  .band .em{color:var(--gold-soft);font-weight:700}
+
+  /* genres */
+  .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px;justify-content:center}
+  .tag{background:var(--card);border:1px solid var(--line2);border-radius:100px;padding:9px 19px;font-size:14.5px;color:var(--sumi2);font-weight:500}
+
+  /* voices */
+  .voices{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:46px;text-align:left}
+  .voice{position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:30px 32px 26px}
+  .voice .qm{font-family:var(--serif);font-size:52px;line-height:.7;color:var(--enji-soft);position:absolute;top:22px;right:26px}
+  .voice .q{font-family:var(--serif);font-size:19px;font-weight:700;line-height:1.7;position:relative;z-index:1;max-width:88%}
+  .voice .a{font-size:14px;color:var(--muted);margin-top:16px;line-height:1.7;border-top:1px solid var(--line);padding-top:14px}
+
+  /* labeled (faq/company) */
+  .labeled{display:grid;grid-template-columns:78px 1fr;gap:24px;max-width:var(--max);margin:0 auto;padding:0 40px}
+  .vlabel{writing-mode:vertical-rl;font-family:var(--serif);font-weight:800;font-size:30px;letter-spacing:.18em;color:var(--sumi);justify-self:center}
+  .vlabel .veng{display:block;writing-mode:vertical-rl;font-size:11px;letter-spacing:.3em;color:var(--enji);margin-top:18px;font-weight:700}
+  .vlabel .vbar{display:block;width:1px;height:42px;background:var(--gold);margin:14px auto 0}
+
+  /* faq */
+  .faq-group-title{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--enji);letter-spacing:.06em;margin:34px 0 4px;display:flex;align-items:center;gap:10px}
+  .faq-group-title:first-child{margin-top:0}
+  .faq-group-title .gm{width:22px;height:22px;background:var(--enji);color:#fbf3ea;border-radius:5px;display:grid;place-items:center;font-size:13px;font-weight:800}
+  .faq-item{border-bottom:1px solid var(--line);padding:22px 6px}
+  .faq-q{display:flex;gap:14px;align-items:baseline}
+  .faq-q .q{font-family:var(--serif);color:var(--enji);font-size:19px;font-weight:700;flex:none}
+  .faq-q .qt{font-family:var(--serif);font-weight:700;font-size:16px;line-height:1.6}
+  .faq-a{font-size:15px;color:var(--sumi2);margin:10px 0 0 32px;line-height:1.95}
+  .faq-a strong{color:var(--enji-hover)}
+
+  /* company */
+  .company{position:relative;background:var(--card);border:1px solid var(--line2);border-radius:4px;padding:8px 34px}
+  .company:before{content:"";position:absolute;left:-1px;top:-1px;width:16px;height:16px;border:1px solid var(--line2);border-right:none;border-bottom:none;background:var(--paper)}
+  .company dl{display:flex;border-bottom:1px solid var(--line);padding:17px 0}
+  .company dl:last-child{border-bottom:none}
+  .company dt{width:160px;flex:none;font-weight:700;font-size:14.5px;color:var(--sumi);font-family:var(--serif);letter-spacing:.08em}
+  .company dd{font-size:15px;color:var(--sumi2)}
+  .company dd a{color:var(--enji);text-decoration:underline}
+
+  /* contact */
+  .contact{position:relative;overflow:hidden}
+  .contact .watermark{position:absolute;right:-30px;bottom:-30px;width:300px;opacity:.07;pointer-events:none}
+  .contact-form{max-width:600px;margin:38px auto 0;position:relative;z-index:1}
+  .frow{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px}
+  .frow label{width:120px;flex:none;font-size:13px;font-weight:700;padding-top:14px;font-family:var(--serif);letter-spacing:.06em;display:flex;gap:8px;align-items:center}
+  .req{font-size:10px;color:#fff;background:var(--enji);border-radius:3px;padding:2px 6px;font-family:var(--sans);font-weight:700}
+  .opt{font-size:11px;color:var(--muted);font-family:var(--sans);font-weight:400}
+  .contact-form input,.contact-form textarea{font-family:var(--sans);font-size:14px;padding:14px 16px;border:1px solid var(--line2);border-radius:6px;background:var(--card);color:var(--sumi);width:100%}
+  .contact-form input:focus,.contact-form textarea:focus{outline:2px solid var(--enji);outline-offset:1px;border-color:var(--enji)}
+  .contact-form .submit-row{text-align:center;margin-top:26px}
+  .form-msg{text-align:center;font-size:13px;margin-top:14px;min-height:18px}
+
+  /* footer */
+  footer{background:var(--footer);color:#c9bda9;padding:56px 0 30px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:34px}
+  .f-brand .fb{display:flex;align-items:center;gap:12px}
+  .f-brand .brand-seal{width:48px;height:48px;flex:none}
+  .f-brand .brand-name{color:#fff}
+  .f-brand p{font-size:12px;color:#8f8472;margin-top:14px;max-width:330px;line-height:1.9}
+  .f-links{display:flex;gap:54px;flex-wrap:wrap}
+  .f-col h4{font-family:var(--serif);font-size:12px;letter-spacing:.16em;color:var(--gold);margin-bottom:15px}
+  .f-col a{display:block;font-size:14px;color:#c9bda9;margin-bottom:11px}
+  .f-col a:hover{color:#fff}
+  .f-bottom{max-width:var(--max);margin:36px auto 0;padding:20px 40px 0;border-top:1px solid rgba(255,255,255,.08);font-size:11.5px;color:#7d7261;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+  @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto;transition:none!important}}
+
+  /* ナビだけ先にハンバーガー化する。860pxのブロックはヒーロー等も畳むので、そこまで待つと
+     861〜1040px でナビが横に溢れる（2026-09-01 実測）。 */
+  @media(max-width:1040px){
+    .nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:var(--paper);
+      border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;padding:8px 22px 16px}
+    .nav-links.open{display:flex}
+    .nav-links .lnk{padding:13px 0;width:100%;border-bottom:1px solid var(--line)}
+    .nav-links .lnk.on:after{left:0;right:auto;width:22px}
+    .nav-cta{margin-left:0;margin-top:14px}
+    .navToggle{display:block}
+  }
+  @media(max-width:900px){
+    .grid3,.flow,.flow.six{grid-template-columns:repeat(2,1fr)}
+    .sim{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(max-width:860px){
+    section{padding:60px 0}.wrap,.nav-in,.hero-in,.strip-in,.labeled{padding-left:22px;padding-right:22px}
+    .brand-tag{display:none}
+    .nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:0;padding:8px 22px 16px}
+    .nav-links.open{display:flex}
+    .nav-links .lnk{padding:13px 0;width:100%;border-bottom:1px solid var(--line)}
+    .nav-links .lnk+.lnk:before{display:none}
+    .nav-cta{margin-left:0;margin-top:14px;padding:11px 17px}
+    .nav-cta:before{display:none}
+    .navToggle{display:block}
+    .hero{position:relative;overflow:hidden}
+    .hero-bg{display:block;position:absolute;inset:0;z-index:0;pointer-events:none;
+      background:url('assets/img-b9246609.png') no-repeat right -16% bottom / 80% auto, var(--paper);
+      background-blend-mode:multiply;opacity:.82}
+    .hero-bg:after{content:"";position:absolute;inset:0;
+      background:linear-gradient(95deg,var(--paper) 22%,rgba(246,241,231,.74) 50%,rgba(246,241,231,.18) 78%,transparent 100%),
+        linear-gradient(0deg,var(--paper) 2%,transparent 22%)}
+    .hero-in{grid-template-columns:1fr;gap:22px;padding-top:44px;padding-bottom:62px;position:relative;z-index:1}
+    .hero h1{font-size:29px}
+    .hero-art{display:none}
+    .hero .lead{max-width:76%}.hero-cta{max-width:88%}
+    .strip-in{gap:14px}.strip .cell{flex:1 1 40%}.strip .cell+.cell:before{display:none}.strip b{font-size:34px}
+    .grid3,.flow,.flow.six,.cards,.twocol,.voices,.sim{grid-template-columns:1fr}
+    .scard{flex-direction:row}
+    .money{padding:28px 22px}
+    .duel{grid-template-columns:1fr;gap:16px}.duel-seal{display:none}
+    .editor{grid-template-columns:1fr;gap:26px}.editor-aside{order:-1}
+    .editor blockquote{font-size:23px}.editor-card{padding:32px 26px}
+    .band h2{font-size:24px}.band p{font-size:14px}
+    .labeled{grid-template-columns:1fr;gap:14px}
+    .vlabel{writing-mode:horizontal-tb;font-size:24px;justify-self:start;display:flex;align-items:baseline;gap:12px}
+    .vlabel .veng{writing-mode:horizontal-tb;margin-top:0}.vlabel .vbar{display:none}
+    .s-title{font-size:25px}.subhead{font-size:18px}
+    .frow{flex-direction:column;gap:6px}.frow label{padding-top:0}
+    .company dt{width:108px}
+    .panel{padding:30px 26px}
+  }
+</style>
+<style id="gate-style">
+  body.locked > *:not(#gate){display:none !important}
+  #gate{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:24px;background:transparent}
+  #gate.hidden{display:none}
+  .gate-card{background:var(--card);border:1px solid var(--line2);border-radius:14px;padding:46px 40px 40px;max-width:404px;width:100%;text-align:center;box-shadow:0 24px 60px rgba(29,24,18,.16);position:relative}
+  .gate-card:before{content:"";position:absolute;top:0;left:0;right:0;height:3px;border-radius:14px 14px 0 0;background:linear-gradient(var(--gold) 0 1px,transparent 1px 2px,var(--gold-soft) 2px 3px)}
+  .gate-brand{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:22px}
+  .gate-brand .gseal{width:44px;height:44px;font-size:22px}
+  .gate-brand .gname{font-family:var(--serif);font-size:26px;font-weight:800;letter-spacing:.12em}
+  #gate h2{font-family:var(--serif);font-size:21px;font-weight:800;margin-bottom:10px;letter-spacing:.04em}
+  #gate p{font-size:13px;color:var(--sumi2);margin-bottom:22px;line-height:1.9}
+  #gate input{width:100%;font-family:var(--sans);font-size:15px;padding:13px 16px;border:1px solid var(--line2);border-radius:8px;background:var(--paper);color:var(--sumi);text-align:center;letter-spacing:.14em}
+  #gate input:focus{outline:2px solid var(--enji);outline-offset:1px;border-color:var(--enji)}
+  #gate button{margin-top:14px;width:100%;font-family:var(--serif);font-weight:700;font-size:15px;padding:13px;border:none;border-radius:8px;background:var(--enji);color:#fff;cursor:pointer;letter-spacing:.08em;transition:.2s}
+  #gate button:hover{background:var(--enji-hover)}
+  #gate .err{color:var(--enji);font-size:12.5px;margin-top:12px;font-weight:600;display:none}
+  #gate .err.show{display:block}
+  #gate .foot{margin-top:20px;font-size:11px;color:var(--muted);letter-spacing:.04em}
+</style>
+</head>
+<body class="locked">
+<div id="gate">
+  <div class="gate-card">
+    <div class="gate-brand"><span class="gseal seal-css serif">好</span><span class="gname">好色堂</span></div>
+    <h2>限定のご案内</h2>
+    <p>こちらは、作家さま向けの限定ページです。<br>お渡しした閲覧コードをご入力ください。</p>
+    <input type="password" id="gate-pw" placeholder="閲覧コード" autocomplete="off" inputmode="latin">
+    <button id="gate-btn">拝見する　→</button>
+    <div class="err" id="gate-err">閲覧コードが正しくないようです。</div>
+    <div class="foot">KOSHOKUDO ｜ 大人の物語を、次の読者へ。</div>
+  </div>
+</div>
+<script>
+(function(){
+  const CORRECT_HASH='c8152edd55973334049045338304a02b4dc77d560e2fba272d8086119eb7ba62';
+  async function sha256(s){const b=new TextEncoder().encode(s);const h=await crypto.subtle.digest('SHA-256',b);return Array.from(new Uint8Array(h)).map(x=>x.toString(16).padStart(2,'0')).join('');}
+  function unlock(){document.body.classList.remove('locked');document.getElementById('gate').classList.add('hidden');}
+  if(sessionStorage.getItem('ks-unlocked')==='1')unlock();
+  async function tryUnlock(){
+    const pw=document.getElementById('gate-pw').value.trim();
+    const h=await sha256(pw);
+    if(h===CORRECT_HASH){sessionStorage.setItem('ks-unlocked','1');unlock();}
+    else{document.getElementById('gate-err').classList.add('show');}
+  }
+  document.getElementById('gate-btn').addEventListener('click',tryUnlock);
+  document.getElementById('gate-pw').addEventListener('keydown',e=>{if(e.key==='Enter')tryUnlock();});
+})();
+</script>
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html">
+      <img class="brand-seal seal-img" src="assets/img-dc08ae1e.jpg" alt="好色堂 印" width="50" height="50">
+      <span class="brand-tt"><span class="brand-name">好色堂</span><span class="brand-sub">KOSHOKUDO</span></span>
+      <span class="brand-tag">大人の物語を、<br>次の読者へ。</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a class="lnk" href="index.html">ホーム</a>
+      <a class="lnk on" href="service.html">サービス内容</a>
+      <a class="lnk" href="money.html">お金のこと</a>
+      <a class="lnk" href="contract.html">契約について</a>
+      <a class="lnk" href="flow.html">ご相談後の流れ</a>
+      <a class="lnk" href="faq.html">よくある質問</a>
+      <a class="lnk" href="about.html">好色堂とは</a>
+      <a class="nav-cta" href="#contact"><span class="cta-seal serif">好</span>作品を相談する</a>
+    </nav>
+    <button class="navToggle" id="navToggle" aria-label="メニュー">☰</button>
+  </div>
+</header>
+
+<section id="deliverables" class="alt center">
+  <div class="wrap">
+    <span class="eyebrow">DELIVERABLES<span class="dash"></span></span>
+    <h2 class="s-title">ご用意いただくもの／<br>好色堂の仕事。</h2>
+    <p class="s-sub">作家さまに必要なのは、本編データと作品情報だけ。追加の費用は、一切かかりません。</p>
+    <div class="twocol">
+      <div class="panel">
+        <div class="col-label">YOUR SIDE</div>
+        <h3 class="col-title">作家さまにご用意いただくもの</h3>
+        <ul class="flist">
+          <li>本編データ（CLIP・PSD・JPG・PDF など）</li>
+          <li>作品タイトル・あらすじ</li>
+          <li>著作権のご確認（他社の取次で配信中でないこと）</li>
+          <li>表紙用のキャラクターデータ（表紙は好色堂で制作）</li>
+          <li>SNS の ID（奥付に記載・任意）</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <div class="col-label">OUR SIDE</div>
+        <h3 class="col-title">好色堂がお引き受けすること</h3>
+        <ul class="flist gold">
+          <li>EPUB 形式への変換（技術的な最適化を含む）</li>
+          <li>表紙・奥付のデザイン（追加費用なし）</li>
+          <li>書誌情報の、各書店フォーマットへの変換</li>
+          <li>各書店への配信許諾の交渉</li>
+          <li>白抜き・モザイクの処理</li>
+          <li>セール対応・販促の連携</li>
+          <li>売上データの収集と、作家さまへのご報告</li>
+          <li>書店からのお問い合わせへの一次対応</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note-box">
+      <strong>これらすべて、還元の取り決めの中に含まれます。</strong>
+      <p>追加費用は一切かかりません。売上が生まれたときにだけ、その一部を運営費として頂戴する、完全成果報酬です。お預けいただいて、損をすることはありません。</p>
+    </div>
+
+    <h3 class="subhead">作品データの、お渡し方法</h3>
+    <div class="tbl-wrap">
+      <table class="ks">
+        <thead><tr><th>種類</th><th>対応する形式</th><th>備考</th></tr></thead>
+        <tbody>
+          <tr><td>本編（原稿）</td><td class="em">CLIP STUDIO ／ PSD ／ JPG ／ PNG ／ PDF</td><td>お手元にある形式のままで結構です。書き出し直しは不要です</td></tr>
+          <tr><td>表紙</td><td class="em">キャラクターの素材（PSD／PNG／JPG）</td><td>表紙そのものは好色堂で制作します。素材をいただければ十分です</td></tr>
+          <tr><td>作品情報</td><td class="em">テキスト（タイトル・あらすじ・タグ）</td><td>専用の窓口に、そのまま貼っていただくだけで結構です</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note-box">
+      <strong>形式に迷われたら、そのままお送りください。</strong>
+      <p>こちらで最適な形式を判断して調整しますので、作家さまの側で書店ごとの仕様を気になさる必要はありません。容量の大きなファイルは、ギガファイル便などの大容量便のリンクでも受け取れます。分割してのご送付も歓迎です。</p>
+    </div>
+
+    <h3 class="subhead">販売の単位と、加工のこと</h3>
+    <div class="tbl-wrap">
+      <table class="ks">
+        <tbody>
+          <tr><td style="width:210px">ページ数と販売の単位</td><td>電子書店は「一作品＝一商品」で販売する構造です。目安として<strong>40ページ以上のボリュームある作品は、10ページ＝一話などの「話数売り」</strong>にすることがあります（そのほうが読者が手に取りやすく、売上も伸びやすいためです）。分け方は好色堂が設計し、事前にご相談します。</td></tr>
+          <tr><td>総集編・おまけ</td><td>総集編は個別のご相談で対応いたします。おまけ単独は承れませんが、本編に組み込む形であれば問題ありません。</td></tr>
+          <tr><td>モザイク・白抜き</td><td>すべて好色堂の側で行います（追加費用なし）。書店ごとに審査の基準が異なるため、必要に応じて複数のパターンをご用意し、各書店で公開されるまで対応します。作家さまが書店の仕様に合わせて描き直す必要はありません。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="genre" class="center">
+  <div class="wrap">
+    <span class="eyebrow">GENRES<span class="dash"></span></span>
+    <h2 class="s-title">扱う作品。</h2>
+    <p class="s-sub">お預かりするのは<strong>漫画作品</strong>です。ジャンルは幅広く扱います。まずはご相談ください。</p>
+    <div class="tags">
+      <span class="tag">成人向け漫画</span><span class="tag">青年向け漫画</span><span class="tag">TL・恋愛</span>
+      <span class="tag">BL</span><span class="tag">ファンタジー・異世界</span><span class="tag">サスペンス・ミステリー</span>
+      <span class="tag">読み切り</span><span class="tag">既刊作品</span>
+    </div>
+    <div class="note-box" style="margin-top:30px">
+      <strong>扱っていないもの</strong>
+      <p>小説（官能小説・ライトノベルを含む）、CG集などの非漫画作品は、現在お預かりしておりません。縦読み（webtoon）形式、およびシリーズ連載としての新規制作も対象外です。すでに完成している漫画作品（読み切り・既刊）を、そのままお預けいただく形になります。</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact center">
+  <img class="watermark seal-img" src="assets/img-dc08ae1e.jpg" alt="">
+  <div class="wrap">
+    <span class="eyebrow">CONTACT<span class="dash"></span></span>
+    <h2 class="s-title">作品を、相談する。</h2>
+    <p class="s-sub">「まず話を聞いてみたい」だけでも構いません。30分ほど、オンラインでお話しできればと思います。</p>
+    <div class="panel" style="max-width:640px;margin:40px auto 0;text-align:center">
+      <div class="col-label">BOOKING</div>
+      <h3 class="col-title" style="margin-bottom:14px">好色堂説明会（30分・オンライン）</h3>
+      <p style="font-size:13.5px;color:var(--sumi2);line-height:1.95">ご都合のよい枠をお選びいただくだけで、日程が決まります。Google Meet のご案内は、ご予約後に自動でお送りします。カメラなし・音声のみのご参加で構いません。</p>
+      <div style="margin-top:24px"><a class="btn btn-primary" href="https://calendar.app.google/ChQbs2E7wLNa42x98" target="_blank" rel="noopener">日程を選ぶ<span class="arr">→</span></a></div>
+      <p class="fine" style="margin-top:18px;word-break:break-all">https://calendar.app.google/ChQbs2E7wLNa42x98</p>
+      <p class="fine" style="margin-top:14px">※ 空いている枠がご都合に合わない場合や、通話が難しい場合は、DM・メールでのやり取りだけでも構いません。お気軽にお知らせください。</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-brand">
+      <div class="fb"><img class="brand-seal" src="assets/img-8a873071.png" alt="好色堂 印" width="48" height="48"><span class="brand-name serif" style="font-size:24px;letter-spacing:.1em">好色堂</span></div>
+      <p>大人のための物語を、ちゃんと届ける出版社。原稿をお預けいただくだけで、全国100超の電子書店へお届けします。</p>
+    </div>
+    <div class="f-links">
+      <div class="f-col"><h4>好色堂</h4><a href="index.html#about">悩み</a><a href="index.html#solution">できること</a><a href="flow.html#flow">お預かりの流れ</a><a href="about.html#editor">編集の姿勢</a></div>
+      <div class="f-col"><h4>ご相談</h4><a href="money.html#share">還元のしくみ</a><a href="money.html#compare">業界比較</a><a href="faq.html#faq">よくあるご質問</a><a href="#contact">作品を相談する</a></div>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <span>© 好色堂 / 合同会社Realize</span>
+    <span>成人向け作品を扱います（18歳未満の閲覧・ご相談はご遠慮ください）</span>
+  </div>
+</footer>
+<script>
+  const t=document.getElementById('navToggle'),l=document.getElementById('navLinks');
+  t.addEventListener('click',()=>l.classList.toggle('open'));
+  l.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>l.classList.remove('open')));
+</script>
+</body>
+</html>
