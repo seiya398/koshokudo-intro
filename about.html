@@ -398,54 +398,8 @@
     .panel{padding:30px 26px}
   }
 </style>
-<style id="gate-style">
-  body.locked > *:not(#gate){display:none !important}
-  #gate{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:24px;background:transparent}
-  #gate.hidden{display:none}
-  .gate-card{background:var(--card);border:1px solid var(--line2);border-radius:14px;padding:46px 40px 40px;max-width:404px;width:100%;text-align:center;box-shadow:0 24px 60px rgba(29,24,18,.16);position:relative}
-  .gate-card:before{content:"";position:absolute;top:0;left:0;right:0;height:3px;border-radius:14px 14px 0 0;background:linear-gradient(var(--gold) 0 1px,transparent 1px 2px,var(--gold-soft) 2px 3px)}
-  .gate-brand{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:22px}
-  .gate-brand .gseal{width:44px;height:44px;font-size:22px}
-  .gate-brand .gname{font-family:var(--serif);font-size:26px;font-weight:800;letter-spacing:.12em}
-  #gate h2{font-family:var(--serif);font-size:21px;font-weight:800;margin-bottom:10px;letter-spacing:.04em}
-  #gate p{font-size:13px;color:var(--sumi2);margin-bottom:22px;line-height:1.9}
-  #gate input{width:100%;font-family:var(--sans);font-size:15px;padding:13px 16px;border:1px solid var(--line2);border-radius:8px;background:var(--paper);color:var(--sumi);text-align:center;letter-spacing:.14em}
-  #gate input:focus{outline:2px solid var(--enji);outline-offset:1px;border-color:var(--enji)}
-  #gate button{margin-top:14px;width:100%;font-family:var(--serif);font-weight:700;font-size:15px;padding:13px;border:none;border-radius:8px;background:var(--enji);color:#fff;cursor:pointer;letter-spacing:.08em;transition:.2s}
-  #gate button:hover{background:var(--enji-hover)}
-  #gate .err{color:var(--enji);font-size:12.5px;margin-top:12px;font-weight:600;display:none}
-  #gate .err.show{display:block}
-  #gate .foot{margin-top:20px;font-size:11px;color:var(--muted);letter-spacing:.04em}
-</style>
 </head>
-<body class="locked">
-<div id="gate">
-  <div class="gate-card">
-    <div class="gate-brand"><span class="gseal seal-css serif">好</span><span class="gname">好色堂</span></div>
-    <h2>限定のご案内</h2>
-    <p>こちらは、作家さま向けの限定ページです。<br>お渡しした閲覧コードをご入力ください。</p>
-    <input type="password" id="gate-pw" placeholder="閲覧コード" autocomplete="off" inputmode="latin">
-    <button id="gate-btn">拝見する　→</button>
-    <div class="err" id="gate-err">閲覧コードが正しくないようです。</div>
-    <div class="foot">KOSHOKUDO ｜ 大人の物語を、次の読者へ。</div>
-  </div>
-</div>
-<script>
-(function(){
-  const CORRECT_HASH='c8152edd55973334049045338304a02b4dc77d560e2fba272d8086119eb7ba62';
-  async function sha256(s){const b=new TextEncoder().encode(s);const h=await crypto.subtle.digest('SHA-256',b);return Array.from(new Uint8Array(h)).map(x=>x.toString(16).padStart(2,'0')).join('');}
-  function unlock(){document.body.classList.remove('locked');document.getElementById('gate').classList.add('hidden');}
-  if(sessionStorage.getItem('ks-unlocked')==='1')unlock();
-  async function tryUnlock(){
-    const pw=document.getElementById('gate-pw').value.trim();
-    const h=await sha256(pw);
-    if(h===CORRECT_HASH){sessionStorage.setItem('ks-unlocked','1');unlock();}
-    else{document.getElementById('gate-err').classList.add('show');}
-  }
-  document.getElementById('gate-btn').addEventListener('click',tryUnlock);
-  document.getElementById('gate-pw').addEventListener('keydown',e=>{if(e.key==='Enter')tryUnlock();});
-})();
-</script>
+<body>
 <header class="nav">
   <div class="nav-in">
     <a class="brand" href="index.html">
