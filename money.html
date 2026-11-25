@@ -347,6 +347,12 @@
 
   /* ナビだけ先にハンバーガー化する。860pxのブロックはヒーロー等も畳むので、そこまで待つと
      861〜1040px でナビが横に溢れる（2026-09-01 実測）。 */
+  /* 2026-11 8ページ構成（売れ方と企画を追加）でも 1041〜1200px で溢れないよう詰める。
+     ⚠️ .navToggle の基底ルールより後ろに置くこと（前だと打ち消される） */
+  @media(max-width:1200px){
+    .nav-links .lnk{padding:8px 6px;font-size:13px}
+    .nav-cta{margin-left:10px;padding:9px 13px 9px 9px}
+  }
   @media(max-width:1040px){
     .nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:var(--paper);
       border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;padding:8px 22px 16px}
@@ -397,6 +403,14 @@
     .company dt{width:108px}
     .panel{padding:30px 26px}
   }
+  /* 2026-11 改訂: 社長確認待ちマーカー（公開前に本文から消す）と「先にお伝えしたいこと」枠 */
+  .tbc{display:inline-block;background:#fff3bf;color:#7a5a00;border:1px solid #e9d27a;border-radius:4px;padding:0 6px;font-size:11.5px;font-weight:700;line-height:1.7;vertical-align:middle;margin:0 2px;white-space:nowrap;font-family:var(--sans)}
+  .firstbox{max-width:860px;margin:0 auto;background:var(--card);border:1.5px solid var(--enji);border-radius:12px;padding:30px 34px;text-align:left}
+  .firstbox h3{font-family:var(--serif);font-size:19px;font-weight:700;letter-spacing:.06em;color:var(--enji);margin-bottom:16px}
+  .firstbox ol{margin:0;padding-left:1.5em}
+  .firstbox li{font-size:14.5px;line-height:1.95;color:var(--sumi2);margin-bottom:9px}
+  .firstbox li strong{color:var(--sumi)}
+  .firstbox a{color:var(--enji);text-decoration:underline;text-underline-offset:3px}
 </style>
 </head>
 <body>
@@ -413,6 +427,7 @@
       <a class="lnk on" href="money.html">お金のこと</a>
       <a class="lnk" href="contract.html">契約について</a>
       <a class="lnk" href="flow.html">ご相談後の流れ</a>
+      <a class="lnk" href="sales.html">売れ方と企画</a>
       <a class="lnk" href="faq.html">よくある質問</a>
       <a class="lnk" href="about.html">好色堂とは</a>
       <a class="nav-cta" href="#contact"><span class="cta-seal serif">好</span>作品を相談する</a>
@@ -428,7 +443,7 @@
     <p class="s-sub">「60%」は、書店の取り分を引いたあと、好色堂に入るお金に対する割合です。数字の見え方でごまかさず、正直にお伝えします。</p>
     <div class="note-box" style="margin-top:34px;text-align:center">
       <strong>いちばん簡単に申し上げると。</strong>
-      <p>読者がお支払いになった販売額のうち、<strong style="font-size:19px">およそ20%前後</strong>が作家さまの取り分とお考えください。（書店手数料は電子書店ごとに異なり、手数料の低い書店では、これより多くなります）</p>
+      <p>読者がお支払いになった販売額のうち、<strong style="font-size:19px">およそ20%前後</strong>が作家さまの取り分とお考えください。（書店手数料は電子書店ごとに異なり、手数料の低い書店では、これより多くなります）。新規のご契約は、標準の60%です。</p>
     </div>
     <div class="money">
       <h3>販売額の内訳（読者がお支払いになる額 ＝ 100%）</h3>
@@ -500,8 +515,8 @@
       </div>
     </div>
     <div class="note-box">
-      <strong>無断で、安売りはいたしません。</strong>
-      <p>価格の最終的な決定権は当方にありますが、ご希望の価格は最大限に尊重します。市場の水準と大きくずれていなければ、基本はご希望どおりで配信します。</p>
+      <strong>無断で、極端な安売りはいたしません。</strong>
+      <p>販売価格は好色堂が決定します（ご希望は必ずうかがいます）。相場の目安は<strong>ページ数×10円</strong>（90ページなら900円ほど）。レンタル価格も同じ考え方です。値引きが入るのは主に書店主催のセールで、割引50%以上・無料キャンペーンは必ず事前にご確認します。</p>
     </div>
   </div>
 </section>
@@ -513,12 +528,16 @@
       <h2 class="s-title">お支払いの、流れ。</h2>
       <p class="s-sub">年4回・四半期ごとの振込。業界標準と同じサイクルです。</p>
     </div>
+    <div class="note-box emph" style="margin-top:34px">
+      <strong>初回のお振込は、配信開始からおよそ6ヶ月後が目安です。</strong>
+      <p>5月に配信を始めると、5〜7月分の売上が11月末にお振込となります。以降は3ヶ月ごと（年4回）。コミックシーモア分は販売月から3ヶ月遅れで当方に報告されるため、さらに後ろ倒しで反映されます。「しばらく入金がない」のは異常ではなく、この仕組みによるものです。</p>
+    </div>
     <div class="tl">
       <div class="tl-item"><strong>読者が書店でご購入</strong><span>スタート</span></div>
       <div class="tl-item"><strong>取次から好色堂へ、売上報告・入金</strong><span>約1〜3ヶ月後（書店の報告ラグ）</span></div>
       <div class="tl-item"><strong>好色堂で、作家さまごとに還元額を計算</strong><span>四半期末に集計</span></div>
       <div class="tl-item"><strong>作家さまへ金額を通知（Discord／メール）</strong><span>振込の前月末に通知</span></div>
-      <div class="tl-item"><strong>ご指定の口座へ振込</strong><span>さらに1ヶ月後（ご購入から最長で約7ヶ月）</span></div>
+      <div class="tl-item"><strong>ご指定の口座へ振込</strong><span>各四半期の締め日から4ヶ月後の末日（ご購入から最長で約7ヶ月）</span></div>
     </div>
     <h3 class="subhead">支払いスケジュール（年4回）</h3>
     <div class="tbl-wrap">
@@ -545,13 +564,18 @@
           <tr><td>源泉徴収</td><td>個人口座のみ 10.21% 差引（法人口座は不要）</td></tr>
           <tr><td>インボイス</td><td>未登録の場合、消費税相当分を一部控除（経過措置で段階変動）</td></tr>
           <tr><td>振込のタイミング</td><td>各四半期の振込日に一括</td></tr>
-          <tr><td>売上明細</td><td class="em">振込月の前月に、書店別の内訳をスプレッドシートで開示（電子書店名は、開示が可能な書店に限ります）</td></tr>
+          <tr><td>振込口座</td><td>ご契約時にお知らせください。<strong>口座名義（カナ）が通帳・アプリの表記と一致しているか</strong>ご確認ください（不一致ですと振込が戻り、お支払いが遅れます）</td></tr>
+          <tr><td>売上のご報告</td><td class="em">売上（総額）は必ずお伝えします。月末に速報、お振込月の前月に確定額をご通知。ご報告は、ご契約後の専用窓口（Discordの連絡用チャンネル内のスレッド）で行います。書店別の内訳をどこまで開示するかは <span class="tbc">【要確認】</span></td></tr>
         </tbody>
       </table>
     </div>
     <div class="note-box">
-      <strong>なぜ、4ヶ月後のお支払いなのか。</strong>
-      <p>① 書店から取次への報告に1〜2ヶ月　② コミックシーモアは販売月から3ヶ月遅れの報告　③ すべての書店の数字が揃わないと、正確な額で振り込めません。これは業界の構造による理由で、年4回・120日サイトなどは業界標準のサイクルです。</p>
+      <strong>なぜ、入金までに時間がかかるのか。</strong>
+      <p>① 書店から取次への報告に1〜2ヶ月　② コミックシーモアは販売月から3ヶ月遅れの報告　③ すべての書店の数字が揃わないと、正確な額で振り込めません。これは業界の構造による理由です。契約書上は「各四半期の締め日から4ヶ月後の末日に振込」（第4条）で、年4回・120日サイトなどは業界標準のサイクルです。結果として、初回のお振込は配信開始からおよそ6ヶ月後が目安となります。</p>
+    </div>
+    <div class="note-box">
+      <strong>契約が終わるとき・途中で解約するときの精算。</strong>
+      <p>解約後も、配信開始から1年（最低配信期間）の作品はそのまま配信が続き、その間の売上は通常どおり四半期ごとに精算します（契約書第15条4項）。契約終了までに生じた売上分の最終精算の時期、および当方が事業を停止した場合の未払い分の扱いは、契約書に明文がないため <span class="tbc">【要確認】</span> のうえご案内します。</p>
     </div>
   </div>
 </section>
@@ -569,12 +593,12 @@
         <div class="dhead"><div class="n serif">好色堂</div><div class="sub">あなたに有利な条件</div></div>
         <ul class="dlist">
           <li><span class="dic star">★</span><span class="ditem"><span class="dl">還元率</span><span class="dv">60%（業界の約1.5倍）</span></span></li>
-          <li><span class="dic ok">✓</span><span class="ditem"><span class="dl">支払サイクル</span><span class="dv">年4回（4ヶ月後）</span></span></li>
+          <li><span class="dic ok">✓</span><span class="ditem"><span class="dl">支払サイクル</span><span class="dv">年4回（四半期ごと）。初回は配信開始から約6ヶ月後が目安。シーモア分はさらに遅れる</span></span></li>
           <li><span class="dic ok">✓</span><span class="ditem"><span class="dl">契約期間</span><span class="dv">1年＋自動更新</span></span></li>
           <li><span class="dic ok">✓</span><span class="ditem"><span class="dl">独占範囲</span><span class="dv">非独占</span></span></li>
           <li><span class="dic ok">✓</span><span class="ditem"><span class="dl">同人プラットフォーム</span><span class="dv">自由</span></span></li>
           <li><span class="dic ok">✓</span><span class="ditem"><span class="dl">セルフパブ</span><span class="dv">自由</span></span></li>
-          <li><span class="dic ok">✓</span><span class="ditem"><span class="dl">書店数</span><span class="dv">100以上</span></span></li>
+          <li><span class="dic ok">✓</span><span class="ditem"><span class="dl">書店数</span><span class="dv">100以上（全年齢含む）／成人向けは31</span></span></li>
           <li><span class="dic ok">✓</span><span class="ditem"><span class="dl">入稿頻度</span><span class="dv">毎日可</span></span></li>
           <li><span class="dic star">★</span><span class="ditem"><span class="dl">連絡・お返事</span><span class="dv">Discord専用窓口・即レス／月末に売上速報</span></span></li>
           <li><span class="dic ok">✓</span><span class="ditem"><span class="dl">流入支援</span><span class="dv">書店レコメンド・ランキング</span></span></li>
@@ -600,7 +624,7 @@
     </div>
     <div class="note-box">
       <strong>「還元率80%」の他社のほうが得では、とよく聞かれます。</strong>
-      <p>80%還元のサービスは、表紙制作・モザイク／白抜き・話数分割・書誌入力を、<strong>すべて作家さまご自身で行う前提</strong>です。好色堂の60%は、それらを全部こちらで巻き取ったうえでの数字。手間を時給に置き換えれば、実際の手取りは好色堂のほうが上回ることがほとんどです。<strong>「数字の大きさ」ではなく、「手間を引いたあとに残る額」で、どうか見比べてください。</strong></p>
+      <p>80%還元のサービスは、表紙制作・モザイク／白抜き・話数分割・書誌入力を、<strong>すべて作家さまご自身で行う前提</strong>です。好色堂の60%は、それらを全部こちらで巻き取ったうえでの数字。手間を時給に置き換えれば、実際の手取りは好色堂のほうが上回ることがほとんどです。<strong>「率の大きさ」ではなく、手間・配信できる書店の数・伴走の有無を含めた「手取りと手数」で、どうか見比べてください。</strong>正直に申し上げれば80%のサービスもあり、作家さまのご事情によってはそちらが合うこともあります。</p>
     </div>
   </div>
 </section>
@@ -614,7 +638,7 @@
     <div class="panel" style="max-width:640px;margin:40px auto 0;text-align:center">
       <div class="col-label">BOOKING</div>
       <h3 class="col-title" style="margin-bottom:14px">好色堂説明会（30分・オンライン）</h3>
-      <p style="font-size:13.5px;color:var(--sumi2);line-height:1.95">ご都合のよい枠をお選びいただくだけで、日程が決まります。Google Meet のご案内は、ご予約後に自動でお送りします。カメラなし・音声のみのご参加で構いません。</p>
+      <p style="font-size:13.5px;color:var(--sumi2);line-height:1.95">ご都合のよい枠をお選びいただくだけで、日程が決まります。Google Meet のご案内は、ご予約後に自動でお送りします。カメラなし・音声のみのご参加で構いません。ご予約はペンネーム／サークル名で結構です（本名をお書きいただくのは契約書だけです）。</p>
       <div style="margin-top:24px"><a class="btn btn-primary" href="https://calendar.app.google/ChQbs2E7wLNa42x98" target="_blank" rel="noopener">日程を選ぶ<span class="arr">→</span></a></div>
       <p class="fine" style="margin-top:18px;word-break:break-all">https://calendar.app.google/ChQbs2E7wLNa42x98</p>
       <p class="fine" style="margin-top:14px">※ 空いている枠がご都合に合わない場合や、通話が難しい場合は、DM・メールでのやり取りだけでも構いません。お気軽にお知らせください。</p>
@@ -630,7 +654,7 @@
     </div>
     <div class="f-links">
       <div class="f-col"><h4>好色堂</h4><a href="index.html#about">悩み</a><a href="index.html#solution">できること</a><a href="flow.html#flow">お預かりの流れ</a><a href="about.html#editor">編集の姿勢</a></div>
-      <div class="f-col"><h4>ご相談</h4><a href="#share">還元のしくみ</a><a href="#compare">業界比較</a><a href="faq.html#faq">よくあるご質問</a><a href="#contact">作品を相談する</a></div>
+      <div class="f-col"><h4>ご相談</h4><a href="#share">還元のしくみ</a><a href="#compare">業界比較</a><a href="sales.html#sales">売れ方と企画</a><a href="faq.html#faq">よくあるご質問</a><a href="#contact">作品を相談する</a></div>
     </div>
   </div>
   <div class="f-bottom">

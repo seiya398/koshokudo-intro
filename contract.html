@@ -347,6 +347,12 @@
 
   /* ナビだけ先にハンバーガー化する。860pxのブロックはヒーロー等も畳むので、そこまで待つと
      861〜1040px でナビが横に溢れる（2026-09-01 実測）。 */
+  /* 2026-11 8ページ構成（売れ方と企画を追加）でも 1041〜1200px で溢れないよう詰める。
+     ⚠️ .navToggle の基底ルールより後ろに置くこと（前だと打ち消される） */
+  @media(max-width:1200px){
+    .nav-links .lnk{padding:8px 6px;font-size:13px}
+    .nav-cta{margin-left:10px;padding:9px 13px 9px 9px}
+  }
   @media(max-width:1040px){
     .nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:var(--paper);
       border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;padding:8px 22px 16px}
@@ -397,6 +403,14 @@
     .company dt{width:108px}
     .panel{padding:30px 26px}
   }
+  /* 2026-11 改訂: 社長確認待ちマーカー（公開前に本文から消す）と「先にお伝えしたいこと」枠 */
+  .tbc{display:inline-block;background:#fff3bf;color:#7a5a00;border:1px solid #e9d27a;border-radius:4px;padding:0 6px;font-size:11.5px;font-weight:700;line-height:1.7;vertical-align:middle;margin:0 2px;white-space:nowrap;font-family:var(--sans)}
+  .firstbox{max-width:860px;margin:0 auto;background:var(--card);border:1.5px solid var(--enji);border-radius:12px;padding:30px 34px;text-align:left}
+  .firstbox h3{font-family:var(--serif);font-size:19px;font-weight:700;letter-spacing:.06em;color:var(--enji);margin-bottom:16px}
+  .firstbox ol{margin:0;padding-left:1.5em}
+  .firstbox li{font-size:14.5px;line-height:1.95;color:var(--sumi2);margin-bottom:9px}
+  .firstbox li strong{color:var(--sumi)}
+  .firstbox a{color:var(--enji);text-decoration:underline;text-underline-offset:3px}
 </style>
 </head>
 <body>
@@ -413,6 +427,7 @@
       <a class="lnk" href="money.html">お金のこと</a>
       <a class="lnk on" href="contract.html">契約について</a>
       <a class="lnk" href="flow.html">ご相談後の流れ</a>
+      <a class="lnk" href="sales.html">売れ方と企画</a>
       <a class="lnk" href="faq.html">よくある質問</a>
       <a class="lnk" href="about.html">好色堂とは</a>
       <a class="nav-cta" href="#contact"><span class="cta-seal serif">好</span>作品を相談する</a>
@@ -429,11 +444,11 @@
     <div class="grid3">
       <div class="pcard">
         <div class="idx" style="text-align:center;letter-spacing:.16em">一年契約・自動更新</div><div class="gline" style="margin:11px auto 15px"></div>
-        <p style="text-align:center">1年を過ぎれば、3ヶ月前のお申し出で解約できます。実質、最短13ヶ月での離脱が可能。5年縛りなどはありません。</p>
+        <p style="text-align:center">表紙・電子化・入稿などの先行投資を好色堂が負担するため、1年を契約期間としています。1年を過ぎれば、3ヶ月前のお申し出で解約できます。実質、最短13ヶ月での離脱が可能。5年縛りなどはありません。</p>
       </div>
       <div class="pcard">
         <div class="idx" style="text-align:center;letter-spacing:.16em">独占は、預けた作品だけ</div><div class="gline" style="margin:11px auto 15px"></div>
-        <p style="text-align:center">お預けいただいた作品を、他の取次経由で書店配信することだけがNG。それ以外は、完全に自由です。</p>
+        <p style="text-align:center">お預けいただいた作品を、他の取次経由で書店配信することだけがNG（第11条）。それ以外は、完全に自由です。</p>
       </div>
       <div class="pcard">
         <div class="idx" style="text-align:center;letter-spacing:.16em">まとめて、お預けを</div><div class="gline" style="margin:11px auto 15px"></div>
@@ -452,6 +467,11 @@
           <tr><td>ご自身のサイトでの販売・イベント頒布</td><td class="em">○ 自由</td></tr>
         </tbody>
       </table>
+    </div>
+    <div class="note-box">
+      <strong>第11条（取次独占）を、かみくだくと。</strong>
+      <p>制限されるのは「好色堂にお預けいただいた作品を、ほかの取次を通して電子書店に出すこと」と「お預けいただいた作品と同じ内容を、同じ書店に重ねて出すこと」の二つだけです。FANZA同人・DLsite・BOOTH などでのご自身での販売、Kindle等のセルフパブリッシング、お預けでない別作品の他社委託は、すべて自由です。</p>
+      <p style="margin-top:10px">なお、ご自身で販売中の同人版と、好色堂が配信する商業版が同じ運営会社の書店になる場合（例：FANZA同人と FANZA Books）は、同人側の取り下げや専売解除が必要になることがあります。該当しそうな作品は、<strong>お預かりの前にご一緒に確認します</strong>（必須条件の詳細は <span class="tbc">【要確認】</span>）。</p>
     </div>
 
     <h3 class="subhead">表紙・白抜き素材の、扱い</h3>
@@ -478,9 +498,10 @@
     <div class="tbl-wrap">
       <table class="ks">
         <tbody>
-          <tr><td style="width:250px">ご希望の価格</td><td class="em">最大限、尊重します</td></tr>
-          <tr><td>契約上の最終決定権</td><td>好色堂にあります（制作・配信の費用を先に負担するため）</td></tr>
-          <tr><td>無断での値下げ</td><td class="em">いたしません</td></tr>
+          <tr><td style="width:250px">価格の決定</td><td class="em">好色堂が決定します（ご希望は必ずうかがいます）</td></tr>
+          <tr><td>相場の目安</td><td class="em">ページ数 × 10円（例：90ページなら900円ほど）。レンタル価格も同じ考え方です</td></tr>
+          <tr><td>決定権が好色堂にある理由</td><td>制作・配信の費用を先に負担するため。また、極端な安売りで市場全体が崩れるのを防ぐためです</td></tr>
+          <tr><td>無断での極端な値下げ</td><td class="em">いたしません</td></tr>
           <tr><td>値引きが入る場面</td><td>書店主催のセールなど、露出が増える形に限ります</td></tr>
           <tr><td>割引50%以上・無料キャンペーン</td><td class="em">必ず事前にご確認します（オプトイン）</td></tr>
         </tbody>
@@ -488,7 +509,22 @@
     </div>
     <div class="note-box">
       <strong>まとめると。</strong>
-      <p>「ご希望は最大限とおす・無断で値下げしない・ただし市場が壊れるような極端な安売りだけは好色堂の判断で止める」——そういう設計です。極端な安売りを防ぐための決定権であって、叩き売るためのものではありません。</p>
+      <p>「ご希望はうかがう・決定は好色堂・相場はページ数×10円・無断で極端な安売りはしない」——そういう設計です。極端な安売りを防ぐための決定権であって、叩き売るためのものではありません。売れるタイトルや価格の考え方は <a href="sales.html#sales" style="color:var(--enji);text-decoration:underline;text-underline-offset:3px">売れ方と企画</a> にまとめています。</p>
+    </div>
+
+    <h3 class="subhead">ご署名の前に、ご確認いただきたいこと。</h3>
+    <p class="s-sub" style="margin-bottom:20px">ここでつまずく方が実際にいらっしゃいますので、先にまとめておきます。</p>
+    <div class="tbl-wrap">
+      <table class="ks">
+        <tbody>
+          <tr><td style="width:250px"><b>料率の表記</b></td><td>契約書に書かれた還元率が、ご説明やメッセージでお伝えした料率と違っていたら、<strong>ご署名の前に必ずお知らせください</strong>。一致させた契約書をお送りし直してから、ご署名いただきます。</td></tr>
+          <tr><td><b>電子署名（マネーフォワード）</b></td><td>契約書はマネーフォワードの電子契約でメールにてお送りします。押印・郵送は不要です。操作がお分かりにならない、メールが見当たらない（迷惑メールに入ることがあります）、ご署名が遅れそう、といった場合は、そのままになさらずご連絡ください。手順をご案内します。</td></tr>
+          <tr><td><b>振込口座の名義</b></td><td>ご契約時にお知らせいただく口座の<strong>名義（カナ）</strong>が、通帳やアプリの表記と一致しているかご確認ください。不一致ですと振込が戻り、お支払いが遅れます。</td></tr>
+          <tr><td><b>本名の扱い</b></td><td>本名をお書きいただくのは契約書だけです。ご予約・ご相談・Discord はペンネーム／サークル名で構いません。本名を社外へ出すことはありません。</td></tr>
+          <tr><td><b>海外在住・外国籍の方</b></td><td>ご契約の可否・お支払い方法は、確認のうえ個別にご案内します <span class="tbc">【要確認】</span>。</td></tr>
+          <tr><td><b>個別の料率</b></td><td>新規のご契約は標準の60%です。この資料で個別の料率をお約束することはありません <span class="tbc">【要確認：個別相談の案内方針】</span>。</td></tr>
+        </tbody>
+      </table>
     </div>
 
     <h3 class="subhead">契約書について、よくいただくご質問。</h3>
@@ -496,9 +532,10 @@
     <div class="tbl-wrap">
       <table class="ks">
         <tbody>
-          <tr><td style="width:210px"><b>第4条</b>　還元金・売上明細</td><td>売上明細は、お振込月の前月に、書店別の内訳をスプレッドシートで開示します（電子書店名は、開示が可能な書店に限ります）。</td></tr>
-          <tr><td><b>第5条</b>　販売価格・セール</td><td>割引50%以上のセール・無料キャンペーンは、事前のご連絡とご確認（オプトイン）をお約束します。50%未満は、売上の状況に応じて好色堂の裁量で機動的に対応します。</td></tr>
-          <tr><td><b>第7条</b>　利用・改変</td><td>変更の際は、基本的に事前にご確認します。作品内容は校閲での誤字脱字の修正、タイトルは書店規定への対応（一部伏字など）が中心です。40ページ以上は10ページ＝一話の話数売りが基本、モザイク処理は好色堂が対応して公開まで進めます。</td></tr>
+          <tr><td style="width:210px"><b>第4条</b>　還元金・売上のご報告</td><td>売上（総額）は必ずお伝えします。月末に速報、お振込月の前月に確定額をご通知。ご報告はご契約後の専用窓口（Discordの連絡用チャンネル内のスレッド）で行います。書店別の内訳をどこまで開示するかは <span class="tbc">【要確認】</span>。</td></tr>
+          <tr><td><b>第5条</b>　販売価格・セール</td><td>販売価格は好色堂が決定します（ご希望はうかがいます・相場はページ数×10円）。割引50%以上のセール・無料キャンペーンは、事前のご連絡とご確認（オプトイン）をお約束します。50%未満は、売上の状況に応じて好色堂の裁量で機動的に対応します。</td></tr>
+          <tr><td><b>第7条</b>　利用・改変</td><td>変更の際は、基本的に事前にご確認します。作品内容は校閲での誤字脱字の修正、タイトルは書店の審査に合わせた編集（一部伏字など）が中心です。40ページ以上は10ページ＝一話の話数売りが基本、モザイク処理は好色堂が対応して公開まで進めます。タイトル・価格・出し方は、お預かりの前にご相談いただけます。</td></tr>
+          <tr><td><b>第11条</b>　取次独占</td><td>お預けいただいた作品を他の取次経由で書店配信すること、同じ内容を同じ書店に重ねて出すことだけが制限です。同人プラットフォーム・BOOTH・セルフパブ・お預けでない作品は自由です。</td></tr>
           <tr><td><b>第10条</b>　配信の中止・終了</td><td>好色堂の都合で配信を終了することは、基本的にありません。作家さまからの停止のご希望に対応します（最低配信期間中の停止は別途ご相談ください）。</td></tr>
           <tr><td><b>第15条</b>　契約終了後</td><td>契約終了後、おおむね2ヶ月で各書店での配信が終了します。</td></tr>
           <tr><td>インボイス</td><td>未登録でも、ご契約・配信は可能です。登録のない期間は、経過措置により消費税相当分の一部を控除します（ご登録後は控除なし）。</td></tr>
@@ -695,7 +732,7 @@
     <div class="panel" style="max-width:640px;margin:40px auto 0;text-align:center">
       <div class="col-label">BOOKING</div>
       <h3 class="col-title" style="margin-bottom:14px">好色堂説明会（30分・オンライン）</h3>
-      <p style="font-size:13.5px;color:var(--sumi2);line-height:1.95">ご都合のよい枠をお選びいただくだけで、日程が決まります。Google Meet のご案内は、ご予約後に自動でお送りします。カメラなし・音声のみのご参加で構いません。</p>
+      <p style="font-size:13.5px;color:var(--sumi2);line-height:1.95">ご都合のよい枠をお選びいただくだけで、日程が決まります。Google Meet のご案内は、ご予約後に自動でお送りします。カメラなし・音声のみのご参加で構いません。ご予約はペンネーム／サークル名で結構です（本名をお書きいただくのは契約書だけです）。</p>
       <div style="margin-top:24px"><a class="btn btn-primary" href="https://calendar.app.google/ChQbs2E7wLNa42x98" target="_blank" rel="noopener">日程を選ぶ<span class="arr">→</span></a></div>
       <p class="fine" style="margin-top:18px;word-break:break-all">https://calendar.app.google/ChQbs2E7wLNa42x98</p>
       <p class="fine" style="margin-top:14px">※ 空いている枠がご都合に合わない場合や、通話が難しい場合は、DM・メールでのやり取りだけでも構いません。お気軽にお知らせください。</p>
@@ -711,7 +748,7 @@
     </div>
     <div class="f-links">
       <div class="f-col"><h4>好色堂</h4><a href="index.html#about">悩み</a><a href="index.html#solution">できること</a><a href="flow.html#flow">お預かりの流れ</a><a href="about.html#editor">編集の姿勢</a></div>
-      <div class="f-col"><h4>ご相談</h4><a href="money.html#share">還元のしくみ</a><a href="money.html#compare">業界比較</a><a href="faq.html#faq">よくあるご質問</a><a href="#contact">作品を相談する</a></div>
+      <div class="f-col"><h4>ご相談</h4><a href="money.html#share">還元のしくみ</a><a href="money.html#compare">業界比較</a><a href="sales.html#sales">売れ方と企画</a><a href="faq.html#faq">よくあるご質問</a><a href="#contact">作品を相談する</a></div>
     </div>
   </div>
   <div class="f-bottom">

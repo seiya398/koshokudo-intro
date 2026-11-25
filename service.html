@@ -347,6 +347,12 @@
 
   /* ナビだけ先にハンバーガー化する。860pxのブロックはヒーロー等も畳むので、そこまで待つと
      861〜1040px でナビが横に溢れる（2026-09-01 実測）。 */
+  /* 2026-11 8ページ構成（売れ方と企画を追加）でも 1041〜1200px で溢れないよう詰める。
+     ⚠️ .navToggle の基底ルールより後ろに置くこと（前だと打ち消される） */
+  @media(max-width:1200px){
+    .nav-links .lnk{padding:8px 6px;font-size:13px}
+    .nav-cta{margin-left:10px;padding:9px 13px 9px 9px}
+  }
   @media(max-width:1040px){
     .nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:var(--paper);
       border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;padding:8px 22px 16px}
@@ -397,6 +403,14 @@
     .company dt{width:108px}
     .panel{padding:30px 26px}
   }
+  /* 2026-11 改訂: 社長確認待ちマーカー（公開前に本文から消す）と「先にお伝えしたいこと」枠 */
+  .tbc{display:inline-block;background:#fff3bf;color:#7a5a00;border:1px solid #e9d27a;border-radius:4px;padding:0 6px;font-size:11.5px;font-weight:700;line-height:1.7;vertical-align:middle;margin:0 2px;white-space:nowrap;font-family:var(--sans)}
+  .firstbox{max-width:860px;margin:0 auto;background:var(--card);border:1.5px solid var(--enji);border-radius:12px;padding:30px 34px;text-align:left}
+  .firstbox h3{font-family:var(--serif);font-size:19px;font-weight:700;letter-spacing:.06em;color:var(--enji);margin-bottom:16px}
+  .firstbox ol{margin:0;padding-left:1.5em}
+  .firstbox li{font-size:14.5px;line-height:1.95;color:var(--sumi2);margin-bottom:9px}
+  .firstbox li strong{color:var(--sumi)}
+  .firstbox a{color:var(--enji);text-decoration:underline;text-underline-offset:3px}
 </style>
 </head>
 <body>
@@ -413,6 +427,7 @@
       <a class="lnk" href="money.html">お金のこと</a>
       <a class="lnk" href="contract.html">契約について</a>
       <a class="lnk" href="flow.html">ご相談後の流れ</a>
+      <a class="lnk" href="sales.html">売れ方と企画</a>
       <a class="lnk" href="faq.html">よくある質問</a>
       <a class="lnk" href="about.html">好色堂とは</a>
       <a class="nav-cta" href="#contact"><span class="cta-seal serif">好</span>作品を相談する</a>
@@ -435,7 +450,7 @@
           <li>作品タイトル・あらすじ</li>
           <li>著作権のご確認（他社の取次で配信中でないこと）</li>
           <li>表紙用のキャラクターデータ（表紙は好色堂で制作）</li>
-          <li>SNS の ID（奥付に記載・任意）</li>
+          <li>SNS の ID（奥付に記載・任意。<strong>X のIDは配信後に変更できません</strong>）</li>
         </ul>
       </div>
       <div class="panel">
@@ -444,6 +459,7 @@
         <ul class="flist gold">
           <li>EPUB 形式への変換（技術的な最適化を含む）</li>
           <li>表紙・奥付のデザイン（追加費用なし）</li>
+          <li>書影（書店に並ぶ表紙まわりの書誌画像）の制作</li>
           <li>書誌情報の、各書店フォーマットへの変換</li>
           <li>各書店への配信許諾の交渉</li>
           <li>白抜き・モザイクの処理</li>
@@ -463,7 +479,7 @@
       <table class="ks">
         <thead><tr><th>種類</th><th>対応する形式</th><th>備考</th></tr></thead>
         <tbody>
-          <tr><td>本編（原稿）</td><td class="em">CLIP STUDIO ／ PSD ／ JPG ／ PNG ／ PDF</td><td>お手元にある形式のままで結構です。書き出し直しは不要です</td></tr>
+          <tr><td>本編（原稿）</td><td class="em">CLIP STUDIO（.clip）／ PSD ／ JPG ／ PNG ／ PDF</td><td>お手元にある形式のままで結構です。書き出し直しは不要。<strong>JPGをページ順にZIPでまとめて</strong>いただく形で十分です</td></tr>
           <tr><td>表紙</td><td class="em">キャラクターの素材（PSD／PNG／JPG）</td><td>表紙そのものは好色堂で制作します。素材をいただければ十分です</td></tr>
           <tr><td>作品情報</td><td class="em">テキスト（タイトル・あらすじ・タグ）</td><td>専用の窓口に、そのまま貼っていただくだけで結構です</td></tr>
         </tbody>
@@ -473,12 +489,16 @@
       <strong>形式に迷われたら、そのままお送りください。</strong>
       <p>こちらで最適な形式を判断して調整しますので、作家さまの側で書店ごとの仕様を気になさる必要はありません。容量の大きなファイルは、ギガファイル便などの大容量便のリンクでも受け取れます。分割してのご送付も歓迎です。</p>
     </div>
+    <div class="note-box">
+      <strong>Googleドライブでもお受け取りできます。Discordをお使いでない方も、ご相談ください。</strong>
+      <p>ファイルが多い・容量が大きい場合は、好色堂がご用意する<strong>作品素材共有用のGoogleドライブのフォルダ</strong>にアップロードしていただく方法もあります（フォルダのリンクはご契約後にお渡しします。作品ごとにフォルダを分けて入れていただくだけです）。Discordをお使いになれない方は、メールとGoogleドライブでのやり取りに切り替えますので、ご相談の際にお知らせください。</p>
+    </div>
 
     <h3 class="subhead">販売の単位と、加工のこと</h3>
     <div class="tbl-wrap">
       <table class="ks">
         <tbody>
-          <tr><td style="width:210px">ページ数と販売の単位</td><td>電子書店は「一作品＝一商品」で販売する構造です。目安として<strong>40ページ以上のボリュームある作品は、10ページ＝一話などの「話数売り」</strong>にすることがあります（そのほうが読者が手に取りやすく、売上も伸びやすいためです）。分け方は好色堂が設計し、事前にご相談します。</td></tr>
+          <tr><td style="width:210px">ページ数と販売の単位</td><td>電子書店は「一作品＝一商品」で販売する構造です。目安として<strong>40ページ以上のボリュームある作品は、10ページ＝一話などの「話数売り」</strong>にすることがあります（そのほうが読者が手に取りやすく、売上も伸びやすいためです）。話売りと巻売り（単行本）のどちらで出すか、分け方は好色堂が設計し、事前にご相談します。実売の傾向として、<strong>総集編より単行本のほうが売れています</strong>。同人で1〜2ヶ月先行してから商業に展開する段階リリースもおすすめです。出し方の細かな取り決めは <span class="tbc">【要確認】</span> のうえ、お預かりの前にご相談します。</td></tr>
           <tr><td>総集編・おまけ</td><td>総集編は個別のご相談で対応いたします。おまけ単独は承れませんが、本編に組み込む形であれば問題ありません。</td></tr>
           <tr><td>モザイク・白抜き</td><td>すべて好色堂の側で行います（追加費用なし）。書店ごとに審査の基準が異なるため、必要に応じて複数のパターンをご用意し、各書店で公開されるまで対応します。作家さまが書店の仕様に合わせて描き直す必要はありません。</td></tr>
         </tbody>
@@ -513,7 +533,7 @@
     <div class="panel" style="max-width:640px;margin:40px auto 0;text-align:center">
       <div class="col-label">BOOKING</div>
       <h3 class="col-title" style="margin-bottom:14px">好色堂説明会（30分・オンライン）</h3>
-      <p style="font-size:13.5px;color:var(--sumi2);line-height:1.95">ご都合のよい枠をお選びいただくだけで、日程が決まります。Google Meet のご案内は、ご予約後に自動でお送りします。カメラなし・音声のみのご参加で構いません。</p>
+      <p style="font-size:13.5px;color:var(--sumi2);line-height:1.95">ご都合のよい枠をお選びいただくだけで、日程が決まります。Google Meet のご案内は、ご予約後に自動でお送りします。カメラなし・音声のみのご参加で構いません。ご予約はペンネーム／サークル名で結構です（本名をお書きいただくのは契約書だけです）。</p>
       <div style="margin-top:24px"><a class="btn btn-primary" href="https://calendar.app.google/ChQbs2E7wLNa42x98" target="_blank" rel="noopener">日程を選ぶ<span class="arr">→</span></a></div>
       <p class="fine" style="margin-top:18px;word-break:break-all">https://calendar.app.google/ChQbs2E7wLNa42x98</p>
       <p class="fine" style="margin-top:14px">※ 空いている枠がご都合に合わない場合や、通話が難しい場合は、DM・メールでのやり取りだけでも構いません。お気軽にお知らせください。</p>
@@ -529,7 +549,7 @@
     </div>
     <div class="f-links">
       <div class="f-col"><h4>好色堂</h4><a href="index.html#about">悩み</a><a href="index.html#solution">できること</a><a href="flow.html#flow">お預かりの流れ</a><a href="about.html#editor">編集の姿勢</a></div>
-      <div class="f-col"><h4>ご相談</h4><a href="money.html#share">還元のしくみ</a><a href="money.html#compare">業界比較</a><a href="faq.html#faq">よくあるご質問</a><a href="#contact">作品を相談する</a></div>
+      <div class="f-col"><h4>ご相談</h4><a href="money.html#share">還元のしくみ</a><a href="money.html#compare">業界比較</a><a href="sales.html#sales">売れ方と企画</a><a href="faq.html#faq">よくあるご質問</a><a href="#contact">作品を相談する</a></div>
     </div>
   </div>
   <div class="f-bottom">

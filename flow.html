@@ -347,6 +347,12 @@
 
   /* ナビだけ先にハンバーガー化する。860pxのブロックはヒーロー等も畳むので、そこまで待つと
      861〜1040px でナビが横に溢れる（2026-09-01 実測）。 */
+  /* 2026-11 8ページ構成（売れ方と企画を追加）でも 1041〜1200px で溢れないよう詰める。
+     ⚠️ .navToggle の基底ルールより後ろに置くこと（前だと打ち消される） */
+  @media(max-width:1200px){
+    .nav-links .lnk{padding:8px 6px;font-size:13px}
+    .nav-cta{margin-left:10px;padding:9px 13px 9px 9px}
+  }
   @media(max-width:1040px){
     .nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:var(--paper);
       border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;padding:8px 22px 16px}
@@ -397,6 +403,14 @@
     .company dt{width:108px}
     .panel{padding:30px 26px}
   }
+  /* 2026-11 改訂: 社長確認待ちマーカー（公開前に本文から消す）と「先にお伝えしたいこと」枠 */
+  .tbc{display:inline-block;background:#fff3bf;color:#7a5a00;border:1px solid #e9d27a;border-radius:4px;padding:0 6px;font-size:11.5px;font-weight:700;line-height:1.7;vertical-align:middle;margin:0 2px;white-space:nowrap;font-family:var(--sans)}
+  .firstbox{max-width:860px;margin:0 auto;background:var(--card);border:1.5px solid var(--enji);border-radius:12px;padding:30px 34px;text-align:left}
+  .firstbox h3{font-family:var(--serif);font-size:19px;font-weight:700;letter-spacing:.06em;color:var(--enji);margin-bottom:16px}
+  .firstbox ol{margin:0;padding-left:1.5em}
+  .firstbox li{font-size:14.5px;line-height:1.95;color:var(--sumi2);margin-bottom:9px}
+  .firstbox li strong{color:var(--sumi)}
+  .firstbox a{color:var(--enji);text-decoration:underline;text-underline-offset:3px}
 </style>
 </head>
 <body>
@@ -413,6 +427,7 @@
       <a class="lnk" href="money.html">お金のこと</a>
       <a class="lnk" href="contract.html">契約について</a>
       <a class="lnk on" href="flow.html">ご相談後の流れ</a>
+      <a class="lnk" href="sales.html">売れ方と企画</a>
       <a class="lnk" href="faq.html">よくある質問</a>
       <a class="lnk" href="about.html">好色堂とは</a>
       <a class="nav-cta" href="#contact"><span class="cta-seal serif">好</span>作品を相談する</a>
@@ -425,13 +440,13 @@
   <div class="wrap">
     <span class="eyebrow">ご相談後の流れ<span class="dash"></span></span>
     <h2 class="s-title">原稿を、お預けいただくだけ。</h2>
-    <p class="s-sub">この資料をお読みいただいたあと、ご相談から契約、作品のお預かり、配信開始、お振込まで、どのように進むかをまとめました。オンラインでのご説明をご希望の方も、資料だけご覧になった方も、流れは同じです。データのお渡しから配信開始まで、最短で二週間。</p>
+    <p class="s-sub">この資料をお読みいただいたあと、ご相談から契約、作品のお預かり、配信開始、お振込まで、どのように進むかをまとめました。オンラインでのご説明をご希望の方も、資料だけご覧になった方も、流れは同じです。配信準備は約一〜二週間、その後は書店ごとに順次配信を開始します。</p>
     <div class="flow six">
       <div class="flow-item">
         <div class="flow-no">其の一</div><div class="flow-rule"></div>
         <svg class="knot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="4"/><path d="M12 8V3M12 21v-5M8 12H3M21 12h-5"/></svg>
         <h3>ご相談・質疑応答</h3><div class="hr"></div>
-        <p>まずはお気軽にご連絡ください。オンラインでのお打ち合わせは、<a href="https://calendar.app.google/ChQbs2E7wLNa42x98" target="_blank" rel="noopener" style="color:var(--enji);text-decoration:underline">予約ページ</a>からご都合のよい枠をお選びいただけます（30分・Google Meet）。難しい場合は、テキストでの質疑応答でも構いません。</p>
+        <p>まずはお気軽にご連絡ください。オンラインでのお打ち合わせは、<a href="https://calendar.app.google/ChQbs2E7wLNa42x98" target="_blank" rel="noopener" style="color:var(--enji);text-decoration:underline">予約ページ</a>からご都合のよい枠をお選びいただけます（30分・Google Meet）。難しい場合は、テキストでの質疑応答でも構いません。<strong>カメラ・マイクなし、音声のみでのご参加で結構です。</strong>ご予約はペンネーム／サークル名で構いません（本名をお書きいただくのは契約書だけです）。</p>
         <span class="flow-who you">作家さま：ご相談</span>
       </div>
       <div class="flow-item">
@@ -445,28 +460,28 @@
         <div class="flow-no">其の三</div><div class="flow-rule"></div>
         <svg class="knot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="4"/><path d="M12 8V3M12 21v-5M8 12H3M21 12h-5"/></svg>
         <h3>契約書のご送付・ご署名</h3><div class="hr"></div>
-        <p>マネーフォワードの電子契約で、契約書（配信代行の業務委託契約）をメールでお送りします。押印も郵送も不要。スマートフォンからでも数分で完了します。</p>
+        <p>マネーフォワードの電子契約で、契約書（配信代行の業務委託契約）をメールでお送りします。押印も郵送も不要。スマートフォンからでも数分で完了します。<strong>契約書の料率が、ご説明やメッセージでお伝えした料率と違っていたら、ご署名の前に必ずお知らせください。</strong>一致させてからご署名いただきます。操作がお分かりにならない場合も、ご遠慮なくご連絡ください。手順をご案内します。</p>
         <span class="flow-who you">好色堂：契約書を送付 → 作家さま：電子署名</span>
       </div>
       <div class="flow-item">
         <div class="flow-no">其の四</div><div class="flow-rule"></div>
         <svg class="knot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="4"/><path d="M12 8V3M12 21v-5M8 12H3M21 12h-5"/></svg>
         <h3>原稿データをお預かり</h3><div class="hr"></div>
-        <p>本編データ（CLIP・PSD・JPG・PDF など）と表紙用の素材を、専用の窓口または大容量便でお渡しください。形式はお手元のままで結構です。</p>
+        <p>本編データ（CLIP・PSD・JPG・PDF など。JPGをページ順にZIPでまとめていただく形で十分です）と表紙用の素材を、専用の窓口・大容量便・Googleドライブの共有フォルダのいずれかでお渡しください。形式はお手元のままで結構です。奥付に載せる X のIDは配信後に変更できませんので、長くお使いのものをお知らせください。書影（書店に並ぶ表紙まわりの画像）は好色堂が制作します。</p>
         <span class="flow-who you">作家さま：データをお渡し</span>
       </div>
       <div class="flow-item">
         <div class="flow-no">其の五</div><div class="flow-rule"></div>
         <svg class="knot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="4"/><path d="M12 8V3M12 21v-5M8 12H3M21 12h-5"/></svg>
         <h3>表紙・電子化・入稿</h3><div class="hr"></div>
-        <p>表紙の制作、電子書籍（EPUB）化、書誌情報の作成、白抜き・モザイクの処理、各書店への入稿・審査対応まで、すべてこちらで仕上げます（約一〜二週間）。</p>
+        <p>表紙の制作、電子書籍（EPUB）化、書誌情報の作成、白抜き・モザイクの処理、各書店への入稿・審査対応まで、すべてこちらで仕上げます（配信準備に約一〜二週間。その後は書店ごとの審査が通った順に配信が始まります。全書店の一斉公開日や、ご契約から初公開までの総日数はお約束できません）。</p>
         <span class="flow-who">好色堂：制作・入稿・審査対応</span>
       </div>
       <div class="flow-item">
         <div class="flow-no">其の六</div><div class="flow-rule"></div>
         <svg class="knot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="4"/><path d="M12 8V3M12 21v-5M8 12H3M21 12h-5"/></svg>
         <h3>配信開始・お支払い</h3><div class="hr"></div>
-        <p>準備の整った書店から順に配信を開始し、月末には売上の速報値を共有します。売上は四半期ごと（年4回）にお支払い。振込手数料は好色堂が負担します。</p>
+        <p>準備の整った書店から順に配信を開始し、<strong>配信が始まりましたら専用の窓口でお知らせします</strong>。あわせて、ご自身でも書店で作品名を検索してご確認ください。日が経っても見当たらない場合は、すぐにお知らせください。売上（総額）は月末に速報値を共有し、四半期ごと（年4回）にお支払い。初回のお振込は配信開始からおよそ6ヶ月後が目安です。振込手数料は好色堂が負担します。</p>
         <span class="flow-who">好色堂：配信・売上共有・お振込</span>
       </div>
     </div>
@@ -486,7 +501,7 @@
     <div class="panel" style="max-width:640px;margin:40px auto 0;text-align:center">
       <div class="col-label">BOOKING</div>
       <h3 class="col-title" style="margin-bottom:14px">好色堂説明会（30分・オンライン）</h3>
-      <p style="font-size:13.5px;color:var(--sumi2);line-height:1.95">ご都合のよい枠をお選びいただくだけで、日程が決まります。Google Meet のご案内は、ご予約後に自動でお送りします。カメラなし・音声のみのご参加で構いません。</p>
+      <p style="font-size:13.5px;color:var(--sumi2);line-height:1.95">ご都合のよい枠をお選びいただくだけで、日程が決まります。Google Meet のご案内は、ご予約後に自動でお送りします。カメラなし・音声のみのご参加で構いません。ご予約はペンネーム／サークル名で結構です（本名をお書きいただくのは契約書だけです）。</p>
       <div style="margin-top:24px"><a class="btn btn-primary" href="https://calendar.app.google/ChQbs2E7wLNa42x98" target="_blank" rel="noopener">日程を選ぶ<span class="arr">→</span></a></div>
       <p class="fine" style="margin-top:18px;word-break:break-all">https://calendar.app.google/ChQbs2E7wLNa42x98</p>
       <p class="fine" style="margin-top:14px">※ 空いている枠がご都合に合わない場合や、通話が難しい場合は、DM・メールでのやり取りだけでも構いません。お気軽にお知らせください。</p>
@@ -502,7 +517,7 @@
     </div>
     <div class="f-links">
       <div class="f-col"><h4>好色堂</h4><a href="index.html#about">悩み</a><a href="index.html#solution">できること</a><a href="#flow">お預かりの流れ</a><a href="about.html#editor">編集の姿勢</a></div>
-      <div class="f-col"><h4>ご相談</h4><a href="money.html#share">還元のしくみ</a><a href="money.html#compare">業界比較</a><a href="faq.html#faq">よくあるご質問</a><a href="#contact">作品を相談する</a></div>
+      <div class="f-col"><h4>ご相談</h4><a href="money.html#share">還元のしくみ</a><a href="money.html#compare">業界比較</a><a href="sales.html#sales">売れ方と企画</a><a href="faq.html#faq">よくあるご質問</a><a href="#contact">作品を相談する</a></div>
     </div>
   </div>
   <div class="f-bottom">
