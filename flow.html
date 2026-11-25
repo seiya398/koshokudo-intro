@@ -411,6 +411,74 @@
   .firstbox li{font-size:14.5px;line-height:1.95;color:var(--sumi2);margin-bottom:9px}
   .firstbox li strong{color:var(--sumi)}
   .firstbox a{color:var(--enji);text-decoration:underline;text-underline-offset:3px}
+
+  /* 2026-11 第二改訂: 図解部品（HTML/CSS のみ・画像なし・和紙と朱の装丁のまま） */
+  .kp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;max-width:1000px;margin:34px auto 0;text-align:left}
+  .kp{background:var(--card);border:1.5px solid var(--enji);border-radius:12px;padding:20px 22px 18px;display:flex;flex-direction:column;position:relative}
+  .kp.soft{border-color:var(--line2)}
+  .kp-tag{font-family:var(--serif);font-size:11px;font-weight:700;letter-spacing:.26em;color:var(--enji);margin-bottom:6px}
+  .kp-big{font-family:var(--serif);font-size:38px;font-weight:800;line-height:1.1;letter-spacing:.02em;color:var(--sumi);font-variant-numeric:tabular-nums}
+  .kp-big small{font-size:.45em;font-weight:700;margin-left:3px;letter-spacing:.06em}
+  .kp-head{font-family:var(--serif);font-size:15.5px;font-weight:700;color:var(--sumi);margin-top:8px;line-height:1.55}
+  .kp p{font-size:12.5px;color:var(--sumi2);line-height:1.75;margin-top:6px}
+  .kp a{color:var(--enji);text-decoration:underline;text-underline-offset:3px}
+  .kp-note{max-width:1000px;margin:12px auto 0;font-size:12.5px;color:var(--muted);text-align:left;line-height:1.8}
+  .mflow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1.15fr;gap:8px;align-items:stretch;margin:22px 0 16px}
+  .mf{background:var(--card);border:1px solid var(--line2);border-radius:10px;padding:16px 14px;text-align:center;display:flex;flex-direction:column;justify-content:center}
+  .mf-l{font-size:11.5px;font-weight:700;color:var(--muted);line-height:1.5;letter-spacing:.04em}
+  .mf-v{font-family:var(--serif);font-size:30px;font-weight:800;letter-spacing:.02em;line-height:1.1;color:var(--sumi);margin:8px 0 4px;font-variant-numeric:tabular-nums}
+  .mf-s{font-size:12px;color:var(--sumi2);line-height:1.5}
+  .mf.store{background:#efe6d3}.mf.store .mf-v{color:var(--gold)}
+  .mf.ks{background:var(--enji-soft)}.mf.ks .mf-v{color:var(--enji)}
+  .mf.you{background:var(--enji);border-color:var(--enji);color:#fff;box-shadow:0 8px 22px rgba(155,45,39,.22)}
+  .mf.you .mf-l,.mf.you .mf-s{color:rgba(255,255,255,.9)}.mf.you .mf-v{color:#fff}
+  .mf-arrow{display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--serif);font-size:20px;color:var(--muted);line-height:1}
+  .mf-arrow small{font-size:10px;letter-spacing:.06em;margin-top:4px;color:var(--muted);text-align:center}
+  .mbar{display:flex;height:50px;border-radius:8px;overflow:hidden}
+  .mbar>div{display:grid;place-items:center;color:#fff;font-weight:700;font-size:13px;letter-spacing:.04em;white-space:nowrap}
+  .mbar .b-store{flex:70;background:var(--gold)}.mbar .b-ks{flex:12;background:var(--muted);font-size:12px}.mbar .b-you{flex:18;background:var(--enji)}
+  .mbar-legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:10px;font-size:12px;color:var(--sumi2)}
+  .mbar-legend span:before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+  .mbar-legend .l-store:before{background:var(--gold)}.mbar-legend .l-ks:before{background:var(--muted)}.mbar-legend .l-you:before{background:var(--enji)}
+  .ptl{background:var(--card);border:1px solid var(--line2);border-radius:12px;padding:22px 22px 18px;margin-top:30px;overflow-x:auto;text-align:left}
+  .ptl-grid{display:grid;grid-template-columns:repeat(7,minmax(84px,1fr));gap:6px;min-width:620px}
+  .ptl-m{text-align:center;font-size:11.5px;color:var(--muted);padding-bottom:8px;border-bottom:1px solid var(--line)}
+  .ptl-m b{display:block;font-family:var(--serif);font-size:16px;color:var(--sumi)}
+  .ptl-band{border-radius:8px;padding:10px;font-size:12.5px;font-weight:700;line-height:1.45;text-align:center;min-height:52px;display:flex;flex-direction:column;justify-content:center}
+  .ptl-band small{display:block;font-size:11px;font-weight:500;opacity:.85}
+  .ptl-band.sales{grid-column:1/span 3;background:#efe6d3;color:#6b5a2e;border:1px dashed var(--gold-soft)}
+  .ptl-band.wait{grid-column:4/span 3;background:var(--paper2);color:var(--sumi2);border:1px dashed var(--line2)}
+  .ptl-band.pay{grid-column:7/span 1;background:var(--enji);color:#fff;box-shadow:0 6px 18px rgba(155,45,39,.25)}
+  .ptl-mark{font-size:11.5px;font-weight:700;color:var(--sumi2);text-align:center;padding-top:4px;line-height:1.4}
+  .ptl-mark.start{grid-column:1;color:#6b5a2e}.ptl-mark.close{grid-column:3}.ptl-mark.notice{grid-column:6}.ptl-mark.pay{grid-column:7;color:var(--enji)}
+  .ptl-sum{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+  .ptl-sum .big{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--sumi)}
+  .ptl-sum .big em{font-style:normal;color:var(--enji);font-size:1.3em}
+  .ptl-sum .fine{margin-top:0;font-size:12px;color:var(--muted);line-height:1.7}
+  .pay4{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:14px}
+  .pay4>div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 12px;text-align:center}
+  .pay4 b{display:block;font-family:var(--serif);font-size:20px;font-weight:800;color:var(--enji)}
+  .pay4 span{font-size:12px;color:var(--sumi2)}
+  .sflow{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(136px,1fr));gap:10px;counter-reset:sf;margin:36px 0 0;text-align:left}
+  .sflow li{position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 14px 14px;counter-increment:sf;display:flex;flex-direction:column;min-height:150px}
+  .sflow li:before{content:counter(sf,cjk-ideographic);width:30px;height:30px;border-radius:6px;background:var(--enji);color:#fbf3ea;font-family:var(--serif);font-weight:800;font-size:15px;display:grid;place-items:center;margin-bottom:10px}
+  .sflow li:after{content:"›";position:absolute;right:-9px;top:50%;transform:translateY(-50%);width:18px;height:18px;border-radius:50%;background:var(--card);border:1px solid var(--line2);color:var(--muted);font-size:14px;font-weight:700;line-height:16px;text-align:center;z-index:1}
+  .sflow li:last-child:after{display:none}
+  .sflow li.hi{border:1.5px solid var(--enji)}
+  .sflow b{font-family:var(--serif);font-size:14.5px;font-weight:700;color:var(--sumi);line-height:1.45}
+  .sflow span{font-size:12px;color:var(--sumi2);line-height:1.65;margin-top:6px;flex:1}
+  .sflow em{font-style:normal;display:inline-block;align-self:flex-start;margin-top:10px;font-family:var(--serif);font-size:10.5px;font-weight:700;letter-spacing:.06em;padding:2px 9px;border-radius:3px;border:1px solid var(--line2);background:var(--paper2);color:var(--sumi2)}
+  .sflow li.you em{border-color:var(--enji);background:var(--enji-soft);color:var(--enji-hover)}
+  details.fold{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 20px;margin-top:14px;text-align:left}
+  details.fold summary{cursor:pointer;font-family:var(--serif);font-weight:700;font-size:14.5px;color:var(--sumi);list-style:none;position:relative;padding-right:28px}
+  details.fold summary::-webkit-details-marker{display:none}
+  details.fold summary:after{content:"＋";position:absolute;right:0;top:0;color:var(--enji);font-weight:700}
+  details.fold[open] summary:after{content:"－"}
+  details.fold>div{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:14px;color:var(--sumi2);line-height:1.95}
+  table.ks td.dim{color:var(--muted)}
+  table.ks th.kscol,table.ks td.kscol{background:var(--enji-soft);color:var(--sumi);font-weight:700}
+  table.ks th.kscol{color:var(--enji)}
+  @media(max-width:760px){.mflow{grid-template-columns:1fr}.mf-arrow{transform:rotate(90deg);padding:2px 0}}
 </style>
 </head>
 <body>
@@ -440,54 +508,32 @@
   <div class="wrap">
     <span class="eyebrow">ご相談後の流れ<span class="dash"></span></span>
     <h2 class="s-title">原稿を、お預けいただくだけ。</h2>
-    <p class="s-sub">この資料をお読みいただいたあと、ご相談から契約、作品のお預かり、配信開始、お振込まで、どのように進むかをまとめました。オンラインでのご説明をご希望の方も、資料だけご覧になった方も、流れは同じです。配信準備は約一〜二週間、その後は書店ごとに順次配信を開始します。</p>
-    <div class="flow six">
-      <div class="flow-item">
-        <div class="flow-no">其の一</div><div class="flow-rule"></div>
-        <svg class="knot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="4"/><path d="M12 8V3M12 21v-5M8 12H3M21 12h-5"/></svg>
-        <h3>ご相談・質疑応答</h3><div class="hr"></div>
-        <p>まずはお気軽にご連絡ください。オンラインでのお打ち合わせは、<a href="https://calendar.app.google/ChQbs2E7wLNa42x98" target="_blank" rel="noopener" style="color:var(--enji);text-decoration:underline">予約ページ</a>からご都合のよい枠をお選びいただけます（30分・Google Meet）。難しい場合は、テキストでの質疑応答でも構いません。<strong>カメラ・マイクなし、音声のみでのご参加で結構です。</strong>ご予約はペンネーム／サークル名で構いません（本名をお書きいただくのは契約書だけです）。</p>
-        <span class="flow-who you">作家さま：ご相談</span>
-      </div>
-      <div class="flow-item">
-        <div class="flow-no">其の二</div><div class="flow-rule"></div>
-        <svg class="knot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="4"/><path d="M12 8V3M12 21v-5M8 12H3M21 12h-5"/></svg>
-        <h3>専用の窓口をご用意</h3><div class="hr"></div>
-        <p>Discord の ID を教えていただき、作家さま専用の窓口（チャンネル）をご用意します。契約後の作品のやり取り・データのお渡し・進捗のご報告は、すべてこの窓口で行います。</p>
-        <span class="flow-who you">作家さま：Discord ID を共有</span>
-      </div>
-      <div class="flow-item">
-        <div class="flow-no">其の三</div><div class="flow-rule"></div>
-        <svg class="knot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="4"/><path d="M12 8V3M12 21v-5M8 12H3M21 12h-5"/></svg>
-        <h3>契約書のご送付・ご署名</h3><div class="hr"></div>
-        <p>マネーフォワードの電子契約で、契約書（配信代行の業務委託契約）をメールでお送りします。押印も郵送も不要。スマートフォンからでも数分で完了します。<strong>契約書の料率が、ご説明やメッセージでお伝えした料率と違っていたら、ご署名の前に必ずお知らせください。</strong>一致させてからご署名いただきます。操作がお分かりにならない場合も、ご遠慮なくご連絡ください。手順をご案内します。</p>
-        <span class="flow-who you">好色堂：契約書を送付 → 作家さま：電子署名</span>
-      </div>
-      <div class="flow-item">
-        <div class="flow-no">其の四</div><div class="flow-rule"></div>
-        <svg class="knot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="4"/><path d="M12 8V3M12 21v-5M8 12H3M21 12h-5"/></svg>
-        <h3>原稿データをお預かり</h3><div class="hr"></div>
-        <p>本編データ（CLIP・PSD・JPG・PDF など。JPGをページ順にZIPでまとめていただく形で十分です）と表紙用の素材を、専用の窓口・大容量便・Googleドライブの共有フォルダのいずれかでお渡しください。形式はお手元のままで結構です。奥付に載せる X のIDは配信後に変更できませんので、長くお使いのものをお知らせください。書影（書店に並ぶ表紙まわりの画像）は好色堂が制作します。</p>
-        <span class="flow-who you">作家さま：データをお渡し</span>
-      </div>
-      <div class="flow-item">
-        <div class="flow-no">其の五</div><div class="flow-rule"></div>
-        <svg class="knot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="4"/><path d="M12 8V3M12 21v-5M8 12H3M21 12h-5"/></svg>
-        <h3>表紙・電子化・入稿</h3><div class="hr"></div>
-        <p>表紙の制作、電子書籍（EPUB）化、書誌情報の作成、白抜き・モザイクの処理、各書店への入稿・審査対応まで、すべてこちらで仕上げます（配信準備に約一〜二週間。その後は書店ごとの審査が通った順に配信が始まります。全書店の一斉公開日や、ご契約から初公開までの総日数はお約束できません）。</p>
-        <span class="flow-who">好色堂：制作・入稿・審査対応</span>
-      </div>
-      <div class="flow-item">
-        <div class="flow-no">其の六</div><div class="flow-rule"></div>
-        <svg class="knot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="4"/><path d="M12 8V3M12 21v-5M8 12H3M21 12h-5"/></svg>
-        <h3>配信開始・お支払い</h3><div class="hr"></div>
-        <p>準備の整った書店から順に配信を開始し、<strong>配信が始まりましたら専用の窓口でお知らせします</strong>。あわせて、ご自身でも書店で作品名を検索してご確認ください。日が経っても見当たらない場合は、すぐにお知らせください。売上（総額）は月末に速報値を共有し、四半期ごと（年4回）にお支払い。初回のお振込は配信開始からおよそ6ヶ月後が目安です。振込手数料は好色堂が負担します。</p>
-        <span class="flow-who">好色堂：配信・売上共有・お振込</span>
-      </div>
+    <p class="s-sub">ご相談から契約、お預かり、配信、お振込まで。作家さまにお願いするのは、実質「ご署名」と「データのお渡し」の二つだけです。</p>
+    <div class="kp-grid">
+      <div class="kp"><div class="kp-tag">作家さまがなさること</div><div class="kp-big">二つ<small>だけ</small></div><div class="kp-head">電子署名と、データのお渡し</div><p>制作・書店対応・売上の管理は、すべて好色堂が引き受けます。</p></div>
+      <div class="kp"><div class="kp-tag">配信準備</div><div class="kp-big">約一〜二<small>週間</small></div><div class="kp-head">入稿後、書店ごとに順次公開</div><p>全書店の一斉公開日や総日数はお約束できません。公開しましたら窓口でお知らせします。</p></div>
+      <div class="kp"><div class="kp-tag">初回のお振込</div><div class="kp-big">約6<small>ヶ月後</small></div><div class="kp-head">配信開始から初回のお振込までの目安</div><p>以降は年4回。<a href="money.html#payment">お支払いの流れ</a></p></div>
     </div>
-    <div class="note-box" style="margin-top:34px">
-      <strong>作家さまにお願いするのは、実質「ご署名」と「データのお渡し」の二つだけ。</strong>
-      <p>制作・書店対応・売上の管理は、すべて好色堂が引き受けます。お預けいただく作品が増えるほど、月々の還元は安定して積み上がりますので、棚に眠っている既刊もどうぞまとめてお声がけください。</p>
+    <ol class="sflow">
+      <li class="you"><b>ご相談</b><span>オンライン（30分・Google Meet）またはテキストで。カメラ・マイクなし可。ご予約はペンネームで結構です。</span><em>作家さま</em></li>
+      <li class="you"><b>専用の窓口</b><span>Discord の ID を教えていただき、作家さま専用の窓口をご用意。以後のやり取りはここで。</span><em>作家さま → 好色堂</em></li>
+      <li class="you hi"><b>契約書・ご署名</b><span>マネーフォワードの電子契約をメールで。料率がお伝えした内容と違えばご署名前にお知らせを。口座名義（カナ）もご確認を。</span><em>好色堂 → 作家さま</em></li>
+      <li class="you hi"><b>原稿をお預かり</b><span>CLIP・PSD・JPG・PDF そのままで。JPGのZIPで十分。窓口・大容量便・Googleドライブのいずれかで。</span><em>作家さま</em></li>
+      <li><b>表紙・電子化・入稿</b><span>表紙・奥付・書影、EPUB化、書誌、白抜き・モザイク、各書店の審査対応。約一〜二週間。</span><em>好色堂</em></li>
+      <li><b>配信開始</b><span>審査の通った書店から順に公開。公開しましたら窓口でお知らせ。見当たらなければすぐお知らせください。</span><em>好色堂</em></li>
+      <li><b>ご報告・お振込</b><span>月末に売上（総額）の速報。年4回のお振込、初回は配信開始からおよそ6ヶ月後が目安。</span><em>好色堂</em></li>
+    </ol>
+    <details class="fold" style="margin-top:28px">
+      <summary>其の一〜三の補足（ご相談・窓口・契約書）</summary>
+      <div>オンラインでのお打ち合わせは <a href="https://calendar.app.google/ChQbs2E7wLNa42x98" target="_blank" rel="noopener" style="color:var(--enji);text-decoration:underline">予約ページ</a> からご都合のよい枠をお選びいただけます（30分・Google Meet）。難しい場合はテキストでの質疑応答でも構いません。<strong>カメラ・マイクなし、音声のみでのご参加で結構です。</strong>ご予約はペンネーム／サークル名で構いません（本名をお書きいただくのは契約書だけです）。Discord の ID をいただいたら専用の窓口（チャンネル）をご用意し、契約後の作品のやり取り・データのお渡し・進捗のご報告はすべてこの窓口で行います（Discord をお使いでない方はメールと Googleドライブに切り替えます）。契約書は「配信代行の業務委託契約」で、マネーフォワードの電子契約でメールにてお送りします。押印も郵送も不要、スマートフォンからでも数分で完了します。<strong>契約書の料率が、ご説明やメッセージでお伝えした料率と違っていたら、ご署名の前に必ずお知らせください。</strong>操作がお分かりにならない場合もご遠慮なくご連絡ください。</div>
+    </details>
+    <details class="fold">
+      <summary>其の四〜七の補足（お預かり・入稿・配信・お振込）</summary>
+      <div>本編データ（CLIP・PSD・JPG・PDF など。JPGをページ順にZIPでまとめていただく形で十分です）と表紙用の素材を、専用の窓口・大容量便・Googleドライブの共有フォルダのいずれかでお渡しください。奥付に載せる X のIDは配信後に変更できませんので、長くお使いのものをお知らせください。書影（書店に並ぶ表紙まわりの画像）は好色堂が制作します。表紙の制作、EPUB化、書誌情報の作成、白抜き・モザイクの処理、各書店への入稿・審査対応まで、すべてこちらで仕上げます（配信準備に約一〜二週間。その後は書店ごとの審査が通った順に配信が始まります。全書店の一斉公開日や、ご契約から初公開までの総日数はお約束できません）。<strong>配信が始まりましたら専用の窓口でお知らせします。</strong>ご自身でも書店で作品名を検索してご確認いただき、日が経っても見当たらない場合はすぐにお知らせください。売上（総額）は月末に速報値を共有し、四半期ごと（年4回）にお支払い。初回のお振込は配信開始からおよそ6ヶ月後が目安です。振込手数料は好色堂が負担します。</div>
+    </details>
+    <div class="note-box" style="margin-top:28px">
+      <strong>棚に眠っている既刊も、どうぞまとめて。</strong>
+      <p>お預けいただく作品が増えるほど、月々の還元は安定して積み上がります。</p>
     </div>
   </div>
 </section>

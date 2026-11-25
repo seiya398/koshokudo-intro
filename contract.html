@@ -411,6 +411,74 @@
   .firstbox li{font-size:14.5px;line-height:1.95;color:var(--sumi2);margin-bottom:9px}
   .firstbox li strong{color:var(--sumi)}
   .firstbox a{color:var(--enji);text-decoration:underline;text-underline-offset:3px}
+
+  /* 2026-11 第二改訂: 図解部品（HTML/CSS のみ・画像なし・和紙と朱の装丁のまま） */
+  .kp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;max-width:1000px;margin:34px auto 0;text-align:left}
+  .kp{background:var(--card);border:1.5px solid var(--enji);border-radius:12px;padding:20px 22px 18px;display:flex;flex-direction:column;position:relative}
+  .kp.soft{border-color:var(--line2)}
+  .kp-tag{font-family:var(--serif);font-size:11px;font-weight:700;letter-spacing:.26em;color:var(--enji);margin-bottom:6px}
+  .kp-big{font-family:var(--serif);font-size:38px;font-weight:800;line-height:1.1;letter-spacing:.02em;color:var(--sumi);font-variant-numeric:tabular-nums}
+  .kp-big small{font-size:.45em;font-weight:700;margin-left:3px;letter-spacing:.06em}
+  .kp-head{font-family:var(--serif);font-size:15.5px;font-weight:700;color:var(--sumi);margin-top:8px;line-height:1.55}
+  .kp p{font-size:12.5px;color:var(--sumi2);line-height:1.75;margin-top:6px}
+  .kp a{color:var(--enji);text-decoration:underline;text-underline-offset:3px}
+  .kp-note{max-width:1000px;margin:12px auto 0;font-size:12.5px;color:var(--muted);text-align:left;line-height:1.8}
+  .mflow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1.15fr;gap:8px;align-items:stretch;margin:22px 0 16px}
+  .mf{background:var(--card);border:1px solid var(--line2);border-radius:10px;padding:16px 14px;text-align:center;display:flex;flex-direction:column;justify-content:center}
+  .mf-l{font-size:11.5px;font-weight:700;color:var(--muted);line-height:1.5;letter-spacing:.04em}
+  .mf-v{font-family:var(--serif);font-size:30px;font-weight:800;letter-spacing:.02em;line-height:1.1;color:var(--sumi);margin:8px 0 4px;font-variant-numeric:tabular-nums}
+  .mf-s{font-size:12px;color:var(--sumi2);line-height:1.5}
+  .mf.store{background:#efe6d3}.mf.store .mf-v{color:var(--gold)}
+  .mf.ks{background:var(--enji-soft)}.mf.ks .mf-v{color:var(--enji)}
+  .mf.you{background:var(--enji);border-color:var(--enji);color:#fff;box-shadow:0 8px 22px rgba(155,45,39,.22)}
+  .mf.you .mf-l,.mf.you .mf-s{color:rgba(255,255,255,.9)}.mf.you .mf-v{color:#fff}
+  .mf-arrow{display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--serif);font-size:20px;color:var(--muted);line-height:1}
+  .mf-arrow small{font-size:10px;letter-spacing:.06em;margin-top:4px;color:var(--muted);text-align:center}
+  .mbar{display:flex;height:50px;border-radius:8px;overflow:hidden}
+  .mbar>div{display:grid;place-items:center;color:#fff;font-weight:700;font-size:13px;letter-spacing:.04em;white-space:nowrap}
+  .mbar .b-store{flex:70;background:var(--gold)}.mbar .b-ks{flex:12;background:var(--muted);font-size:12px}.mbar .b-you{flex:18;background:var(--enji)}
+  .mbar-legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:10px;font-size:12px;color:var(--sumi2)}
+  .mbar-legend span:before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+  .mbar-legend .l-store:before{background:var(--gold)}.mbar-legend .l-ks:before{background:var(--muted)}.mbar-legend .l-you:before{background:var(--enji)}
+  .ptl{background:var(--card);border:1px solid var(--line2);border-radius:12px;padding:22px 22px 18px;margin-top:30px;overflow-x:auto;text-align:left}
+  .ptl-grid{display:grid;grid-template-columns:repeat(7,minmax(84px,1fr));gap:6px;min-width:620px}
+  .ptl-m{text-align:center;font-size:11.5px;color:var(--muted);padding-bottom:8px;border-bottom:1px solid var(--line)}
+  .ptl-m b{display:block;font-family:var(--serif);font-size:16px;color:var(--sumi)}
+  .ptl-band{border-radius:8px;padding:10px;font-size:12.5px;font-weight:700;line-height:1.45;text-align:center;min-height:52px;display:flex;flex-direction:column;justify-content:center}
+  .ptl-band small{display:block;font-size:11px;font-weight:500;opacity:.85}
+  .ptl-band.sales{grid-column:1/span 3;background:#efe6d3;color:#6b5a2e;border:1px dashed var(--gold-soft)}
+  .ptl-band.wait{grid-column:4/span 3;background:var(--paper2);color:var(--sumi2);border:1px dashed var(--line2)}
+  .ptl-band.pay{grid-column:7/span 1;background:var(--enji);color:#fff;box-shadow:0 6px 18px rgba(155,45,39,.25)}
+  .ptl-mark{font-size:11.5px;font-weight:700;color:var(--sumi2);text-align:center;padding-top:4px;line-height:1.4}
+  .ptl-mark.start{grid-column:1;color:#6b5a2e}.ptl-mark.close{grid-column:3}.ptl-mark.notice{grid-column:6}.ptl-mark.pay{grid-column:7;color:var(--enji)}
+  .ptl-sum{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+  .ptl-sum .big{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--sumi)}
+  .ptl-sum .big em{font-style:normal;color:var(--enji);font-size:1.3em}
+  .ptl-sum .fine{margin-top:0;font-size:12px;color:var(--muted);line-height:1.7}
+  .pay4{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:14px}
+  .pay4>div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 12px;text-align:center}
+  .pay4 b{display:block;font-family:var(--serif);font-size:20px;font-weight:800;color:var(--enji)}
+  .pay4 span{font-size:12px;color:var(--sumi2)}
+  .sflow{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(136px,1fr));gap:10px;counter-reset:sf;margin:36px 0 0;text-align:left}
+  .sflow li{position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 14px 14px;counter-increment:sf;display:flex;flex-direction:column;min-height:150px}
+  .sflow li:before{content:counter(sf,cjk-ideographic);width:30px;height:30px;border-radius:6px;background:var(--enji);color:#fbf3ea;font-family:var(--serif);font-weight:800;font-size:15px;display:grid;place-items:center;margin-bottom:10px}
+  .sflow li:after{content:"›";position:absolute;right:-9px;top:50%;transform:translateY(-50%);width:18px;height:18px;border-radius:50%;background:var(--card);border:1px solid var(--line2);color:var(--muted);font-size:14px;font-weight:700;line-height:16px;text-align:center;z-index:1}
+  .sflow li:last-child:after{display:none}
+  .sflow li.hi{border:1.5px solid var(--enji)}
+  .sflow b{font-family:var(--serif);font-size:14.5px;font-weight:700;color:var(--sumi);line-height:1.45}
+  .sflow span{font-size:12px;color:var(--sumi2);line-height:1.65;margin-top:6px;flex:1}
+  .sflow em{font-style:normal;display:inline-block;align-self:flex-start;margin-top:10px;font-family:var(--serif);font-size:10.5px;font-weight:700;letter-spacing:.06em;padding:2px 9px;border-radius:3px;border:1px solid var(--line2);background:var(--paper2);color:var(--sumi2)}
+  .sflow li.you em{border-color:var(--enji);background:var(--enji-soft);color:var(--enji-hover)}
+  details.fold{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 20px;margin-top:14px;text-align:left}
+  details.fold summary{cursor:pointer;font-family:var(--serif);font-weight:700;font-size:14.5px;color:var(--sumi);list-style:none;position:relative;padding-right:28px}
+  details.fold summary::-webkit-details-marker{display:none}
+  details.fold summary:after{content:"＋";position:absolute;right:0;top:0;color:var(--enji);font-weight:700}
+  details.fold[open] summary:after{content:"－"}
+  details.fold>div{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:14px;color:var(--sumi2);line-height:1.95}
+  table.ks td.dim{color:var(--muted)}
+  table.ks th.kscol,table.ks td.kscol{background:var(--enji-soft);color:var(--sumi);font-weight:700}
+  table.ks th.kscol{color:var(--enji)}
+  @media(max-width:760px){.mflow{grid-template-columns:1fr}.mf-arrow{transform:rotate(90deg);padding:2px 0}}
 </style>
 </head>
 <body>
@@ -440,7 +508,7 @@
   <div class="wrap">
     <span class="eyebrow">CONTRACT<span class="dash"></span></span>
     <h2 class="s-title">契約について。</h2>
-    <p class="s-sub">契約は「配信代行の業務委託契約」です。契約期間・独占の範囲・価格の決め方・表紙素材の扱い、そして契約書の全文まで、隠さずすべて載せています。独占は最小限に、作家さまの手綱をできるかぎり残す設計です。</p>
+    <p class="s-sub">契約は「配信代行の業務委託契約」です。独占は最小限に、作家さまの手綱をできるかぎり残す設計です。契約書の料率がご説明と違っていたら、ご署名の前に必ずお知らせください。</p>
     <div class="grid3">
       <div class="pcard">
         <div class="idx" style="text-align:center;letter-spacing:.16em">一年契約・自動更新</div><div class="gline" style="margin:11px auto 15px"></div>
@@ -521,8 +589,7 @@
           <tr><td><b>電子署名（マネーフォワード）</b></td><td>契約書はマネーフォワードの電子契約でメールにてお送りします。押印・郵送は不要です。操作がお分かりにならない、メールが見当たらない（迷惑メールに入ることがあります）、ご署名が遅れそう、といった場合は、そのままになさらずご連絡ください。手順をご案内します。</td></tr>
           <tr><td><b>振込口座の名義</b></td><td>ご契約時にお知らせいただく口座の<strong>名義（カナ）</strong>が、通帳やアプリの表記と一致しているかご確認ください。不一致ですと振込が戻り、お支払いが遅れます。</td></tr>
           <tr><td><b>本名の扱い</b></td><td>本名をお書きいただくのは契約書だけです。ご予約・ご相談・Discord はペンネーム／サークル名で構いません。本名を社外へ出すことはありません。</td></tr>
-          <tr><td><b>海外在住・外国籍の方</b></td><td>ご契約の可否・お支払い方法は、確認のうえ個別にご案内します <span class="tbc">【要確認】</span>。</td></tr>
-          <tr><td><b>個別の料率</b></td><td>新規のご契約は標準の60%です。この資料で個別の料率をお約束することはありません <span class="tbc">【要確認：個別相談の案内方針】</span>。</td></tr>
+          <tr><td><b>海外在住の方</b></td><td>現状では、海外在住の方とはご契約いただけません（国内の銀行口座へのお振込・国内での源泉徴収を前提としているため）。</td></tr>
         </tbody>
       </table>
     </div>
@@ -532,7 +599,7 @@
     <div class="tbl-wrap">
       <table class="ks">
         <tbody>
-          <tr><td style="width:210px"><b>第4条</b>　還元金・売上のご報告</td><td>売上（総額）は必ずお伝えします。月末に速報、お振込月の前月に確定額をご通知。ご報告はご契約後の専用窓口（Discordの連絡用チャンネル内のスレッド）で行います。書店別の内訳をどこまで開示するかは <span class="tbc">【要確認】</span>。</td></tr>
+          <tr><td style="width:210px"><b>第4条</b>　還元金・売上のご報告</td><td>売上は<strong>総額</strong>をお伝えします（書店別・ストア別の内訳は開示しておりません）。月末に速報、お振込月の前月に確定額をご通知。ご報告はご契約後の Discord 連絡用スレッドで行います。</td></tr>
           <tr><td><b>第5条</b>　販売価格・セール</td><td>販売価格は好色堂が決定します（ご希望はうかがいます・相場はページ数×10円）。割引50%以上のセール・無料キャンペーンは、事前のご連絡とご確認（オプトイン）をお約束します。50%未満は、売上の状況に応じて好色堂の裁量で機動的に対応します。</td></tr>
           <tr><td><b>第7条</b>　利用・改変</td><td>変更の際は、基本的に事前にご確認します。作品内容は校閲での誤字脱字の修正、タイトルは書店の審査に合わせた編集（一部伏字など）が中心です。40ページ以上は10ページ＝一話の話数売りが基本、モザイク処理は好色堂が対応して公開まで進めます。タイトル・価格・出し方は、お預かりの前にご相談いただけます。</td></tr>
           <tr><td><b>第11条</b>　取次独占</td><td>お預けいただいた作品を他の取次経由で書店配信すること、同じ内容を同じ書店に重ねて出すことだけが制限です。同人プラットフォーム・BOOTH・セルフパブ・お預けでない作品は自由です。</td></tr>
@@ -551,7 +618,7 @@
   </div>
 </section>
 
-<section id="deed" class="center">
+<section id="deed" class="center" data-pdf="skip">
   <div class="wrap">
     <span class="eyebrow">APPENDIX<span class="dash"></span></span>
     <h3 class="subhead" id="contract-full">契約書の、全文。</h3>

@@ -411,6 +411,74 @@
   .firstbox li{font-size:14.5px;line-height:1.95;color:var(--sumi2);margin-bottom:9px}
   .firstbox li strong{color:var(--sumi)}
   .firstbox a{color:var(--enji);text-decoration:underline;text-underline-offset:3px}
+
+  /* 2026-11 第二改訂: 図解部品（HTML/CSS のみ・画像なし・和紙と朱の装丁のまま） */
+  .kp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;max-width:1000px;margin:34px auto 0;text-align:left}
+  .kp{background:var(--card);border:1.5px solid var(--enji);border-radius:12px;padding:20px 22px 18px;display:flex;flex-direction:column;position:relative}
+  .kp.soft{border-color:var(--line2)}
+  .kp-tag{font-family:var(--serif);font-size:11px;font-weight:700;letter-spacing:.26em;color:var(--enji);margin-bottom:6px}
+  .kp-big{font-family:var(--serif);font-size:38px;font-weight:800;line-height:1.1;letter-spacing:.02em;color:var(--sumi);font-variant-numeric:tabular-nums}
+  .kp-big small{font-size:.45em;font-weight:700;margin-left:3px;letter-spacing:.06em}
+  .kp-head{font-family:var(--serif);font-size:15.5px;font-weight:700;color:var(--sumi);margin-top:8px;line-height:1.55}
+  .kp p{font-size:12.5px;color:var(--sumi2);line-height:1.75;margin-top:6px}
+  .kp a{color:var(--enji);text-decoration:underline;text-underline-offset:3px}
+  .kp-note{max-width:1000px;margin:12px auto 0;font-size:12.5px;color:var(--muted);text-align:left;line-height:1.8}
+  .mflow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1.15fr;gap:8px;align-items:stretch;margin:22px 0 16px}
+  .mf{background:var(--card);border:1px solid var(--line2);border-radius:10px;padding:16px 14px;text-align:center;display:flex;flex-direction:column;justify-content:center}
+  .mf-l{font-size:11.5px;font-weight:700;color:var(--muted);line-height:1.5;letter-spacing:.04em}
+  .mf-v{font-family:var(--serif);font-size:30px;font-weight:800;letter-spacing:.02em;line-height:1.1;color:var(--sumi);margin:8px 0 4px;font-variant-numeric:tabular-nums}
+  .mf-s{font-size:12px;color:var(--sumi2);line-height:1.5}
+  .mf.store{background:#efe6d3}.mf.store .mf-v{color:var(--gold)}
+  .mf.ks{background:var(--enji-soft)}.mf.ks .mf-v{color:var(--enji)}
+  .mf.you{background:var(--enji);border-color:var(--enji);color:#fff;box-shadow:0 8px 22px rgba(155,45,39,.22)}
+  .mf.you .mf-l,.mf.you .mf-s{color:rgba(255,255,255,.9)}.mf.you .mf-v{color:#fff}
+  .mf-arrow{display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--serif);font-size:20px;color:var(--muted);line-height:1}
+  .mf-arrow small{font-size:10px;letter-spacing:.06em;margin-top:4px;color:var(--muted);text-align:center}
+  .mbar{display:flex;height:50px;border-radius:8px;overflow:hidden}
+  .mbar>div{display:grid;place-items:center;color:#fff;font-weight:700;font-size:13px;letter-spacing:.04em;white-space:nowrap}
+  .mbar .b-store{flex:70;background:var(--gold)}.mbar .b-ks{flex:12;background:var(--muted);font-size:12px}.mbar .b-you{flex:18;background:var(--enji)}
+  .mbar-legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:10px;font-size:12px;color:var(--sumi2)}
+  .mbar-legend span:before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+  .mbar-legend .l-store:before{background:var(--gold)}.mbar-legend .l-ks:before{background:var(--muted)}.mbar-legend .l-you:before{background:var(--enji)}
+  .ptl{background:var(--card);border:1px solid var(--line2);border-radius:12px;padding:22px 22px 18px;margin-top:30px;overflow-x:auto;text-align:left}
+  .ptl-grid{display:grid;grid-template-columns:repeat(7,minmax(84px,1fr));gap:6px;min-width:620px}
+  .ptl-m{text-align:center;font-size:11.5px;color:var(--muted);padding-bottom:8px;border-bottom:1px solid var(--line)}
+  .ptl-m b{display:block;font-family:var(--serif);font-size:16px;color:var(--sumi)}
+  .ptl-band{border-radius:8px;padding:10px;font-size:12.5px;font-weight:700;line-height:1.45;text-align:center;min-height:52px;display:flex;flex-direction:column;justify-content:center}
+  .ptl-band small{display:block;font-size:11px;font-weight:500;opacity:.85}
+  .ptl-band.sales{grid-column:1/span 3;background:#efe6d3;color:#6b5a2e;border:1px dashed var(--gold-soft)}
+  .ptl-band.wait{grid-column:4/span 3;background:var(--paper2);color:var(--sumi2);border:1px dashed var(--line2)}
+  .ptl-band.pay{grid-column:7/span 1;background:var(--enji);color:#fff;box-shadow:0 6px 18px rgba(155,45,39,.25)}
+  .ptl-mark{font-size:11.5px;font-weight:700;color:var(--sumi2);text-align:center;padding-top:4px;line-height:1.4}
+  .ptl-mark.start{grid-column:1;color:#6b5a2e}.ptl-mark.close{grid-column:3}.ptl-mark.notice{grid-column:6}.ptl-mark.pay{grid-column:7;color:var(--enji)}
+  .ptl-sum{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+  .ptl-sum .big{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--sumi)}
+  .ptl-sum .big em{font-style:normal;color:var(--enji);font-size:1.3em}
+  .ptl-sum .fine{margin-top:0;font-size:12px;color:var(--muted);line-height:1.7}
+  .pay4{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:14px}
+  .pay4>div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 12px;text-align:center}
+  .pay4 b{display:block;font-family:var(--serif);font-size:20px;font-weight:800;color:var(--enji)}
+  .pay4 span{font-size:12px;color:var(--sumi2)}
+  .sflow{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(136px,1fr));gap:10px;counter-reset:sf;margin:36px 0 0;text-align:left}
+  .sflow li{position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 14px 14px;counter-increment:sf;display:flex;flex-direction:column;min-height:150px}
+  .sflow li:before{content:counter(sf,cjk-ideographic);width:30px;height:30px;border-radius:6px;background:var(--enji);color:#fbf3ea;font-family:var(--serif);font-weight:800;font-size:15px;display:grid;place-items:center;margin-bottom:10px}
+  .sflow li:after{content:"›";position:absolute;right:-9px;top:50%;transform:translateY(-50%);width:18px;height:18px;border-radius:50%;background:var(--card);border:1px solid var(--line2);color:var(--muted);font-size:14px;font-weight:700;line-height:16px;text-align:center;z-index:1}
+  .sflow li:last-child:after{display:none}
+  .sflow li.hi{border:1.5px solid var(--enji)}
+  .sflow b{font-family:var(--serif);font-size:14.5px;font-weight:700;color:var(--sumi);line-height:1.45}
+  .sflow span{font-size:12px;color:var(--sumi2);line-height:1.65;margin-top:6px;flex:1}
+  .sflow em{font-style:normal;display:inline-block;align-self:flex-start;margin-top:10px;font-family:var(--serif);font-size:10.5px;font-weight:700;letter-spacing:.06em;padding:2px 9px;border-radius:3px;border:1px solid var(--line2);background:var(--paper2);color:var(--sumi2)}
+  .sflow li.you em{border-color:var(--enji);background:var(--enji-soft);color:var(--enji-hover)}
+  details.fold{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 20px;margin-top:14px;text-align:left}
+  details.fold summary{cursor:pointer;font-family:var(--serif);font-weight:700;font-size:14.5px;color:var(--sumi);list-style:none;position:relative;padding-right:28px}
+  details.fold summary::-webkit-details-marker{display:none}
+  details.fold summary:after{content:"＋";position:absolute;right:0;top:0;color:var(--enji);font-weight:700}
+  details.fold[open] summary:after{content:"－"}
+  details.fold>div{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:14px;color:var(--sumi2);line-height:1.95}
+  table.ks td.dim{color:var(--muted)}
+  table.ks th.kscol,table.ks td.kscol{background:var(--enji-soft);color:var(--sumi);font-weight:700}
+  table.ks th.kscol{color:var(--enji)}
+  @media(max-width:760px){.mflow{grid-template-columns:1fr}.mf-arrow{transform:rotate(90deg);padding:2px 0}}
 </style>
 </head>
 <body>
@@ -441,31 +509,24 @@
     <span class="eyebrow">還元のしくみ / SHARE<span class="dash"></span></span>
     <h2 class="s-title">「60%」の、正直な内訳。</h2>
     <p class="s-sub">「60%」は、書店の取り分を引いたあと、好色堂に入るお金に対する割合です。数字の見え方でごまかさず、正直にお伝えします。</p>
-    <div class="note-box" style="margin-top:34px;text-align:center">
-      <strong>いちばん簡単に申し上げると。</strong>
-      <p>読者がお支払いになった販売額のうち、<strong style="font-size:19px">およそ20%前後</strong>が作家さまの取り分とお考えください。（書店手数料は電子書店ごとに異なり、手数料の低い書店では、これより多くなります）。新規のご契約は、標準の60%です。</p>
-    </div>
     <div class="money">
-      <h3>販売額の内訳（読者がお支払いになる額 ＝ 100%）</h3>
-      <div class="bar"><div class="seg-store">書店　50〜70%</div><div class="seg-ks">好色堂　30〜50%</div></div>
-      <div class="bar-labels"><div>書店手数料（電子書店ごとに異なります）</div><div>本使用料</div></div>
-      <div class="inner">
-        <h4>好色堂の取り分 30% の、さらに内訳</h4>
-        <div class="bar small"><div class="split-author">作家さま　60%</div><div class="split-ks">好色堂　40%</div></div>
-        <p class="fine">作家さまへの「還元率60%」は、この好色堂の取り分の中での割合です。</p>
+      <h3>1,000円の作品が一冊売れたとき（書店手数料が70%の書店の例）</h3>
+      <div class="mflow">
+        <div class="mf"><div class="mf-l">読者がお支払いになる販売額</div><div class="mf-v">100%</div><div class="mf-s">1,000円</div></div>
+        <div class="mf-arrow">→<small>書店が引く</small></div>
+        <div class="mf store"><div class="mf-l">書店手数料</div><div class="mf-v">約70%</div><div class="mf-s">700円ほど<br>（書店により50〜70%）</div></div>
+        <div class="mf-arrow">→<small>好色堂に入る</small></div>
+        <div class="mf ks"><div class="mf-l">本使用料（好色堂へ）</div><div class="mf-v">約30%</div><div class="mf-s">300円ほど</div></div>
+        <div class="mf-arrow">→<small>その60%</small></div>
+        <div class="mf you"><div class="mf-l">作家さまへ（本使用料の60%）</div><div class="mf-v">約20%</div><div class="mf-s">180〜200円ほど</div></div>
       </div>
-      <div class="example">
-        <h4>1,000円の作品が、一冊売れたとき（書店手数料が70%の場合）</h4>
-        <div class="erow"><span>書店（50〜70%）</span><span>700円</span></div>
-        <div class="erow"><span>好色堂（30〜50%）</span><span>300円</span></div>
-        <div class="erow"><span>　├ 運営費（40%）</span><span>120円</span></div>
-        <div class="erow hl"><span>　└ 作家さまへの還元（60%）</span><span>180円</span></div>
-        <p class="enote">手数料の低い書店では、作家さまの取り分はこれより多くなります（販売額のおよそ20%前後が目安）。一般的な取次（還元40%前後）なら120円ほど。好色堂は、そのおよそ1.5倍です。</p>
-      </div>
-    </div>
-    <div class="note-box">
-      <strong>「40%」は、何に使われるのか。</strong>
-      <p>配信許諾の交渉／EPUB制作・データ変換／表紙・奥付のデザイン／書誌情報の入力／白抜き・モザイク処理／販促・セール対応／売上の集計／書店・読者からのお問い合わせ対応／ストアの管理・仕様変更対応。これらをすべて含んで40%です。ご自身でこなす手間を時給に置き換えれば、お預けいただくほうが、ずっと割に合います。</p>
+      <div class="mbar"><div class="b-store">書店 約70%</div><div class="b-ks">運営 約12%</div><div class="b-you">作家さま 約18〜20%</div></div>
+      <div class="mbar-legend"><span class="l-store">書店手数料（書店ごとに50〜70%）</span><span class="l-ks">好色堂の運営費（本使用料の40%）</span><span class="l-you">作家さまの取り分（本使用料の60%＝販売額のおよそ20%）</span></div>
+      <p class="enote" style="margin-top:14px">手数料の低い書店では、作家さまの取り分はこれより多くなります。一般的な取次（還元40%前後）なら120円ほど。好色堂は、そのおよそ1.5倍です。</p>
+      <details class="fold">
+        <summary>「40%」は、何に使われるのか。</summary>
+        <div>配信許諾の交渉／EPUB制作・データ変換／表紙・奥付のデザイン／書誌情報の入力／白抜き・モザイク処理／販促・セール対応／売上の集計／書店・読者からのお問い合わせ対応／ストアの管理・仕様変更対応。これらをすべて含んで40%です。追加の費用はかかりません。</div>
+      </details>
     </div>
   </div>
 </section>
@@ -528,55 +589,49 @@
       <h2 class="s-title">お支払いの、流れ。</h2>
       <p class="s-sub">年4回・四半期ごとの振込。業界標準と同じサイクルです。</p>
     </div>
-    <div class="note-box emph" style="margin-top:34px">
-      <strong>初回のお振込は、配信開始からおよそ6ヶ月後が目安です。</strong>
-      <p>5月に配信を始めると、5〜7月分の売上が11月末にお振込となります。以降は3ヶ月ごと（年4回）。コミックシーモア分は販売月から3ヶ月遅れで当方に報告されるため、さらに後ろ倒しで反映されます。「しばらく入金がない」のは異常ではなく、この仕組みによるものです。</p>
+    <div class="ptl">
+      <div class="ptl-grid">
+        <div class="ptl-m"><b>5月</b>配信開始</div><div class="ptl-m"><b>6月</b></div><div class="ptl-m"><b>7月</b>締め日</div>
+        <div class="ptl-m"><b>8月</b></div><div class="ptl-m"><b>9月</b></div><div class="ptl-m"><b>10月</b>金額通知</div><div class="ptl-m"><b>11月</b>お振込</div>
+        <div class="ptl-band sales">5〜7月分の売上<small>第1四半期の販売期間</small></div>
+        <div class="ptl-band wait">書店からの報告・全店の集計<small>締め日から4ヶ月（契約書第4条）</small></div>
+        <div class="ptl-band pay">11月末<br>初回お振込</div>
+        <div class="ptl-mark start">▲ 配信開始</div>
+        <div class="ptl-mark close">▲ 7月末 締め</div>
+        <div class="ptl-mark notice">▲ 10月末 金額通知</div>
+        <div class="ptl-mark pay">▲ 11月末 お振込</div>
+      </div>
+      <div class="ptl-sum">
+        <div class="big">配信開始 → 初回のお振込 ＝ <em>およそ6ヶ月</em></div>
+        <div class="fine">契約書上は「各四半期の締め日から4ヶ月後の末日に振込」（第4条）。配信した月から数えるとおよそ6ヶ月後になります。<br>コミックシーモア分は販売月から3ヶ月遅れで当方に報告されるため、さらに後ろ倒しで反映されます。</div>
+      </div>
     </div>
-    <div class="tl">
-      <div class="tl-item"><strong>読者が書店でご購入</strong><span>スタート</span></div>
-      <div class="tl-item"><strong>取次から好色堂へ、売上報告・入金</strong><span>約1〜3ヶ月後（書店の報告ラグ）</span></div>
-      <div class="tl-item"><strong>好色堂で、作家さまごとに還元額を計算</strong><span>四半期末に集計</span></div>
-      <div class="tl-item"><strong>作家さまへ金額を通知（Discord／メール）</strong><span>振込の前月末に通知</span></div>
-      <div class="tl-item"><strong>ご指定の口座へ振込</strong><span>各四半期の締め日から4ヶ月後の末日（ご購入から最長で約7ヶ月）</span></div>
+    <h3 class="subhead">年4回の、お振込カレンダー</h3>
+    <div class="pay4">
+      <div><b>11月末</b><span>5〜7月分（7月末締め）</span></div>
+      <div><b>2月末</b><span>8〜10月分（10月末締め）</span></div>
+      <div><b>5月末</b><span>11〜1月分（1月末締め）</span></div>
+      <div><b>8月末</b><span>2〜4月分（4月末締め）</span></div>
     </div>
-    <h3 class="subhead">支払いスケジュール（年4回）</h3>
-    <div class="tbl-wrap">
-      <table class="ks">
-        <thead><tr><th>実売期間</th><th>締切日</th><th>金額通知</th><th>振込日</th></tr></thead>
-        <tbody>
-          <tr><td>5月〜7月分</td><td>7月末</td><td>10月末</td><td class="em">11月末</td></tr>
-          <tr><td>8月〜10月分</td><td>10月末</td><td>1月末</td><td class="em">2月末</td></tr>
-          <tr><td>11月〜1月分</td><td>1月末</td><td>4月末</td><td class="em">5月末</td></tr>
-          <tr><td>2月〜4月分</td><td>4月末</td><td>7月末</td><td class="em">8月末</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="note-box">
-      <strong>コミックシーモアについて、ひとつだけ。</strong>
-      <p>主力書店のひとつであるコミックシーモアは、<strong>販売月から3ヶ月遅れで当方に売上が報告・入金される</strong>仕組みです。そのため、コミックシーモア分の売上は、上記の予定よりさらに後ろ倒しで還元金に反映されます。すべての書店の数字が揃ってから、正確な額でお支払いするための、業界構造上の遅れです。</p>
-    </div>
-    <h3 class="subhead">お支払いの、細かな取り決め</h3>
+    <p class="enote" style="text-align:left">※ 金額は各お振込の前月末にご通知します。「しばらく入金がない」のは異常ではなく、この仕組みによるものです。</p>
+    <h3 class="subhead">売上のご報告と、お支払いの取り決め</h3>
     <div class="tbl-wrap">
       <table class="ks">
         <tbody>
-          <tr><td style="width:200px">振込手数料</td><td class="em">全額 好色堂 負担</td></tr>
+          <tr><td style="width:200px">売上のご報告</td><td class="em">売上は<strong>総額</strong>をお伝えします（書店別・ストア別の内訳は開示しておりません）。月末に速報、お振込月の前月に確定額。ご報告はご契約後の Discord 連絡用スレッドで行います</td></tr>
+          <tr><td>振込手数料</td><td class="em">全額 好色堂 負担</td></tr>
           <tr><td>1万円未満の場合</td><td>次回へ繰越（振込コストの節約）</td></tr>
           <tr><td>源泉徴収</td><td>個人口座のみ 10.21% 差引（法人口座は不要）</td></tr>
           <tr><td>インボイス</td><td>未登録の場合、消費税相当分を一部控除（経過措置で段階変動）</td></tr>
-          <tr><td>振込のタイミング</td><td>各四半期の振込日に一括</td></tr>
           <tr><td>振込口座</td><td>ご契約時にお知らせください。<strong>口座名義（カナ）が通帳・アプリの表記と一致しているか</strong>ご確認ください（不一致ですと振込が戻り、お支払いが遅れます）</td></tr>
-          <tr><td>売上のご報告</td><td class="em">売上（総額）は必ずお伝えします。月末に速報、お振込月の前月に確定額をご通知。ご報告は、ご契約後の専用窓口（Discordの連絡用チャンネル内のスレッド）で行います。書店別の内訳をどこまで開示するかは <span class="tbc">【要確認】</span></td></tr>
+          <tr><td>契約が終わるとき</td><td class="em">契約終了までに生じた売上分は、<strong>契約終了後1ヶ月以内</strong>に精算してお支払いします。当方が事業を停止する場合も同様に、停止後1ヶ月以内に精算します。なお解約後も、配信開始から1年（最低配信期間）の作品は配信が続き、その間は通常どおり四半期ごとに精算します（第15条4項）</td></tr>
         </tbody>
       </table>
     </div>
-    <div class="note-box">
-      <strong>なぜ、入金までに時間がかかるのか。</strong>
-      <p>① 書店から取次への報告に1〜2ヶ月　② コミックシーモアは販売月から3ヶ月遅れの報告　③ すべての書店の数字が揃わないと、正確な額で振り込めません。これは業界の構造による理由です。契約書上は「各四半期の締め日から4ヶ月後の末日に振込」（第4条）で、年4回・120日サイトなどは業界標準のサイクルです。結果として、初回のお振込は配信開始からおよそ6ヶ月後が目安となります。</p>
-    </div>
-    <div class="note-box">
-      <strong>契約が終わるとき・途中で解約するときの精算。</strong>
-      <p>解約後も、配信開始から1年（最低配信期間）の作品はそのまま配信が続き、その間の売上は通常どおり四半期ごとに精算します（契約書第15条4項）。契約終了までに生じた売上分の最終精算の時期、および当方が事業を停止した場合の未払い分の扱いは、契約書に明文がないため <span class="tbc">【要確認】</span> のうえご案内します。</p>
-    </div>
+    <details class="fold">
+      <summary>なぜ、入金までに時間がかかるのか。</summary>
+      <div>① 書店から取次への報告に1〜2ヶ月　② コミックシーモアは販売月から3ヶ月遅れの報告　③ すべての書店の数字が揃わないと、正確な額で振り込めません。これは業界の構造による理由です。契約書上は「各四半期の締め日から4ヶ月後の末日に振込」（第4条）で、年4回・120日サイトなどは業界標準のサイクルです。結果として、初回のお振込は配信開始からおよそ6ヶ月後が目安となります。</div>
+    </details>
   </div>
 </section>
 
@@ -587,40 +642,18 @@
       <h2 class="s-title">業界水準と、並べてみる。</h2>
       <p class="s-sub">好色堂が、作家さまに有利な条件をお出しできる理由。</p>
     </div>
-    <div class="duel">
-      <div class="duel-seal serif">対</div>
-      <div class="dcol ks">
-        <div class="dhead"><div class="n serif">好色堂</div><div class="sub">あなたに有利な条件</div></div>
-        <ul class="dlist">
-          <li><span class="dic star">★</span><span class="ditem"><span class="dl">還元率</span><span class="dv">60%（業界の約1.5倍）</span></span></li>
-          <li><span class="dic ok">✓</span><span class="ditem"><span class="dl">支払サイクル</span><span class="dv">年4回（四半期ごと）。初回は配信開始から約6ヶ月後が目安。シーモア分はさらに遅れる</span></span></li>
-          <li><span class="dic ok">✓</span><span class="ditem"><span class="dl">契約期間</span><span class="dv">1年＋自動更新</span></span></li>
-          <li><span class="dic ok">✓</span><span class="ditem"><span class="dl">独占範囲</span><span class="dv">非独占</span></span></li>
-          <li><span class="dic ok">✓</span><span class="ditem"><span class="dl">同人プラットフォーム</span><span class="dv">自由</span></span></li>
-          <li><span class="dic ok">✓</span><span class="ditem"><span class="dl">セルフパブ</span><span class="dv">自由</span></span></li>
-          <li><span class="dic ok">✓</span><span class="ditem"><span class="dl">書店数</span><span class="dv">100以上（全年齢含む）／成人向けは31</span></span></li>
-          <li><span class="dic ok">✓</span><span class="ditem"><span class="dl">入稿頻度</span><span class="dv">毎日可</span></span></li>
-          <li><span class="dic star">★</span><span class="ditem"><span class="dl">連絡・お返事</span><span class="dv">Discord専用窓口・即レス／月末に売上速報</span></span></li>
-          <li><span class="dic ok">✓</span><span class="ditem"><span class="dl">流入支援</span><span class="dv">書店レコメンド・ランキング</span></span></li>
-          <li><span class="dic ok">✓</span><span class="ditem"><span class="dl">初期費用</span><span class="dv">ゼロ</span></span></li>
-        </ul>
-      </div>
-      <div class="dcol other">
-        <div class="dhead"><div class="n serif">業界水準</div><div class="sub">一般的な取次</div></div>
-        <ul class="dlist">
-          <li><span class="dic ng">–</span><span class="ditem"><span class="dl">還元率</span><span class="dv">40%前後</span></span></li>
-          <li><span class="dic ng">–</span><span class="ditem"><span class="dl">支払サイクル</span><span class="dv">年2〜4回</span></span></li>
-          <li><span class="dic ng">–</span><span class="ditem"><span class="dl">契約期間</span><span class="dv">1〜5年</span></span></li>
-          <li><span class="dic ng">–</span><span class="ditem"><span class="dl">独占範囲</span><span class="dv">作家単位／専有的出版権あり</span></span></li>
-          <li><span class="dic no">×</span><span class="ditem"><span class="dl">同人プラットフォーム</span><span class="dv">制限あり</span></span></li>
-          <li><span class="dic no">×</span><span class="ditem"><span class="dl">セルフパブ</span><span class="dv">制限あり</span></span></li>
-          <li><span class="dic ng">–</span><span class="ditem"><span class="dl">書店数</span><span class="dv">サービスによる</span></span></li>
-          <li><span class="dic ng">–</span><span class="ditem"><span class="dl">入稿頻度</span><span class="dv">月数回制限も</span></span></li>
-          <li><span class="dic no">×</span><span class="ditem"><span class="dl">連絡・お返事</span><span class="dv">メール中心・返信が遅い</span></span></li>
-          <li><span class="dic no">×</span><span class="ditem"><span class="dl">流入支援</span><span class="dv">書店任せ</span></span></li>
-          <li><span class="dic ng">–</span><span class="ditem"><span class="dl">初期費用</span><span class="dv">ほぼゼロ</span></span></li>
-        </ul>
-      </div>
+    <div class="tbl-wrap" style="margin-top:40px">
+      <table class="ks">
+        <thead><tr><th style="width:24%"></th><th class="kscol">好色堂</th><th>一般的な取次</th><th>80%還元の他社</th></tr></thead>
+        <tbody>
+          <tr><td>還元率（本使用料に対して）</td><td class="kscol">60%</td><td class="dim">40%前後</td><td class="dim">80%</td></tr>
+          <tr><td>表紙・モザイク・話数分割・書誌入力</td><td class="kscol">すべて好色堂が（追加費用なし）</td><td class="dim">サービスによる</td><td class="dim">作家さまご自身で行う前提</td></tr>
+          <tr><td>書店数</td><td class="kscol">100以上（全年齢含む）／成人向けは31</td><td class="dim">サービスによる</td><td class="dim">サービスによる</td></tr>
+          <tr><td>お支払い</td><td class="kscol">年4回。初回は配信開始からおよそ6ヶ月後が目安</td><td class="dim">年2〜4回</td><td class="dim">サービスによる</td></tr>
+          <tr><td>契約・独占</td><td class="kscol">1年＋自動更新／お預けの作品だけ非独占</td><td class="dim">1〜5年／作家単位の独占も</td><td class="dim">サービスによる</td></tr>
+          <tr><td>連絡・お返事</td><td class="kscol">Discord 専用窓口・月末に売上速報</td><td class="dim">メール中心</td><td class="dim">サービスによる</td></tr>
+        </tbody>
+      </table>
     </div>
     <div class="note-box">
       <strong>「還元率80%」の他社のほうが得では、とよく聞かれます。</strong>

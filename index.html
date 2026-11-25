@@ -411,6 +411,74 @@
   .firstbox li{font-size:14.5px;line-height:1.95;color:var(--sumi2);margin-bottom:9px}
   .firstbox li strong{color:var(--sumi)}
   .firstbox a{color:var(--enji);text-decoration:underline;text-underline-offset:3px}
+
+  /* 2026-11 第二改訂: 図解部品（HTML/CSS のみ・画像なし・和紙と朱の装丁のまま） */
+  .kp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;max-width:1000px;margin:34px auto 0;text-align:left}
+  .kp{background:var(--card);border:1.5px solid var(--enji);border-radius:12px;padding:20px 22px 18px;display:flex;flex-direction:column;position:relative}
+  .kp.soft{border-color:var(--line2)}
+  .kp-tag{font-family:var(--serif);font-size:11px;font-weight:700;letter-spacing:.26em;color:var(--enji);margin-bottom:6px}
+  .kp-big{font-family:var(--serif);font-size:38px;font-weight:800;line-height:1.1;letter-spacing:.02em;color:var(--sumi);font-variant-numeric:tabular-nums}
+  .kp-big small{font-size:.45em;font-weight:700;margin-left:3px;letter-spacing:.06em}
+  .kp-head{font-family:var(--serif);font-size:15.5px;font-weight:700;color:var(--sumi);margin-top:8px;line-height:1.55}
+  .kp p{font-size:12.5px;color:var(--sumi2);line-height:1.75;margin-top:6px}
+  .kp a{color:var(--enji);text-decoration:underline;text-underline-offset:3px}
+  .kp-note{max-width:1000px;margin:12px auto 0;font-size:12.5px;color:var(--muted);text-align:left;line-height:1.8}
+  .mflow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1.15fr;gap:8px;align-items:stretch;margin:22px 0 16px}
+  .mf{background:var(--card);border:1px solid var(--line2);border-radius:10px;padding:16px 14px;text-align:center;display:flex;flex-direction:column;justify-content:center}
+  .mf-l{font-size:11.5px;font-weight:700;color:var(--muted);line-height:1.5;letter-spacing:.04em}
+  .mf-v{font-family:var(--serif);font-size:30px;font-weight:800;letter-spacing:.02em;line-height:1.1;color:var(--sumi);margin:8px 0 4px;font-variant-numeric:tabular-nums}
+  .mf-s{font-size:12px;color:var(--sumi2);line-height:1.5}
+  .mf.store{background:#efe6d3}.mf.store .mf-v{color:var(--gold)}
+  .mf.ks{background:var(--enji-soft)}.mf.ks .mf-v{color:var(--enji)}
+  .mf.you{background:var(--enji);border-color:var(--enji);color:#fff;box-shadow:0 8px 22px rgba(155,45,39,.22)}
+  .mf.you .mf-l,.mf.you .mf-s{color:rgba(255,255,255,.9)}.mf.you .mf-v{color:#fff}
+  .mf-arrow{display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--serif);font-size:20px;color:var(--muted);line-height:1}
+  .mf-arrow small{font-size:10px;letter-spacing:.06em;margin-top:4px;color:var(--muted);text-align:center}
+  .mbar{display:flex;height:50px;border-radius:8px;overflow:hidden}
+  .mbar>div{display:grid;place-items:center;color:#fff;font-weight:700;font-size:13px;letter-spacing:.04em;white-space:nowrap}
+  .mbar .b-store{flex:70;background:var(--gold)}.mbar .b-ks{flex:12;background:var(--muted);font-size:12px}.mbar .b-you{flex:18;background:var(--enji)}
+  .mbar-legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:10px;font-size:12px;color:var(--sumi2)}
+  .mbar-legend span:before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+  .mbar-legend .l-store:before{background:var(--gold)}.mbar-legend .l-ks:before{background:var(--muted)}.mbar-legend .l-you:before{background:var(--enji)}
+  .ptl{background:var(--card);border:1px solid var(--line2);border-radius:12px;padding:22px 22px 18px;margin-top:30px;overflow-x:auto;text-align:left}
+  .ptl-grid{display:grid;grid-template-columns:repeat(7,minmax(84px,1fr));gap:6px;min-width:620px}
+  .ptl-m{text-align:center;font-size:11.5px;color:var(--muted);padding-bottom:8px;border-bottom:1px solid var(--line)}
+  .ptl-m b{display:block;font-family:var(--serif);font-size:16px;color:var(--sumi)}
+  .ptl-band{border-radius:8px;padding:10px;font-size:12.5px;font-weight:700;line-height:1.45;text-align:center;min-height:52px;display:flex;flex-direction:column;justify-content:center}
+  .ptl-band small{display:block;font-size:11px;font-weight:500;opacity:.85}
+  .ptl-band.sales{grid-column:1/span 3;background:#efe6d3;color:#6b5a2e;border:1px dashed var(--gold-soft)}
+  .ptl-band.wait{grid-column:4/span 3;background:var(--paper2);color:var(--sumi2);border:1px dashed var(--line2)}
+  .ptl-band.pay{grid-column:7/span 1;background:var(--enji);color:#fff;box-shadow:0 6px 18px rgba(155,45,39,.25)}
+  .ptl-mark{font-size:11.5px;font-weight:700;color:var(--sumi2);text-align:center;padding-top:4px;line-height:1.4}
+  .ptl-mark.start{grid-column:1;color:#6b5a2e}.ptl-mark.close{grid-column:3}.ptl-mark.notice{grid-column:6}.ptl-mark.pay{grid-column:7;color:var(--enji)}
+  .ptl-sum{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+  .ptl-sum .big{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--sumi)}
+  .ptl-sum .big em{font-style:normal;color:var(--enji);font-size:1.3em}
+  .ptl-sum .fine{margin-top:0;font-size:12px;color:var(--muted);line-height:1.7}
+  .pay4{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:14px}
+  .pay4>div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 12px;text-align:center}
+  .pay4 b{display:block;font-family:var(--serif);font-size:20px;font-weight:800;color:var(--enji)}
+  .pay4 span{font-size:12px;color:var(--sumi2)}
+  .sflow{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(136px,1fr));gap:10px;counter-reset:sf;margin:36px 0 0;text-align:left}
+  .sflow li{position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 14px 14px;counter-increment:sf;display:flex;flex-direction:column;min-height:150px}
+  .sflow li:before{content:counter(sf,cjk-ideographic);width:30px;height:30px;border-radius:6px;background:var(--enji);color:#fbf3ea;font-family:var(--serif);font-weight:800;font-size:15px;display:grid;place-items:center;margin-bottom:10px}
+  .sflow li:after{content:"›";position:absolute;right:-9px;top:50%;transform:translateY(-50%);width:18px;height:18px;border-radius:50%;background:var(--card);border:1px solid var(--line2);color:var(--muted);font-size:14px;font-weight:700;line-height:16px;text-align:center;z-index:1}
+  .sflow li:last-child:after{display:none}
+  .sflow li.hi{border:1.5px solid var(--enji)}
+  .sflow b{font-family:var(--serif);font-size:14.5px;font-weight:700;color:var(--sumi);line-height:1.45}
+  .sflow span{font-size:12px;color:var(--sumi2);line-height:1.65;margin-top:6px;flex:1}
+  .sflow em{font-style:normal;display:inline-block;align-self:flex-start;margin-top:10px;font-family:var(--serif);font-size:10.5px;font-weight:700;letter-spacing:.06em;padding:2px 9px;border-radius:3px;border:1px solid var(--line2);background:var(--paper2);color:var(--sumi2)}
+  .sflow li.you em{border-color:var(--enji);background:var(--enji-soft);color:var(--enji-hover)}
+  details.fold{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 20px;margin-top:14px;text-align:left}
+  details.fold summary{cursor:pointer;font-family:var(--serif);font-weight:700;font-size:14.5px;color:var(--sumi);list-style:none;position:relative;padding-right:28px}
+  details.fold summary::-webkit-details-marker{display:none}
+  details.fold summary:after{content:"＋";position:absolute;right:0;top:0;color:var(--enji);font-weight:700}
+  details.fold[open] summary:after{content:"－"}
+  details.fold>div{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:14px;color:var(--sumi2);line-height:1.95}
+  table.ks td.dim{color:var(--muted)}
+  table.ks th.kscol,table.ks td.kscol{background:var(--enji-soft);color:var(--sumi);font-weight:700}
+  table.ks th.kscol{color:var(--enji)}
+  @media(max-width:760px){.mflow{grid-template-columns:1fr}.mf-arrow{transform:rotate(90deg);padding:2px 0}}
 </style>
 </head>
 <body>
@@ -448,7 +516,7 @@
         <a class="btn btn-outline" href="flow.html#flow">お預かりの流れ<span class="arr">→</span></a>
       </div>
       <p class="hero-note"><span class="i serif">i</span>登録料・掲載料は一切いただきません。お支払いは四半期ごと・振込手数料は当方負担。</p>
-      <p class="hero-note emph" style="margin-top:12px"><span class="i serif">i</span><span><b>「100を超える書店」は全年齢作品を含めた総数です。</b>成人向け作品が実際に並ぶのは31書店（2026年9月時点）。ただ、売れる書店はだいたい決まっており、その売れる店は押さえています。一覧は <a href="#stores" style="color:var(--enji);text-decoration:underline;text-underline-offset:3px">こちら</a>。還元率60%は「本使用料」に対する割合で、手取りは販売額のおよそ20%が目安です。</span></p>
+      <p class="hero-note emph" style="margin-top:12px"><span class="i serif">i</span><span><b>「100を超える書店」は全年齢を含めた総数。</b>成人向けが実際に並ぶのは31書店（2026年9月時点）。<b>還元率60%</b>は本使用料に対する割合で、手取りは販売額のおよそ20%です。詳しくは下の3点を。</span></p>
     </div>
     <div class="hero-art">
       <img class="hero-sumi seal-img" src="assets/img-b9246609.png" alt="水墨画の女性" width="430" height="645">
@@ -473,16 +541,28 @@
 
 <section id="first" class="center">
   <div class="wrap">
-    <div class="firstbox">
-      <h3>先に、誤解されやすい点をお伝えします。</h3>
-      <ol>
-        <li><strong>「100を超える書店」は全年齢作品を含めた総数です。</strong>成人向け作品が実際に並ぶのは31書店（2026年9月時点）。ただし売れる書店はだいたい決まっていて、その売れる店は押さえています（<a href="#stores">配信書店の一覧</a>）。</li>
-        <li><strong>「還元率60%」は販売額の60%ではありません。</strong>書店手数料（おおむね50〜70%）を引いたあとに好色堂へ入る「本使用料」に対する60%です。<strong>手取りは販売額のおよそ20%</strong>が目安です（1,000円の作品なら180〜200円ほど。<a href="money.html#share">内訳の図</a>）。</li>
-        <li><strong>初回のお振込は、配信開始からおよそ6ヶ月後が目安です。</strong>以降は3ヶ月ごと（年4回）。コミックシーモア分はさらに遅れて反映されます（<a href="money.html#payment">お支払いの流れ</a>）。</li>
-        <li><strong>一年契約なのは、先行投資があるからです。</strong>表紙・電子化・入稿の費用を好色堂が先に負担します（売れなくても作家さまのご負担はありません）。1年を過ぎれば3ヶ月前のお申し出で解約できます。</li>
-        <li><strong>販売価格は好色堂が決めます（ご希望はうかがいます）。</strong>相場の目安はページ数×10円です（<a href="sales.html#sales">売れ方と企画</a>）。</li>
-      </ol>
+    <span class="eyebrow">先に、この3点<span class="dash"></span></span>
+    <div class="kp-grid" style="margin-top:26px">
+      <div class="kp">
+        <div class="kp-tag">其の一 ／ 書店の数</div>
+        <div class="kp-big">31<small>書店</small></div>
+        <div class="kp-head">成人向け作品が実際に並ぶ数（2026年9月時点）</div>
+        <p>「100を超える書店」は全年齢を含めた総数。売れる書店は決まっていて、その店は押さえています。<a href="#stores">一覧</a></p>
+      </div>
+      <div class="kp">
+        <div class="kp-tag">其の二 ／ 手取り</div>
+        <div class="kp-big">約20<small>%</small></div>
+        <div class="kp-head">販売額に対する作家さまの取り分</div>
+        <p>「還元率60%」は書店手数料を引いた後の本使用料に対する割合。1,000円なら180〜200円ほど。<a href="money.html#share">内訳の図</a></p>
+      </div>
+      <div class="kp">
+        <div class="kp-tag">其の三 ／ 初回のお振込</div>
+        <div class="kp-big">約6<small>ヶ月後</small></div>
+        <div class="kp-head">配信開始から初回のお振込までの目安</div>
+        <p>以降は年4回。コミックシーモア分はさらに遅れて反映されます。<a href="money.html#payment">お支払いの流れ</a></p>
+      </div>
     </div>
+    <p class="kp-note">一年契約なのは、表紙・電子化・入稿の費用を好色堂が先に負担するため（売れなくてもご負担はありません。1年を過ぎれば3ヶ月前のお申し出で解約可）。販売価格は好色堂が決めます（ご希望はうかがいます。相場はページ数×10円）。</p>
   </div>
 </section>
 
@@ -526,9 +606,10 @@
     </div>
 
     <h3 class="subhead" id="stores">成人向け作品を、お届けする書店。</h3>
-    <div class="note-box emph" style="margin-top:0">
-      <strong>「100を超える書店」は、全年齢作品を含めた総数です。</strong>
-      <p>成人向け作品の場合、書店ごとの審査基準（成人向けの取り扱いの可否）により、実際に並ぶ書店は絞られます。出せる書店を選定したうえで配信しますので、「出したのに審査で落ちて無駄骨だった」ということは起こりません。そして、<strong>売れる書店はだいたい決まっています</strong>。コミックシーモアをはじめ、成人向けで売上の立つ主要な書店は押さえています（売れ方の傾向は <a href="sales.html#sales" style="color:var(--enji);text-decoration:underline;text-underline-offset:3px">売れ方と企画</a> へ）。</p>
+    <div class="kp-grid" style="margin-top:0;max-width:none">
+      <div class="kp"><div class="kp-tag">総数</div><div class="kp-big">100<small>超</small></div><div class="kp-head">全年齢作品を含めた総数</div><p>全年齢作品であれば、さらに幅広い書店へお届けできます。</p></div>
+      <div class="kp"><div class="kp-tag">成人向け</div><div class="kp-big">31<small>書店</small></div><div class="kp-head">実際に並んでいる書店（2026年9月時点）</div><p>出せる書店を選定して配信しますので「審査で落ちて無駄骨」は起こりません。</p></div>
+      <div class="kp"><div class="kp-tag">売れる店</div><div class="kp-big">押さえて<small>います</small></div><div class="kp-head">売れる書店は、だいたい決まっている</div><p>コミックシーモアをはじめ、成人向けで売上の立つ主要店は押さえています（<a href="sales.html#sales">売れ方と企画</a>）。</p></div>
     </div>
     <p class="s-sub" style="margin-top:26px">成人向け作品が、実際に並んでいる書店（31書店・2026年9月時点）</p>
     <div class="tbl-wrap">
@@ -562,10 +643,10 @@
       </table>
     </div>
     <p class="enote" style="text-align:left">※ この4書店は<strong>まだ配信が始まっていません</strong>。接続が完了しだい、お預かりしている作品を順次お届けします。開始時期は書店側の手続き次第のため、確約はいたしかねます。</p>
-    <div class="note-box">
-      <strong>お預けの前に、配信先の全一覧をご覧になりたい方へ。</strong>
-      <p>上の表が、成人向け作品が実際に並んでいる書店です。全配信先の一覧を事前にお渡しできるか、またその更新の頻度は <span class="tbc">【要確認】</span> のうえご案内します。海外の書店・英語版について（他社へ英語版を独占許諾済みの作品の日本語版をお預かりできるかを含め）も、確認のうえご案内します <span class="tbc">【要確認】</span>。</p>
-    </div>
+    <details class="fold">
+      <summary>お預けの前に、配信先の全一覧をご覧になりたい方へ／海外・英語版について</summary>
+      <div>上の表が、成人向け作品が実際に並んでいる書店です。全配信先の一覧を事前にお渡しできるか、またその更新の頻度は <span class="tbc">【要確認】</span> のうえご案内します。海外の書店・英語版について（他社へ英語版を独占許諾済みの作品の日本語版をお預かりできるかを含め）も、確認のうえご案内します <span class="tbc">【要確認】</span>。</div>
+    </details>
   </div>
 </section>
 

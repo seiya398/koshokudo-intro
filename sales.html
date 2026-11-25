@@ -411,6 +411,74 @@
   .firstbox li{font-size:14.5px;line-height:1.95;color:var(--sumi2);margin-bottom:9px}
   .firstbox li strong{color:var(--sumi)}
   .firstbox a{color:var(--enji);text-decoration:underline;text-underline-offset:3px}
+
+  /* 2026-11 第二改訂: 図解部品（HTML/CSS のみ・画像なし・和紙と朱の装丁のまま） */
+  .kp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;max-width:1000px;margin:34px auto 0;text-align:left}
+  .kp{background:var(--card);border:1.5px solid var(--enji);border-radius:12px;padding:20px 22px 18px;display:flex;flex-direction:column;position:relative}
+  .kp.soft{border-color:var(--line2)}
+  .kp-tag{font-family:var(--serif);font-size:11px;font-weight:700;letter-spacing:.26em;color:var(--enji);margin-bottom:6px}
+  .kp-big{font-family:var(--serif);font-size:38px;font-weight:800;line-height:1.1;letter-spacing:.02em;color:var(--sumi);font-variant-numeric:tabular-nums}
+  .kp-big small{font-size:.45em;font-weight:700;margin-left:3px;letter-spacing:.06em}
+  .kp-head{font-family:var(--serif);font-size:15.5px;font-weight:700;color:var(--sumi);margin-top:8px;line-height:1.55}
+  .kp p{font-size:12.5px;color:var(--sumi2);line-height:1.75;margin-top:6px}
+  .kp a{color:var(--enji);text-decoration:underline;text-underline-offset:3px}
+  .kp-note{max-width:1000px;margin:12px auto 0;font-size:12.5px;color:var(--muted);text-align:left;line-height:1.8}
+  .mflow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1.15fr;gap:8px;align-items:stretch;margin:22px 0 16px}
+  .mf{background:var(--card);border:1px solid var(--line2);border-radius:10px;padding:16px 14px;text-align:center;display:flex;flex-direction:column;justify-content:center}
+  .mf-l{font-size:11.5px;font-weight:700;color:var(--muted);line-height:1.5;letter-spacing:.04em}
+  .mf-v{font-family:var(--serif);font-size:30px;font-weight:800;letter-spacing:.02em;line-height:1.1;color:var(--sumi);margin:8px 0 4px;font-variant-numeric:tabular-nums}
+  .mf-s{font-size:12px;color:var(--sumi2);line-height:1.5}
+  .mf.store{background:#efe6d3}.mf.store .mf-v{color:var(--gold)}
+  .mf.ks{background:var(--enji-soft)}.mf.ks .mf-v{color:var(--enji)}
+  .mf.you{background:var(--enji);border-color:var(--enji);color:#fff;box-shadow:0 8px 22px rgba(155,45,39,.22)}
+  .mf.you .mf-l,.mf.you .mf-s{color:rgba(255,255,255,.9)}.mf.you .mf-v{color:#fff}
+  .mf-arrow{display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--serif);font-size:20px;color:var(--muted);line-height:1}
+  .mf-arrow small{font-size:10px;letter-spacing:.06em;margin-top:4px;color:var(--muted);text-align:center}
+  .mbar{display:flex;height:50px;border-radius:8px;overflow:hidden}
+  .mbar>div{display:grid;place-items:center;color:#fff;font-weight:700;font-size:13px;letter-spacing:.04em;white-space:nowrap}
+  .mbar .b-store{flex:70;background:var(--gold)}.mbar .b-ks{flex:12;background:var(--muted);font-size:12px}.mbar .b-you{flex:18;background:var(--enji)}
+  .mbar-legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:10px;font-size:12px;color:var(--sumi2)}
+  .mbar-legend span:before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+  .mbar-legend .l-store:before{background:var(--gold)}.mbar-legend .l-ks:before{background:var(--muted)}.mbar-legend .l-you:before{background:var(--enji)}
+  .ptl{background:var(--card);border:1px solid var(--line2);border-radius:12px;padding:22px 22px 18px;margin-top:30px;overflow-x:auto;text-align:left}
+  .ptl-grid{display:grid;grid-template-columns:repeat(7,minmax(84px,1fr));gap:6px;min-width:620px}
+  .ptl-m{text-align:center;font-size:11.5px;color:var(--muted);padding-bottom:8px;border-bottom:1px solid var(--line)}
+  .ptl-m b{display:block;font-family:var(--serif);font-size:16px;color:var(--sumi)}
+  .ptl-band{border-radius:8px;padding:10px;font-size:12.5px;font-weight:700;line-height:1.45;text-align:center;min-height:52px;display:flex;flex-direction:column;justify-content:center}
+  .ptl-band small{display:block;font-size:11px;font-weight:500;opacity:.85}
+  .ptl-band.sales{grid-column:1/span 3;background:#efe6d3;color:#6b5a2e;border:1px dashed var(--gold-soft)}
+  .ptl-band.wait{grid-column:4/span 3;background:var(--paper2);color:var(--sumi2);border:1px dashed var(--line2)}
+  .ptl-band.pay{grid-column:7/span 1;background:var(--enji);color:#fff;box-shadow:0 6px 18px rgba(155,45,39,.25)}
+  .ptl-mark{font-size:11.5px;font-weight:700;color:var(--sumi2);text-align:center;padding-top:4px;line-height:1.4}
+  .ptl-mark.start{grid-column:1;color:#6b5a2e}.ptl-mark.close{grid-column:3}.ptl-mark.notice{grid-column:6}.ptl-mark.pay{grid-column:7;color:var(--enji)}
+  .ptl-sum{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+  .ptl-sum .big{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--sumi)}
+  .ptl-sum .big em{font-style:normal;color:var(--enji);font-size:1.3em}
+  .ptl-sum .fine{margin-top:0;font-size:12px;color:var(--muted);line-height:1.7}
+  .pay4{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:14px}
+  .pay4>div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 12px;text-align:center}
+  .pay4 b{display:block;font-family:var(--serif);font-size:20px;font-weight:800;color:var(--enji)}
+  .pay4 span{font-size:12px;color:var(--sumi2)}
+  .sflow{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(136px,1fr));gap:10px;counter-reset:sf;margin:36px 0 0;text-align:left}
+  .sflow li{position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 14px 14px;counter-increment:sf;display:flex;flex-direction:column;min-height:150px}
+  .sflow li:before{content:counter(sf,cjk-ideographic);width:30px;height:30px;border-radius:6px;background:var(--enji);color:#fbf3ea;font-family:var(--serif);font-weight:800;font-size:15px;display:grid;place-items:center;margin-bottom:10px}
+  .sflow li:after{content:"›";position:absolute;right:-9px;top:50%;transform:translateY(-50%);width:18px;height:18px;border-radius:50%;background:var(--card);border:1px solid var(--line2);color:var(--muted);font-size:14px;font-weight:700;line-height:16px;text-align:center;z-index:1}
+  .sflow li:last-child:after{display:none}
+  .sflow li.hi{border:1.5px solid var(--enji)}
+  .sflow b{font-family:var(--serif);font-size:14.5px;font-weight:700;color:var(--sumi);line-height:1.45}
+  .sflow span{font-size:12px;color:var(--sumi2);line-height:1.65;margin-top:6px;flex:1}
+  .sflow em{font-style:normal;display:inline-block;align-self:flex-start;margin-top:10px;font-family:var(--serif);font-size:10.5px;font-weight:700;letter-spacing:.06em;padding:2px 9px;border-radius:3px;border:1px solid var(--line2);background:var(--paper2);color:var(--sumi2)}
+  .sflow li.you em{border-color:var(--enji);background:var(--enji-soft);color:var(--enji-hover)}
+  details.fold{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 20px;margin-top:14px;text-align:left}
+  details.fold summary{cursor:pointer;font-family:var(--serif);font-weight:700;font-size:14.5px;color:var(--sumi);list-style:none;position:relative;padding-right:28px}
+  details.fold summary::-webkit-details-marker{display:none}
+  details.fold summary:after{content:"＋";position:absolute;right:0;top:0;color:var(--enji);font-weight:700}
+  details.fold[open] summary:after{content:"－"}
+  details.fold>div{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:14px;color:var(--sumi2);line-height:1.95}
+  table.ks td.dim{color:var(--muted)}
+  table.ks th.kscol,table.ks td.kscol{background:var(--enji-soft);color:var(--sumi);font-weight:700}
+  table.ks th.kscol{color:var(--enji)}
+  @media(max-width:760px){.mflow{grid-template-columns:1fr}.mf-arrow{transform:rotate(90deg);padding:2px 0}}
 </style>
 </head>
 <body>
@@ -440,29 +508,12 @@
   <div class="wrap">
     <span class="eyebrow">売れ方と企画 / SALES<span class="dash"></span></span>
     <h2 class="s-title">売れ方と、企画のこと。</h2>
-    <p class="s-sub">ご説明の場で毎回口頭でお伝えしている「どう出すと売れやすいか」をまとめました。実際の販売データにもとづく傾向であり、売上をお約束するものではありません。</p>
+    <p class="s-sub">ご説明の場で毎回口頭でお伝えしている「どう出すと売れやすいか」をまとめました。傾向であり、売上をお約束するものではありません。</p>
 
     <h3 class="subhead">タイトルで、売れ方が変わる。</h3>
-    <p class="s-sub" style="margin-bottom:6px">コミックシーモアでの実売（作品ごとの販売数の中央値）を、タイトルの付け方で分けて見たものです。</p>
-    <p class="enote">※ シーモア実売の中央値。対象期間・母数は <span class="tbc">【要確認】</span></p>
-    <div class="sim" style="margin-top:18px">
-      <div class="simc"><div class="l">タイトルに性行為を明記</div><div class="v">33 DL</div><div class="s">中央値／作品</div></div>
-      <div class="simc"><div class="l">「〜した話」型のタイトル</div><div class="v">15 DL</div><div class="s">中央値／作品</div></div>
-      <div class="simc"><div class="l">性行為の明記なし</div><div class="v">2 DL</div><div class="s">中央値／作品</div></div>
-    </div>
-    <div class="note-box">
-      <strong>読者は「何が起きる本か」が分かるタイトルを選びます。</strong>
-      <p>商業の電子書店では、作品を見つける入口がタイトルと表紙しかありません。何をする作品かがタイトルで分かるものほど手に取られやすく、婉曲なタイトルは検索にも棚にも引っかかりにくくなります。書店の審査に合わせて、タイトルの一部を伏字にするなどの編集が入ることがあります（契約書第7条）。審査に通る範囲で、伝わるタイトルをご一緒に考えます。</p>
-    </div>
-
-    <h3 class="subhead">モザイクと棒消し、どちらが売れるか。</h3>
-    <div class="tbl-wrap">
-      <table class="ks">
-        <tbody>
-          <tr><td style="width:250px">売上の差</td><td>モザイク処理と棒消し（白抜き・黒塗り）で、売上に明確な差は見られません。「棒消しだから売れない」ということはありません</td></tr>
-          <tr><td>上位の作品</td><td class="em">売上上位の作品には、モザイク処理のものが多く見られます。処理はすべて好色堂が行い、書店ごとの審査基準に合わせて複数のパターンをご用意します（追加費用なし）</td></tr>
-        </tbody>
-      </table>
+    <div class="kp-grid" style="margin-top:0;max-width:900px">
+      <div class="kp soft"><div class="kp-tag">読者に届きやすい傾向</div><div class="kp-head">何をする作品かが、タイトルで伝わる</div><p>商業の電子書店で作品を見つける入口は、タイトルと表紙だけ。行為や状況が具体的に伝わる言い方のほうが、手に取られやすい傾向です。</p></div>
+      <div class="kp soft"><div class="kp-tag">苦戦しやすい傾向</div><div class="kp-head">婉曲で、中身が想像できない</div><p>検索にも棚にも引っかかりにくくなります。書店の審査に合わせてタイトルの一部を伏字にするなどの編集が入ることがあります（契約書第7条・事前にお知らせします）。</p></div>
     </div>
 
     <h3 class="subhead">価格の目安は、「ページ数×10円」。</h3>
@@ -473,7 +524,8 @@
           <tr><td>レンタル価格</td><td>同じ考え方で設定します</td></tr>
           <tr><td>決定権</td><td>好色堂が決定します。ご希望は必ずうかがい、相場と大きくずれていなければ反映します</td></tr>
           <tr><td>値引き</td><td>主に書店主催のセール。割引50%以上・無料キャンペーンは必ず事前にご確認。無断で極端な安売りはいたしません</td></tr>
-          <tr><td>総集編と単行本</td><td class="em">実売の傾向として、総集編より単行本のほうが売れています。総集編は個別のご相談です</td></tr>
+          <tr><td>総集編と単行本</td><td class="em">総集編より単行本のほうが売れる傾向です。総集編は個別のご相談です</td></tr>
+          <tr><td>モザイク・白抜き</td><td>どちらでも配信できます。書店ごとの審査基準に合わせて好色堂が調整します（追加費用なし）</td></tr>
         </tbody>
       </table>
     </div>
@@ -482,7 +534,7 @@
     <h3 class="subhead">売れる書店は、だいたい決まっている。</h3>
     <div class="note-box" style="margin-top:0">
       <strong>「100書店」より、「売れる31書店」。</strong>
-      <p>「100を超える書店」は全年齢作品を含めた総数で、成人向け作品が実際に並ぶのは31書店（2026年9月時点）です。ただ、成人向けの売上はコミックシーモアをはじめとする一部の主要な書店に集中しており、<strong>その売れる店は押さえています</strong>。一覧は <a href="#stores" style="color:var(--enji);text-decoration:underline;text-underline-offset:3px">配信書店</a> をご覧ください。</p>
+      <p>「100を超える書店」は全年齢作品を含めた総数で、成人向け作品が実際に並ぶのは31書店（2026年9月時点）です。ただ、成人向けの売上はコミックシーモアをはじめとする一部の主要な書店に集中しており、<strong>その売れる店は押さえています</strong>。一覧は <a href="index.html#stores" style="color:var(--enji);text-decoration:underline;text-underline-offset:3px">配信書店</a> をご覧ください。</p>
     </div>
 
     <h3 class="subhead">ジャンル・絵柄の、傾向。</h3>
