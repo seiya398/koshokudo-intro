@@ -166,6 +166,7 @@
   .note-box{background:var(--enji-soft);border:1px solid #e6cfc9;border-left:4px solid var(--enji);border-radius:8px;padding:26px 30px;margin-top:36px;text-align:left}
   .note-box strong{display:block;font-family:var(--serif);font-size:17px;font-weight:700;color:var(--enji-hover);margin-bottom:9px;letter-spacing:.02em}
   .note-box p{font-size:15px;color:var(--sumi2);line-height:1.95}
+  .note-box p strong.inl{display:inline;font-family:inherit;font-size:inherit;margin:0;letter-spacing:inherit}
   /* 「100書店＝全年齢込み」の注記は誤解されやすいので、通常の note-box より一段強く出す（社長指示 2026-09-01） */
   .note-box.emph{border-left-width:6px;box-shadow:0 2px 14px rgba(155,45,39,.10)}
   .note-box.emph strong{font-size:19px}
@@ -534,7 +535,7 @@
         <div class="mf-arrow">→<small>その60%</small></div>
         <div class="mf you"><div class="mf-l">作家さまの手取り</div><div class="mf-v">約20%</div><div class="mf-s">180〜200円ほど</div></div>
       </div>
-      <div class="mbar"><div class="b-store">書店 約70%</div><div class="b-ks">運営 約12%</div><div class="b-you">作家さま 約18〜20%</div></div>
+      <div class="mbar"><div class="b-store">書店 約70%</div><div class="b-ks">運営 約12%</div><div class="b-you">作家さま 約20%</div></div>
       <div class="mbar-legend"><span class="l-store">書店手数料（書店ごとに50〜70%）</span><span class="l-ks">好色堂の制作・配信費（本使用料の40%＝売価の約12%）</span><span class="l-you">作家さまの取り分（本使用料の60%＝販売額のおよそ20%）</span></div>
       <p class="enote" style="margin-top:14px">手数料の低い書店では、作家さまの取り分はこれより多くなります。一般的な取次（還元40%前後）なら120円ほど。好色堂は、そのおよそ1.5倍です。</p>
       <details class="fold">
@@ -549,34 +550,21 @@
   <div class="wrap">
     <div class="center">
       <span class="eyebrow">SIMULATION<span class="dash"></span></span>
-      <h2 class="s-title">収入の、目安。</h2>
-      <p class="s-sub">作家さまの手取り ＝ 販売額 × 30〜50%（好色堂の取り分）× 60%（還元率）× 販売数。下記は、書店手数料が70%の場合の目安です。</p>
+      <h2 class="s-title">手取りの、計算のしかた。</h2>
+      <p class="s-sub">作家さまの手取り ＝ 売価 × 約30%（書店手数料を引いた本使用料）× 60%（還元率）× 冊数。売価のおよそ20%が目安です。下記は書店手数料が70%の場合の掛け算の例で、売れる冊数の目安ではありません。</p>
     </div>
-    <h3 class="subhead first">販売価格 990円 の場合</h3>
+    <h3 class="subhead first">売価990円の作品が売れたとき</h3>
     <div class="sim">
-      <div class="simc"><div class="l">10冊 / 月</div><div class="v">¥1,782</div><div class="s">年 ¥21,384</div></div>
-      <div class="simc"><div class="l">50冊 / 月</div><div class="v">¥8,910</div><div class="s">年 ¥106,920</div></div>
-      <div class="simc"><div class="l">100冊 / 月</div><div class="v">¥17,820</div><div class="s">年 ¥213,840</div></div>
-      <div class="simc"><div class="l">300冊 / 月</div><div class="v">¥53,460</div><div class="s">年 ¥641,520</div></div>
-      <div class="simc"><div class="l">500冊 / 月</div><div class="v">¥89,100</div><div class="s">年 ¥1,069,200</div></div>
-      <div class="simc"><div class="l">1,000冊 / 月</div><div class="v">¥178,200</div><div class="s">年 ¥2,138,400</div></div>
+      <div class="simc"><div class="l">990円 × 10冊</div><div class="v">¥1,782</div><div class="s">売上 9,900円 のうち</div></div>
+      <div class="simc"><div class="l">990円 × 100冊</div><div class="v">¥17,820</div><div class="s">売上 99,000円 のうち</div></div>
+      <div class="simc"><div class="l">990円 × 1,000冊</div><div class="v">¥178,200</div><div class="s">売上 990,000円 のうち</div></div>
     </div>
     <h3 class="subhead">実際の売れ方（包み隠さず）</h3>
     <div class="note-box" style="margin-top:0">
       <strong>同人のプラットフォームほどは、売れません。</strong>
       <p>商業の電子書店は、読者層も価格帯も導線も同人とは異なります。同人で月に数百〜数千冊売れている作家さまでも、商業配信の当初は、月に数十〜数百冊から始まるのが一般的です。ただし作品を積み上げるほど、月々の売上は安定します（作品が十あれば、一作ごとの波が平されます）。</p>
     </div>
-    <div class="tbl-wrap" style="margin-top:24px">
-      <table class="ks">
-        <thead><tr><th>レンジ</th><th>月間の販売数</th><th>作家さま手取り／月（990円作品）</th></tr></thead>
-        <tbody>
-          <tr><td>中央値ゾーン</td><td>20〜50冊</td><td class="em">3,564〜8,910円</td></tr>
-          <tr><td>平均値ゾーン</td><td>50〜150冊</td><td class="em">8,910〜26,730円</td></tr>
-          <tr><td>上位層</td><td>300冊以上</td><td class="em">53,460円以上</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <h3 class="subhead">セールの、お約束</h3>
+<h3 class="subhead">セールの、お約束</h3>
     <div class="twocol" style="margin-top:0">
       <div class="panel">
         <div class="col-label">ASK FIRST</div>

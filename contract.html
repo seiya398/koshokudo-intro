@@ -166,6 +166,7 @@
   .note-box{background:var(--enji-soft);border:1px solid #e6cfc9;border-left:4px solid var(--enji);border-radius:8px;padding:26px 30px;margin-top:36px;text-align:left}
   .note-box strong{display:block;font-family:var(--serif);font-size:17px;font-weight:700;color:var(--enji-hover);margin-bottom:9px;letter-spacing:.02em}
   .note-box p{font-size:15px;color:var(--sumi2);line-height:1.95}
+  .note-box p strong.inl{display:inline;font-family:inherit;font-size:inherit;margin:0;letter-spacing:inherit}
   /* 「100書店＝全年齢込み」の注記は誤解されやすいので、通常の note-box より一段強く出す（社長指示 2026-09-01） */
   .note-box.emph{border-left-width:6px;box-shadow:0 2px 14px rgba(155,45,39,.10)}
   .note-box.emph strong{font-size:19px}
@@ -543,7 +544,7 @@
         <div class="ctl-node"><b>ご署名</b><span>電子契約（マネーフォワード）。本名をお書きいただくのはここだけ。</span></div>
         <div class="ctl-node"><b>配信開始</b><span>お預かりから約一〜二週間で準備し、書店ごとに順次公開。</span></div>
         <div class="ctl-node hi"><b>配信開始から1年</b><span>最低配信期間。この間は配信が続き、条件も同じです。</span></div>
-        <div class="ctl-node"><b>1年経過後</b><span>3ヶ月前にお申し出いただけば解約できます（実質最短およそ13ヶ月）。</span></div>
+        <div class="ctl-node"><b>1年経過後</b><span>3ヶ月前にお申し出いただけば解約できます。実質の最短は、およそ13ヶ月です。</span></div>
         <div class="ctl-node"><b>契約終了後</b><span>おおむね2ヶ月で各書店の配信が終了。売上は終了後1ヶ月以内に精算。</span></div>
       </div>
       <p class="ctl-note">対象はお預けいただいた作品だけ。お預けでない作品や、FANZA同人・DLsite・BOOTH・ご自身のサイトでの販売は自由です。5年縛りのような長期の拘束はありません。海外在住の方は、現状ご契約いただけません。</p>
@@ -568,6 +569,7 @@
       <p style="margin-top:10px">なお、ご自身で販売中の同人版と、好色堂が配信する商業版が同じ運営会社の書店になる場合（例：FANZA同人と FANZA Books）は、同人側の取り下げや専売解除が必要になることがあります。該当しそうな作品は、<strong>お預かりの前にご一緒に確認します</strong>（必須条件の詳細は、ご相談時に個別にご案内します）。</p>
     </div>
 
+    <div class="pdf-block">
     <h3 class="subhead">表紙・白抜き素材の、扱い</h3>
     <p class="s-sub" style="margin-bottom:20px">好色堂が各書店へ配信するために新しく制作する表紙や、白抜き・モザイクなどの加工データは、書店の規格・審査に合わせた「配信用の制作物」です。そのため、次のように扱わせていただきます。</p>
     <div class="tbl-wrap">
@@ -581,6 +583,7 @@
           <tr><td>契約終了後</td><td>ご利用を終了します</td></tr>
         </tbody>
       </table>
+    </div>
     </div>
     <div class="note-box">
       <strong>作家さまご自身の版は、そのままで結構です。</strong>
@@ -627,6 +630,7 @@
         <tbody>
           <tr><td style="width:230px"><b>売上のご報告</b>（契約書第4条）</td><td>売上は<strong>総額</strong>をお伝えします（書店別・ストア別の内訳は開示しておりません）。月末に速報、お振込月の前月に確定額をご通知。ご報告はご契約後の Discord 連絡用スレッドで行います。</td></tr>
           <tr><td><b>販売価格・セール</b>（契約書第5条）</td><td>販売価格は好色堂が決定します（ご希望はうかがいます・相場はページ数×10円）。割引50%以上のセール・無料キャンペーンは、事前にご連絡し、参加するかを確認することをお約束します。50%未満は、売上の状況に応じて好色堂の裁量で機動的に対応します。</td></tr>
+          <tr><td><b>配信先の書店</b>（契約書第1条）</td><td>配信先の選定と配信開始日の決定は好色堂が行います（第1条5項）。作家さまが書店を個別に指定・除外することはできません。最終的な配信の可否は、各書店の審査によります（第1条4項）。</td></tr>
           <tr><td><b>作品の利用・改変</b>（契約書第7条）</td><td>変更の際は、基本的に事前にご確認します。作品内容は校閲での誤字脱字の修正、タイトルは書店の審査に合わせた編集（一部伏字など）が中心です。40ページ以上は10ページ＝一話の話数売りが基本、モザイク処理は好色堂が対応して公開まで進めます。タイトル・価格・出し方は、お預かりの前にご相談いただけます。</td></tr>
           <tr><td><b>取次独占</b>（契約書第11条）</td><td>お預けいただいた作品を他の取次経由で書店配信すること、同じ内容を同じ書店に重ねて出すことだけが制限です。同人プラットフォーム・BOOTH・セルフパブ・お預けでない作品は自由です。</td></tr>
           <tr><td><b>配信の中止・終了</b>（契約書第10条）</td><td>好色堂の都合で配信を終了することは、基本的にありません。作家さまからの停止のご希望に対応します（最低配信期間中の停止は別途ご相談ください）。</td></tr>
