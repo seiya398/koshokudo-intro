@@ -459,7 +459,10 @@
   .pay4>div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 12px;text-align:center}
   .pay4 b{display:block;font-family:var(--serif);font-size:20px;font-weight:800;color:var(--enji)}
   .pay4 span{font-size:12px;color:var(--sumi2)}
-  .sflow{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(136px,1fr));gap:10px;counter-reset:sf;margin:36px 0 0;text-align:left}
+  .sflow{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;counter-reset:sf;margin:36px 0 0;text-align:left}
+  .sflow li:nth-child(4n):after{display:none}
+  @media(max-width:860px){.sflow{grid-template-columns:repeat(2,1fr)}.sflow li:nth-child(4n):after{display:block}.sflow li:nth-child(2n):after{display:none}}
+  @media(max-width:480px){.sflow{grid-template-columns:1fr}.sflow li:after{display:none}}
   .sflow li{position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 14px 14px;counter-increment:sf;display:flex;flex-direction:column;min-height:150px}
   .sflow li:before{content:counter(sf,cjk-ideographic);width:30px;height:30px;border-radius:6px;background:var(--enji);color:#fbf3ea;font-family:var(--serif);font-weight:800;font-size:15px;display:grid;place-items:center;margin-bottom:10px}
   .sflow li:after{content:"›";position:absolute;right:-9px;top:50%;transform:translateY(-50%);width:18px;height:18px;border-radius:50%;background:var(--card);border:1px solid var(--line2);color:var(--muted);font-size:14px;font-weight:700;line-height:16px;text-align:center;z-index:1}
@@ -479,6 +482,17 @@
   table.ks th.kscol,table.ks td.kscol{background:var(--enji-soft);color:var(--sumi);font-weight:700}
   table.ks th.kscol{color:var(--enji)}
   @media(max-width:760px){.mflow{grid-template-columns:1fr}.mf-arrow{transform:rotate(90deg);padding:2px 0}}
+  /* 契約の期間タイムライン（2026-11 第3版: MANGA BUFF の .ctl を好色堂の装丁で） */
+  .ctl{background:var(--card);border:1px solid var(--line2);border-radius:12px;padding:24px 24px 16px;margin-top:0;text-align:left}
+  .ctl-track{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;position:relative}
+  .ctl-track:before{content:"";position:absolute;left:10%;right:10%;top:13px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--gold),var(--enji))}
+  .ctl-node{position:relative;text-align:center;padding-top:38px}
+  .ctl-node:before{content:"";position:absolute;left:50%;top:4px;transform:translateX(-50%);width:22px;height:22px;border-radius:50%;background:var(--card);border:4px solid var(--enji);box-sizing:border-box}
+  .ctl-node.hi:before{background:var(--enji)}
+  .ctl-node b{display:block;font-family:var(--serif);font-size:14.5px;font-weight:700;color:var(--sumi);line-height:1.45}
+  .ctl-node span{display:block;font-size:12px;color:var(--sumi2);line-height:1.65;margin-top:6px}
+  .ctl-note{margin-top:16px;padding-top:12px;border-top:1px solid var(--line);font-size:12.5px;color:var(--sumi2);line-height:1.8}
+  @media(max-width:760px){.ctl-track{grid-template-columns:1fr;gap:14px}.ctl-track:before{left:9px;right:auto;top:8px;bottom:8px;width:3px;height:auto}.ctl-node{text-align:left;padding:0 0 0 36px}.ctl-node:before{left:0;top:2px;transform:none}}
 </style>
 </head>
 <body>
@@ -492,7 +506,7 @@
     <nav class="nav-links" id="navLinks">
       <a class="lnk" href="index.html">ホーム</a>
       <a class="lnk" href="service.html">サービス内容</a>
-      <a class="lnk" href="money.html">お金のこと</a>
+      <a class="lnk" href="money.html">手取りとお支払い</a>
       <a class="lnk" href="contract.html">契約について</a>
       <a class="lnk" href="flow.html">ご相談後の流れ</a>
       <a class="lnk" href="sales.html">売れ方と企画</a>
@@ -511,13 +525,13 @@
       <div class="faq-group-title"><span class="gm serif">金</span>お金のこと</div>
       <div class="faq-item" data-pdf="keep"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">還元率60%は、販売額の60%ですか？</span></div><div class="faq-a">いいえ。還元率は「書店の取り分を引いたあと、好色堂に入るお金」に対する割合です。書店手数料は電子書店ごとに異なり（おおむね50〜70%）、最終的に作家さまの手取りとなるのは<strong>販売額の20%前後</strong>とお考えください（手数料の低い書店では、これより高くなります）。1,000円の作品で書店手数料が70%の場合なら、書店700円・好色堂300円 → うち180円が作家さまへ。一般的な取次（40%前後）では120円ほど。<strong>好色堂は、そのおよそ1.5倍</strong>です。</div></div>
       <div class="faq-item" data-pdf="keep"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">初回の振込は、いつごろですか？</span></div><div class="faq-a"><strong>配信開始からおよそ6ヶ月後が目安です。</strong>5月に配信を始めると、5〜7月分の売上が11月末に振り込まれます。以降は3ヶ月ごと（年4回）に、定期的にお振込みします。なお、コミックシーモアは販売月から3ヶ月遅れで報告・入金されるため、その分はさらに後ろ倒しになります。「しばらく入金がない」のは異常ではなく、この仕組みによるものです。</div></div>
-      <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">なぜ、入金まで時間がかかるのですか？</span></div><div class="faq-a">業界の構造による理由です。① 書店から取次への報告に1〜2ヶ月、② コミックシーモアは3ヶ月遅れの報告、③ すべての書店の数字が揃わないと正確な額で振り込めない。契約書上は「各四半期の締め日から4ヶ月後の末日に振込」で、業界標準（年4回・120日サイトなど）と同じサイクルです。結果として、初回は配信開始からおよそ6ヶ月後が目安となります。</div></div>
+      <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">なぜ、入金まで時間がかかるのですか？</span></div><div class="faq-a">業界の構造による理由です。① 書店から取次への報告に1〜2ヶ月、② コミックシーモアは3ヶ月遅れの報告、③ すべての書店の数字が揃わないと正確な額で振り込めない。契約書上は「各期間（3ヶ月ごと）の締め日から4ヶ月後の末日に振込」（契約書第4条）で、年4回の精算サイクルは業界標準と同じです。結果として、初回は配信開始からおよそ6ヶ月後が目安となります。</div></div>
       <div class="faq-item" data-pdf="keep"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">「還元率80%」の他社のほうが、得ではありませんか？</span></div><div class="faq-a">率だけを見ればそう見えますし、正直に申し上げれば80%のサービスもあります。ただ80%還元は、表紙制作・モザイク・話数分割・書誌入力・書店ごとの運用を、すべて作家さまご自身で行う前提です。好色堂の60%はそれらをすべてこちらで引き受けたうえでの数字ですので、<strong>手間・配信できる書店の数・伴走を含めた「手取りと手数」で見比べてください</strong>（<a href="money.html#compare" style="color:var(--enji);text-decoration:underline;text-underline-offset:3px">業界比較</a>）。</div></div>
       <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">振込口座で、気をつけることはありますか？</span></div><div class="faq-a">ご契約時にお知らせいただく口座の<strong>名義（カナ）</strong>が、通帳やアプリの表記と一致しているかご確認ください。名義が一致しないと振込が戻ってしまい、お支払いが次回以降に遅れます。</div></div>
-      <div class="faq-item" data-pdf="keep"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">契約が終わるとき・途中で解約するときの精算は？ 会社が事業をやめたら？</span></div><div class="faq-a">契約終了までに生じた売上分は、<strong>契約終了後1ヶ月以内</strong>に精算してお支払いします。当方が事業を停止する場合も同様に、停止後1ヶ月以内に精算します。なお解約後も、配信開始から1年（最低配信期間）の作品は配信が続き、その間の売上は通常どおり四半期ごとに精算します（契約書第15条4項）。</div></div>
+      <div class="faq-item" data-pdf="keep"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">契約が終わるとき・途中で解約するときの精算は？ 会社が事業をやめたら？</span></div><div class="faq-a">契約終了までに生じた売上分は、<strong>契約終了後1ヶ月以内</strong>に精算してお支払いします。当方が事業を停止する場合も同様に、停止後1ヶ月以内に精算します。なお解約後も、配信開始から1年（最低配信期間）の作品は配信が続き、その間の売上は通常どおり3ヶ月ごとに精算します（契約書第15条4項）。</div></div>
       <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">源泉徴収は、どうなりますか？</span></div><div class="faq-a">個人口座宛のお振込みでは、所得税法に基づき10.21%を差し引いてお支払いします。法人口座宛は源泉徴収不要です。</div></div>
       <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">インボイス未登録でも、大丈夫ですか？</span></div><div class="faq-a">はい、未登録でも契約・配信は可能です。ただし適格請求書発行事業者の登録がない場合、消費税の仕入税額控除の都合で、消費税相当分の一部を差し引かせていただきます（現在は経過措置により段階的に変動）。登録済みなら、この控除はありません。</div></div>
-      <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">確定申告は、どうなりますか。支払調書は出ますか？</span></div><div class="faq-a">確定申告は作家さまご自身で行っていただきます。年間の還元額・源泉徴収額は四半期ごとの支払通知書でお知らせしますので、そのまま申告にお使いいただけます（こちらへの請求書のご発行も不要です）。</div></div>
+      <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">確定申告は、どうなりますか。支払調書は出ますか？</span></div><div class="faq-a">確定申告は作家さまご自身で行っていただきます。年間の還元額・源泉徴収額は3ヶ月ごとの支払通知書でお知らせしますので、そのまま申告にお使いいただけます（こちらへの請求書のご発行も不要です）。</div></div>
       <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">個人で出したほうが、取り分は多いのでは？</span></div><div class="faq-a">個人でなさる場合、全書店の審査・入稿・モザイク処理・売上集計を、ご自身でやり続ける必要があります。好色堂にお預けいただければ、その時間を制作に回していただけて、なおかつ手取りも残る設計です。「数字の大きさ」ではなく「手間を引いたあとに残る額」で、どうか見比べてください。</div></div>
       <div class="faq-item" data-pdf="keep"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">表紙を作ってもらって売れなかったら、費用を請求されますか？</span></div><div class="faq-a">いいえ、一切請求しません。表紙制作・EPUB化・モザイク処理などはすべて当方負担で行い、売れなかった場合でも費用をお願いすることはありません。完全成果報酬ですので、預けて赤字になることはありません。</div></div>
 
@@ -525,11 +539,11 @@
       <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">他の取次と契約していても、好色堂と契約できますか？</span></div><div class="faq-a">はい。好色堂は作品単位の独占ですので、お預けいただく作品が他取次で配信中（または配信契約中）でなければ問題ありません。作品Aは他社、作品Bは好色堂、作品Cはセルフパブ、といった使い分けも可能です。</div></div>
       <div class="faq-item" data-pdf="keep"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">なぜ一年契約なのですか？ 縛られるのが不安です。</span></div><div class="faq-a">表紙制作・電子化・入稿などの費用を好色堂が先に負担する（売れなくても作家さまのご負担はありません）ため、回収の期間として1年をいただいています。配信を始めて「合わない」と感じられた場合、3ヶ月前のお申し出で1年経過後に離脱できます（実質、最短13ヶ月での離脱が可能です）。5年縛りのような長期の拘束はありません。</div></div>
       <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">契約書の料率が、ご説明で聞いた料率と違います。</span></div><div class="faq-a"><strong>ご署名の前に、必ずお知らせください。</strong>一致させた契約書をお送りし直してから、ご署名いただきます。ご署名後の訂正はお互いに手間がかかりますので、違和感があればそのままになさらないでください。</div></div>
-      <div class="faq-item" data-pdf="keep"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">第11条（取次独占）では、何が制限されるのですか？</span></div><div class="faq-a">制限されるのは「お預けいただいた作品を、ほかの取次を通して電子書店に出すこと」と「お預けいただいた作品と同じ内容を、同じ書店に重ねて出すこと」の二つだけです。FANZA同人・DLsite・BOOTH などでのご自身での販売、Kindle等のセルフパブリッシング、お預けでない別作品の他社委託は自由です。</div></div>
+      <div class="faq-item" data-pdf="keep"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">「取次独占」（契約書第11条）では、何が制限されるのですか？</span></div><div class="faq-a">制限されるのは「お預けいただいた作品を、ほかの取次を通して電子書店に出すこと」と「お預けいただいた作品と同じ内容を、同じ書店に重ねて出すこと」の二つだけです。FANZA同人・DLsite・BOOTH などでのご自身での販売、Kindle等のセルフパブリッシング、お預けでない別作品の他社委託は自由です。</div></div>
       <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">マネーフォワードの電子署名のやり方が分かりません／署名が遅れそうです。</span></div><div class="faq-a">そのままになさらず、専用の窓口かメールでご連絡ください。手順をご案内します。契約書のメールが見当たらない場合（迷惑メールに入ることがあります）もお知らせください。お送りし直します。</div></div>
       <div class="faq-item" data-pdf="keep"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">本名を出さずに、契約できますか？</span></div><div class="faq-a">本名をお書きいただくのは、契約書（と振込口座）だけです。ご予約・ご相談・Discord はペンネーム／サークル名で構いません。本名を社外へ出すことはありません。</div></div>
       <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">海外在住でも、契約できますか？</span></div><div class="faq-a">現状では、海外在住の方とはご契約いただけません（国内の銀行口座へのお振込・国内での源泉徴収を前提としているため）。</div></div>
-      <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">解約したら、配信中の作品はどうなりますか？</span></div><div class="faq-a">解約後も、配信中の作品は<strong>「配信開始から1年（最低配信期間）」はそのまま配信が続き、その間も還元率60%などの条件は変わりません</strong>（売上も通常どおり四半期ごとに精算・お支払い）。最低配信期間を過ぎた作品は、契約終了からおおむね2ヶ月で各書店での配信を終了します。お預かりしたデータは、契約・配信の終了後にご要望があれば、合理的な範囲で削除します（法令上の保存が必要なものを除く）。</div></div>
+      <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">解約したら、配信中の作品はどうなりますか？</span></div><div class="faq-a">解約後も、配信中の作品は<strong>「配信開始から1年（最低配信期間）」はそのまま配信が続き、その間も還元率60%などの条件は変わりません</strong>（売上も通常どおり3ヶ月ごとに精算・お支払い）。最低配信期間を過ぎた作品は、契約終了からおおむね2ヶ月で各書店での配信を終了します。お預かりしたデータは、契約・配信の終了後にご要望があれば、合理的な範囲で削除します（法令上の保存が必要なものを除く）。</div></div>
       <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">FANZA専売（独占販売）中の作品も、預けられますか？</span></div><div class="faq-a">預けられます。ただしFANZA同人で「専売（独占販売）」に設定している作品は、そのままでは他書店に配信できないため、専売設定を外していただく必要があります。外す際は、<strong>対象作品をまとめてFANZAへ一括でお問い合わせ</strong>になるのが安全です（1作品ずつ個別申請を繰り返すと、アカウントへの負荷になり得るため）。手順がご不安なら、こちらでサポートします。</div></div>
 
       <div class="faq-group-title"><span class="gm serif">作</span>作品のこと</div>
@@ -537,14 +551,14 @@
       <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">成人向けでも、大丈夫ですか？</span></div><div class="faq-a">成人向けの作品を主力としてお取り扱いしています。モザイク・白抜きの対応ノウハウもございます。追加費用はかかりません。</div></div>
       <div class="faq-item" data-pdf="keep"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">どの電子書店に配信されますか？ 成人向けはどこに出ますか？</span></div><div class="faq-a">成人向け作品は、現在 <strong>31書店</strong>（2026年9月時点）に並んでいます。売れる書店はだいたい決まっており、その売れる店は押さえています。売上の大きい順に、<strong>コミックシーモア／DMMブックス・FANZA／Kindle／ebookjapan／auブックパス／ブックライブ／楽天Kobo／BOOK☆WALKER</strong> などです（<a href="index.html#stores" style="color:var(--enji);text-decoration:underline">全31書店の一覧はこちら</a>）。めちゃコミック・まんが王国・コミックフェスタ・Hulu は、現在接続の準備を進めています。なお「100を超える書店」は全年齢作品を含めた総数で、<strong>成人向け作品は書店ごとの審査基準により、実際に並ぶ書店が絞られます</strong>。書店ごとに審査基準が異なるため、最終的な配信の可否は各ストアの審査によります。</div></div>
       <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">総集編・おまけは扱えますか？</span></div><div class="faq-a">総集編は個別のご相談で対応可能です（実売の傾向として、総集編より単行本のほうが売れています）。おまけ単独は基本的に承れません（本編に組み込む形ならOK）。電子書店が「1作品＝1商品」の単位で販売する構造のためです。なお純粋なCG集・写真集は取次の対象外で、漫画作品（漫画とCGの混合を含む）が対象となります。</div></div>
-      <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">お預けの前に、配信先の全書店リストをいただけますか？</span></div><div class="faq-a">成人向け作品が実際に並んでいる書店は <a href="index.html#stores" style="color:var(--enji);text-decoration:underline;text-underline-offset:3px">配信書店</a> に掲載しています。全配信先の一覧を事前にお渡しできるか、その更新の頻度は <span class="tbc">【要確認】</span> です。ご希望があればご相談の際にお知らせください。</div></div>
+      <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">お預けの前に、配信先の全書店リストをいただけますか？</span></div><div class="faq-a">成人向け作品が実際に並んでいる書店は <a href="index.html#stores" style="color:var(--enji);text-decoration:underline;text-underline-offset:3px">配信書店</a> に掲載しています。全配信先の一覧と、その更新の頻度については、ご相談時に個別にご案内します。</div></div>
       <div class="faq-item" data-pdf="keep"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">契約から配信開始まで、どれくらいかかりますか？</span></div><div class="faq-a">データをお預かりしてから配信準備に約一〜二週間、その後は書店ごとに審査が通った順に配信が始まります。書店ごとに審査の期間が異なるため、全書店の一斉公開日や、ご契約から初公開までの総日数はお約束できません。</div></div>
       <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">自分の作品が本当に公開されているか、どう確認すればよいですか？</span></div><div class="faq-a">配信が始まりましたら、専用の窓口でお知らせします。あわせて、ご自身でも書店で作品名を検索してご確認ください。日が経っても見当たらない、連絡が来ない、という場合は<strong>すぐにお知らせください</strong>。すぐに状況を確認します。</div></div>
-      <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">自分で同人として売り続けながら、好色堂の版も出せますか？ FANZA同人と FANZA Books の重複は？</span></div><div class="faq-a">同人プラットフォームでのご自身の販売は自由で、同人版と商業版は併存できます（読者層が異なるため、売り場が純増します。おすすめは同人で1〜2ヶ月先行してから商業へ）。ただし、同人版と商業版が同じ運営会社の書店になる場合（例：FANZA同人と FANZA Books）は、同人側の取り下げや専売解除が必要になることがあります。該当しそうな作品はお預かりの前にご一緒に確認します。必須条件の詳細、同人版と商業版の価格差・改訂版の扱いは <span class="tbc">【要確認】</span>。</div></div>
-      <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">話売りと巻売り、どちらで出ますか？ 段階的に出せますか？</span></div><div class="faq-a">40ページ以上の作品は10ページ＝一話などの話売りにすることがあり、巻売り（単行本）と組み合わせることもあります。分け方は好色堂が設計し、事前にご相談します。実売の傾向として、総集編より単行本のほうが売れています。段階リリースや細かな取り決めは <span class="tbc">【要確認】</span> のうえ、お預かりの前にご相談します。</div></div>
-      <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">Kindle Unlimited（読み放題）には入りますか？</span></div><div class="faq-a">読み放題での配信実績・方針は <span class="tbc">【要確認】</span> のうえご案内します。</div></div>
-      <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">海外・英語版はどうなりますか？ 他社に英語版を独占許諾済みの作品は預けられますか？</span></div><div class="faq-a">海外配信の範囲と、英語版を他社へ独占許諾済みの作品の日本語版をお預かりできるかは、確認のうえご案内します <span class="tbc">【要確認】</span>。可・不可をこの場で断定はいたしません。</div></div>
-      <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">広告は出していただけますか？ 費用は？</span></div><div class="faq-a">書店のセール・特集・レコメンド枠への掲載は好色堂が調整します。好色堂や書店が出す広告の有無・費用負担・実績は <span class="tbc">【要確認】</span> のうえご案内します。作家さまに広告費をご負担いただくことはありません。</div></div>
+      <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">自分で同人として売り続けながら、好色堂の版も出せますか？ FANZA同人と FANZA Books の重複は？</span></div><div class="faq-a">同人プラットフォームでのご自身の販売は自由で、同人版と商業版は併存できます（読者層が異なるため、売り場が純増します。おすすめは同人で1〜2ヶ月先行してから商業へ）。ただし、同人版と商業版が同じ運営会社の書店になる場合（例：FANZA同人と FANZA Books）は、同人側の取り下げや専売解除が必要になることがあります。該当しそうな作品はお預かりの前にご一緒に確認します。必須条件の詳細、同人版と商業版の価格差・改訂版の扱いは、ご相談時に個別にご案内します。</div></div>
+      <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">話売りと巻売り、どちらで出ますか？ 段階的に出せますか？</span></div><div class="faq-a">40ページ以上の作品は10ページ＝一話などの話売りにすることがあり、巻売り（単行本）と組み合わせることもあります。分け方は好色堂が設計し、事前にご相談します。実売の傾向として、総集編より単行本のほうが売れています。段階リリースや細かな取り決めは、ご相談時に個別にご案内します。</div></div>
+      <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">Kindle Unlimited（読み放題）には入りますか？</span></div><div class="faq-a">読み放題での配信実績・方針は、ご相談時に個別にご案内します。</div></div>
+      <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">海外・英語版はどうなりますか？ 他社に英語版を独占許諾済みの作品は預けられますか？</span></div><div class="faq-a">海外配信の範囲と、英語版を他社へ独占許諾済みの作品の日本語版をお預かりできるかは、ご相談時に個別にご案内します。この場で可・不可を断定することはいたしません。</div></div>
+      <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">広告は出していただけますか？ 費用は？</span></div><div class="faq-a">書店のセール・特集・レコメンド枠への掲載は好色堂が調整します。好色堂や書店が出す広告の有無・費用負担・実績は、ご相談時に個別にご案内します。作家さまに広告費をご負担いただくことはありません。</div></div>
       <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">タイトルや価格、出し方は相談できますか？</span></div><div class="faq-a">はい。タイトル・価格・話売りか巻売りかなどの出し方は、<strong>お預かりの前に好色堂とご相談いただけます</strong>。書店の審査に合わせて、タイトルの一部伏字などの編集が入ることがあります。売れ方の傾向は <a href="sales.html#sales" style="color:var(--enji);text-decoration:underline;text-underline-offset:3px">売れ方と企画</a> にまとめています。</div></div>
 
       <div class="faq-group-title"><span class="gm serif">運</span>運用のこと</div>
@@ -552,7 +566,7 @@
       <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">奥付に載せるSNSのIDは、あとから変えられますか？</span></div><div class="faq-a">奥付に記載した X のIDは、<strong>配信後に変更できません</strong>。長くお使いになる予定のIDをお知らせください。記載は任意です。</div></div>
       <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">書影（表紙まわりの画像）は、自分で用意する必要がありますか？</span></div><div class="faq-a">いいえ。表紙そのものも、書店に並ぶ書影（書誌画像）も好色堂が制作します。キャラクターの素材をいただければ十分です。</div></div>
       <div class="faq-item" data-pdf="keep"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">価格は、自分で決められますか？ 勝手に値下げされませんか？</span></div><div class="faq-a">販売価格は<strong>好色堂が決定します（ご希望は必ずうかがいます）</strong>。相場の目安は<strong>ページ数×10円</strong>（90ページなら900円ほど）で、レンタル価格も同じ考え方です。無断で極端な安売りをすることはありません。値引きが入るのは主に書店主催のセールで、割引50%以上・無料キャンペーンは必ず事前にご確認します。</div></div>
-      <div class="faq-item" data-pdf="keep"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">売上は教えていただけますか？ どこで報告されますか？</span></div><div class="faq-a">売上は<strong>総額</strong>をお伝えします。書店別・ストア別の内訳は開示しておりません。月末に速報値、お振込月の前月に確定額をご通知し、四半期ごとの支払通知書で確定した売上・還元額を書面でお知らせします。ご報告は、ご契約後の Discord 連絡用スレッドで行います。「まったく分からない」という状態にはなりません。</div></div>
+      <div class="faq-item" data-pdf="keep"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">売上は教えていただけますか？ どこで報告されますか？</span></div><div class="faq-a">売上は<strong>総額</strong>をお伝えします。書店別・ストア別の内訳は開示しておりません。月末に速報値、お振込月の前月に確定額をご通知し、3ヶ月ごとの支払通知書で確定した売上・還元額を書面でお知らせします。ご報告は、ご契約後の Discord 連絡用スレッドで行います。「まったく分からない」という状態にはなりません。</div></div>
       <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">契約後の連絡は、どのように行いますか？</span></div><div class="faq-a">契約後の作品のやり取り・データのお渡し・進捗の共有は、作家さまごとの<strong>Discord 専用窓口で行います</strong>（売上のご報告は、連絡用チャンネル内のスレッドで行います）。ご相談の段階では、メールでもオンラインでのお打ち合わせでも、テキストでの質疑応答でも構いません。</div></div>
       <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">Discord を使えません。ほかの方法はありますか？</span></div><div class="faq-a">メールと Googleドライブ（作品素材共有用のフォルダ）でのやり取りに切り替えられます。ご相談の際にお知らせください。</div></div>
       <div class="faq-item"><div class="faq-q"><span class="q serif">Q.</span><span class="qt">制作していただいた表紙・白抜き素材のデータは、いただけますか？</span></div><div class="faq-a">好色堂が配信用に新しく制作した表紙・加工データは、<strong>配信用途に限定した制作物</strong>のため、原則としてデータのお渡しはしておりません（著作権は好色堂に帰属し、SNS・広告でのご使用は対象外です）。作家さまがご自身で FANZA・DLsite などで販売なさっている版は、今の表紙のまま続けていただけます。</div></div>
@@ -591,7 +605,7 @@
     </div>
     <div class="f-links">
       <div class="f-col"><h4>好色堂</h4><a href="index.html#about">悩み</a><a href="index.html#solution">できること</a><a href="flow.html#flow">お預かりの流れ</a><a href="about.html#editor">編集の姿勢</a></div>
-      <div class="f-col"><h4>ご相談</h4><a href="money.html#share">還元のしくみ</a><a href="money.html#compare">業界比較</a><a href="sales.html#sales">売れ方と企画</a><a href="#faq">よくあるご質問</a><a href="#contact">作品を相談する</a></div>
+      <div class="f-col"><h4>ご相談</h4><a href="money.html#share">手取りのしくみ</a><a href="money.html#compare">業界比較</a><a href="sales.html#sales">売れ方と企画</a><a href="#faq">よくあるご質問</a><a href="#contact">作品を相談する</a></div>
     </div>
   </div>
   <div class="f-bottom">

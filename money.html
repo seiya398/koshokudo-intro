@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
-<title>還元とお支払い｜好色堂</title>
+<title>手取りとお支払い｜好色堂</title>
 <meta name="description" content="好色堂は、成人向けの漫画を全国100超の電子書店へお届けする出版社です。原稿をお預けいただくだけで、表紙・電子化・入稿・配信まですべて代行。">
 <style>
   :root{
@@ -459,7 +459,10 @@
   .pay4>div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 12px;text-align:center}
   .pay4 b{display:block;font-family:var(--serif);font-size:20px;font-weight:800;color:var(--enji)}
   .pay4 span{font-size:12px;color:var(--sumi2)}
-  .sflow{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(136px,1fr));gap:10px;counter-reset:sf;margin:36px 0 0;text-align:left}
+  .sflow{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;counter-reset:sf;margin:36px 0 0;text-align:left}
+  .sflow li:nth-child(4n):after{display:none}
+  @media(max-width:860px){.sflow{grid-template-columns:repeat(2,1fr)}.sflow li:nth-child(4n):after{display:block}.sflow li:nth-child(2n):after{display:none}}
+  @media(max-width:480px){.sflow{grid-template-columns:1fr}.sflow li:after{display:none}}
   .sflow li{position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 14px 14px;counter-increment:sf;display:flex;flex-direction:column;min-height:150px}
   .sflow li:before{content:counter(sf,cjk-ideographic);width:30px;height:30px;border-radius:6px;background:var(--enji);color:#fbf3ea;font-family:var(--serif);font-weight:800;font-size:15px;display:grid;place-items:center;margin-bottom:10px}
   .sflow li:after{content:"›";position:absolute;right:-9px;top:50%;transform:translateY(-50%);width:18px;height:18px;border-radius:50%;background:var(--card);border:1px solid var(--line2);color:var(--muted);font-size:14px;font-weight:700;line-height:16px;text-align:center;z-index:1}
@@ -479,6 +482,17 @@
   table.ks th.kscol,table.ks td.kscol{background:var(--enji-soft);color:var(--sumi);font-weight:700}
   table.ks th.kscol{color:var(--enji)}
   @media(max-width:760px){.mflow{grid-template-columns:1fr}.mf-arrow{transform:rotate(90deg);padding:2px 0}}
+  /* 契約の期間タイムライン（2026-11 第3版: MANGA BUFF の .ctl を好色堂の装丁で） */
+  .ctl{background:var(--card);border:1px solid var(--line2);border-radius:12px;padding:24px 24px 16px;margin-top:0;text-align:left}
+  .ctl-track{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;position:relative}
+  .ctl-track:before{content:"";position:absolute;left:10%;right:10%;top:13px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--gold),var(--enji))}
+  .ctl-node{position:relative;text-align:center;padding-top:38px}
+  .ctl-node:before{content:"";position:absolute;left:50%;top:4px;transform:translateX(-50%);width:22px;height:22px;border-radius:50%;background:var(--card);border:4px solid var(--enji);box-sizing:border-box}
+  .ctl-node.hi:before{background:var(--enji)}
+  .ctl-node b{display:block;font-family:var(--serif);font-size:14.5px;font-weight:700;color:var(--sumi);line-height:1.45}
+  .ctl-node span{display:block;font-size:12px;color:var(--sumi2);line-height:1.65;margin-top:6px}
+  .ctl-note{margin-top:16px;padding-top:12px;border-top:1px solid var(--line);font-size:12.5px;color:var(--sumi2);line-height:1.8}
+  @media(max-width:760px){.ctl-track{grid-template-columns:1fr;gap:14px}.ctl-track:before{left:9px;right:auto;top:8px;bottom:8px;width:3px;height:auto}.ctl-node{text-align:left;padding:0 0 0 36px}.ctl-node:before{left:0;top:2px;transform:none}}
 </style>
 </head>
 <body>
@@ -492,7 +506,7 @@
     <nav class="nav-links" id="navLinks">
       <a class="lnk" href="index.html">ホーム</a>
       <a class="lnk" href="service.html">サービス内容</a>
-      <a class="lnk on" href="money.html">お金のこと</a>
+      <a class="lnk on" href="money.html">手取りとお支払い</a>
       <a class="lnk" href="contract.html">契約について</a>
       <a class="lnk" href="flow.html">ご相談後の流れ</a>
       <a class="lnk" href="sales.html">売れ方と企画</a>
@@ -506,26 +520,26 @@
 
 <section id="share" class="center">
   <div class="wrap">
-    <span class="eyebrow">還元のしくみ / SHARE<span class="dash"></span></span>
-    <h2 class="s-title">「60%」の、正直な内訳。</h2>
-    <p class="s-sub">「60%」は、書店の取り分を引いたあと、好色堂に入るお金に対する割合です。数字の見え方でごまかさず、正直にお伝えします。</p>
+    <span class="eyebrow">手取りのしくみ / SHARE<span class="dash"></span></span>
+    <h2 class="s-title">手取りは、売価のおよそ20%。</h2>
+    <p class="s-sub">「還元率60%」は、書店の取り分を引いたあとに好色堂へ入る「本使用料」に対する割合です。売価に対しては約20%。数字の見え方でごまかさず、正直にお伝えします。</p>
     <div class="money">
       <h3>1,000円の作品が一冊売れたとき（書店手数料が70%の書店の例）</h3>
       <div class="mflow">
-        <div class="mf"><div class="mf-l">読者がお支払いになる販売額</div><div class="mf-v">100%</div><div class="mf-s">1,000円</div></div>
+        <div class="mf"><div class="mf-l">読者が支払う売価</div><div class="mf-v">100%</div><div class="mf-s">1,000円</div></div>
         <div class="mf-arrow">→<small>書店が引く</small></div>
         <div class="mf store"><div class="mf-l">書店手数料</div><div class="mf-v">約70%</div><div class="mf-s">700円ほど<br>（書店により50〜70%）</div></div>
         <div class="mf-arrow">→<small>好色堂に入る</small></div>
         <div class="mf ks"><div class="mf-l">本使用料（好色堂へ）</div><div class="mf-v">約30%</div><div class="mf-s">300円ほど</div></div>
         <div class="mf-arrow">→<small>その60%</small></div>
-        <div class="mf you"><div class="mf-l">作家さまへ（本使用料の60%）</div><div class="mf-v">約20%</div><div class="mf-s">180〜200円ほど</div></div>
+        <div class="mf you"><div class="mf-l">作家さまの手取り</div><div class="mf-v">約20%</div><div class="mf-s">180〜200円ほど</div></div>
       </div>
       <div class="mbar"><div class="b-store">書店 約70%</div><div class="b-ks">運営 約12%</div><div class="b-you">作家さま 約18〜20%</div></div>
-      <div class="mbar-legend"><span class="l-store">書店手数料（書店ごとに50〜70%）</span><span class="l-ks">好色堂の運営費（本使用料の40%）</span><span class="l-you">作家さまの取り分（本使用料の60%＝販売額のおよそ20%）</span></div>
+      <div class="mbar-legend"><span class="l-store">書店手数料（書店ごとに50〜70%）</span><span class="l-ks">好色堂の制作・配信費（本使用料の40%＝売価の約12%）</span><span class="l-you">作家さまの取り分（本使用料の60%＝販売額のおよそ20%）</span></div>
       <p class="enote" style="margin-top:14px">手数料の低い書店では、作家さまの取り分はこれより多くなります。一般的な取次（還元40%前後）なら120円ほど。好色堂は、そのおよそ1.5倍です。</p>
       <details class="fold">
-        <summary>「40%」は、何に使われるのか。</summary>
-        <div>配信許諾の交渉／EPUB制作・データ変換／表紙・奥付のデザイン／書誌情報の入力／白抜き・モザイク処理／販促・セール対応／売上の集計／書店・読者からのお問い合わせ対応／ストアの管理・仕様変更対応。これらをすべて含んで40%です。追加の費用はかかりません。</div>
+        <summary>好色堂の取り分「40%」は、何に使われるのか。</summary>
+        <div>本使用料のうち、好色堂が制作・配信業務に使う分（売価の約12%）です。配信許諾の交渉／EPUB制作・データ変換／表紙・奥付のデザイン／書誌情報の入力／白抜き・モザイク処理／販促・セール対応／売上の集計／書店・読者からのお問い合わせ対応／ストアの管理・仕様変更対応。これらをすべて含んで40%です。追加の費用はかかりません。</div>
       </details>
     </div>
   </div>
@@ -565,7 +579,7 @@
     <h3 class="subhead">セールの、お約束</h3>
     <div class="twocol" style="margin-top:0">
       <div class="panel">
-        <div class="col-label">OPT-IN</div>
+        <div class="col-label">ASK FIRST</div>
         <h3 class="col-title">割引50%以上のセール・<br>無料キャンペーン</h3>
         <p style="font-size:13.5px;color:var(--sumi2);line-height:1.95">必ず<strong>事前にご連絡し、参加するかどうかを確認</strong>します。作家さまが「今回は出したくない」とおっしゃれば、参加いたしません。</p>
       </div>
@@ -587,13 +601,13 @@
     <div class="center">
       <span class="eyebrow">PAYMENT<span class="dash"></span></span>
       <h2 class="s-title">お支払いの、流れ。</h2>
-      <p class="s-sub">年4回・四半期ごとの振込。業界標準と同じサイクルです。</p>
+      <p class="s-sub">年4回・3ヶ月ごとのお振込。業界標準と同じサイクルです。</p>
     </div>
     <div class="ptl">
       <div class="ptl-grid">
         <div class="ptl-m"><b>5月</b>配信開始</div><div class="ptl-m"><b>6月</b></div><div class="ptl-m"><b>7月</b>締め日</div>
         <div class="ptl-m"><b>8月</b></div><div class="ptl-m"><b>9月</b></div><div class="ptl-m"><b>10月</b>金額通知</div><div class="ptl-m"><b>11月</b>お振込</div>
-        <div class="ptl-band sales">5〜7月分の売上<small>第1四半期の販売期間</small></div>
+        <div class="ptl-band sales">5〜7月分の売上<small>最初の3ヶ月分の販売期間</small></div>
         <div class="ptl-band wait">書店からの報告・全店の集計<small>締め日から4ヶ月（契約書第4条）</small></div>
         <div class="ptl-band pay">11月末<br>初回お振込</div>
         <div class="ptl-mark start">▲ 配信開始</div>
@@ -603,7 +617,7 @@
       </div>
       <div class="ptl-sum">
         <div class="big">配信開始 → 初回のお振込 ＝ <em>およそ6ヶ月</em></div>
-        <div class="fine">契約書上は「各四半期の締め日から4ヶ月後の末日に振込」（第4条）。配信した月から数えるとおよそ6ヶ月後になります。<br>コミックシーモア分は販売月から3ヶ月遅れで当方に報告されるため、さらに後ろ倒しで反映されます。</div>
+        <div class="fine">契約書上は「各期間（3ヶ月ごと）の締め日から4ヶ月後の末日に振込」（契約書第4条）。配信した月から数えるとおよそ6ヶ月後になります。<br>コミックシーモア分は販売月から3ヶ月遅れで当方に報告されるため、さらに後ろ倒しで反映されます。</div>
       </div>
     </div>
     <h3 class="subhead">年4回の、お振込カレンダー</h3>
@@ -624,13 +638,13 @@
           <tr><td>源泉徴収</td><td>個人口座のみ 10.21% 差引（法人口座は不要）</td></tr>
           <tr><td>インボイス</td><td>未登録の場合、消費税相当分を一部控除（経過措置で段階変動）</td></tr>
           <tr><td>振込口座</td><td>ご契約時にお知らせください。<strong>口座名義（カナ）が通帳・アプリの表記と一致しているか</strong>ご確認ください（不一致ですと振込が戻り、お支払いが遅れます）</td></tr>
-          <tr><td>契約が終わるとき</td><td class="em">契約終了までに生じた売上分は、<strong>契約終了後1ヶ月以内</strong>に精算してお支払いします。当方が事業を停止する場合も同様に、停止後1ヶ月以内に精算します。なお解約後も、配信開始から1年（最低配信期間）の作品は配信が続き、その間は通常どおり四半期ごとに精算します（第15条4項）</td></tr>
+          <tr><td>契約が終わるとき</td><td class="em">契約終了までに生じた売上分は、<strong>契約終了後1ヶ月以内</strong>に精算してお支払いします。当方が事業を停止する場合も同様に、停止後1ヶ月以内に精算します。なお解約後も、配信開始から1年（最低配信期間）の作品は配信が続き、その間は通常どおり3ヶ月ごとに精算します（契約書第15条4項）</td></tr>
         </tbody>
       </table>
     </div>
     <details class="fold">
       <summary>なぜ、入金までに時間がかかるのか。</summary>
-      <div>① 書店から取次への報告に1〜2ヶ月　② コミックシーモアは販売月から3ヶ月遅れの報告　③ すべての書店の数字が揃わないと、正確な額で振り込めません。これは業界の構造による理由です。契約書上は「各四半期の締め日から4ヶ月後の末日に振込」（第4条）で、年4回・120日サイトなどは業界標準のサイクルです。結果として、初回のお振込は配信開始からおよそ6ヶ月後が目安となります。</div>
+      <div>① 書店から取次への報告に1〜2ヶ月　② コミックシーモアは販売月から3ヶ月遅れの報告　③ すべての書店の数字が揃わないと、正確な額で振り込めません。これは業界の構造による理由です。契約書上は「各期間（3ヶ月ごと）の締め日から4ヶ月後の末日に振込」（契約書第4条）で、年4回の精算サイクル自体は業界標準です。結果として、初回のお振込は配信開始からおよそ6ヶ月後が目安となります。</div>
     </details>
   </div>
 </section>
@@ -687,7 +701,7 @@
     </div>
     <div class="f-links">
       <div class="f-col"><h4>好色堂</h4><a href="index.html#about">悩み</a><a href="index.html#solution">できること</a><a href="flow.html#flow">お預かりの流れ</a><a href="about.html#editor">編集の姿勢</a></div>
-      <div class="f-col"><h4>ご相談</h4><a href="#share">還元のしくみ</a><a href="#compare">業界比較</a><a href="sales.html#sales">売れ方と企画</a><a href="faq.html#faq">よくあるご質問</a><a href="#contact">作品を相談する</a></div>
+      <div class="f-col"><h4>ご相談</h4><a href="#share">手取りのしくみ</a><a href="#compare">業界比較</a><a href="sales.html#sales">売れ方と企画</a><a href="faq.html#faq">よくあるご質問</a><a href="#contact">作品を相談する</a></div>
     </div>
   </div>
   <div class="f-bottom">

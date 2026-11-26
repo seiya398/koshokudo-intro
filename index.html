@@ -459,7 +459,10 @@
   .pay4>div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 12px;text-align:center}
   .pay4 b{display:block;font-family:var(--serif);font-size:20px;font-weight:800;color:var(--enji)}
   .pay4 span{font-size:12px;color:var(--sumi2)}
-  .sflow{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(136px,1fr));gap:10px;counter-reset:sf;margin:36px 0 0;text-align:left}
+  .sflow{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;counter-reset:sf;margin:36px 0 0;text-align:left}
+  .sflow li:nth-child(4n):after{display:none}
+  @media(max-width:860px){.sflow{grid-template-columns:repeat(2,1fr)}.sflow li:nth-child(4n):after{display:block}.sflow li:nth-child(2n):after{display:none}}
+  @media(max-width:480px){.sflow{grid-template-columns:1fr}.sflow li:after{display:none}}
   .sflow li{position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 14px 14px;counter-increment:sf;display:flex;flex-direction:column;min-height:150px}
   .sflow li:before{content:counter(sf,cjk-ideographic);width:30px;height:30px;border-radius:6px;background:var(--enji);color:#fbf3ea;font-family:var(--serif);font-weight:800;font-size:15px;display:grid;place-items:center;margin-bottom:10px}
   .sflow li:after{content:"›";position:absolute;right:-9px;top:50%;transform:translateY(-50%);width:18px;height:18px;border-radius:50%;background:var(--card);border:1px solid var(--line2);color:var(--muted);font-size:14px;font-weight:700;line-height:16px;text-align:center;z-index:1}
@@ -479,6 +482,17 @@
   table.ks th.kscol,table.ks td.kscol{background:var(--enji-soft);color:var(--sumi);font-weight:700}
   table.ks th.kscol{color:var(--enji)}
   @media(max-width:760px){.mflow{grid-template-columns:1fr}.mf-arrow{transform:rotate(90deg);padding:2px 0}}
+  /* 契約の期間タイムライン（2026-11 第3版: MANGA BUFF の .ctl を好色堂の装丁で） */
+  .ctl{background:var(--card);border:1px solid var(--line2);border-radius:12px;padding:24px 24px 16px;margin-top:0;text-align:left}
+  .ctl-track{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;position:relative}
+  .ctl-track:before{content:"";position:absolute;left:10%;right:10%;top:13px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--gold),var(--enji))}
+  .ctl-node{position:relative;text-align:center;padding-top:38px}
+  .ctl-node:before{content:"";position:absolute;left:50%;top:4px;transform:translateX(-50%);width:22px;height:22px;border-radius:50%;background:var(--card);border:4px solid var(--enji);box-sizing:border-box}
+  .ctl-node.hi:before{background:var(--enji)}
+  .ctl-node b{display:block;font-family:var(--serif);font-size:14.5px;font-weight:700;color:var(--sumi);line-height:1.45}
+  .ctl-node span{display:block;font-size:12px;color:var(--sumi2);line-height:1.65;margin-top:6px}
+  .ctl-note{margin-top:16px;padding-top:12px;border-top:1px solid var(--line);font-size:12.5px;color:var(--sumi2);line-height:1.8}
+  @media(max-width:760px){.ctl-track{grid-template-columns:1fr;gap:14px}.ctl-track:before{left:9px;right:auto;top:8px;bottom:8px;width:3px;height:auto}.ctl-node{text-align:left;padding:0 0 0 36px}.ctl-node:before{left:0;top:2px;transform:none}}
 </style>
 </head>
 <body>
@@ -492,7 +506,7 @@
     <nav class="nav-links" id="navLinks">
       <a class="lnk on" href="index.html">ホーム</a>
       <a class="lnk" href="service.html">サービス内容</a>
-      <a class="lnk" href="money.html">お金のこと</a>
+      <a class="lnk" href="money.html">手取りとお支払い</a>
       <a class="lnk" href="contract.html">契約について</a>
       <a class="lnk" href="flow.html">ご相談後の流れ</a>
       <a class="lnk" href="sales.html">売れ方と企画</a>
@@ -510,13 +524,13 @@
     <div>
       <span class="hero-kicker">作家・同人サークルの皆さまへ</span>
       <h1>大人のための<br>物語を、<br><span class="ul">ちゃんと届ける。</span></h1>
-      <p class="lead">好色堂は、作り手の想いのこもった大人の物語を、全国100を超える電子書店へお届けする出版社です。原稿をお預けいただくだけで、表紙・電子化・入稿・配信まですべて代行。作家さまへの還元率は、業界水準のおよそ1.5倍にあたる60%です。</p>
+      <p class="lead">好色堂は、作り手の想いのこもった大人の物語を、商業の電子書店へお届けする出版社です。成人向け作品が実際に並ぶのは約31店。作家さまの手取りは売価の約20%、初回のお振込は配信開始から約6ヶ月後です。原稿をお預けいただくだけで、表紙・電子化・入稿・配信まですべて代行します。</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#contact">作品を相談する<span class="arr">→</span></a>
         <a class="btn btn-outline" href="flow.html#flow">お預かりの流れ<span class="arr">→</span></a>
       </div>
-      <p class="hero-note"><span class="i serif">i</span>登録料・掲載料は一切いただきません。お支払いは四半期ごと・振込手数料は当方負担。</p>
-      <p class="hero-note emph" style="margin-top:12px"><span class="i serif">i</span><span><b>「100を超える書店」は全年齢を含めた総数。</b>成人向けが実際に並ぶのは31書店（2026年9月時点）。<b>還元率60%</b>は本使用料に対する割合で、手取りは販売額のおよそ20%です。詳しくは下の3点を。</span></p>
+      <p class="hero-note"><span class="i serif">i</span>登録料・掲載料は一切いただきません。お支払いは3ヶ月ごと（年4回）・振込手数料は当方負担。</p>
+      <p class="hero-note emph" style="margin-top:12px"><span class="i serif">i</span><span><b>「100を超える書店」は全年齢を含めた総数です。</b>成人向けが実際に並ぶのは31書店（2026年9月時点）。<b>還元率60%</b>は「本使用料」（書店が手数料を引いたあと、好色堂に入るお金）に対する割合で、売価に対する作家さまの手取りは約20%です。詳しくは下の3点を。</span></p>
     </div>
     <div class="hero-art">
       <img class="hero-sumi seal-img" src="assets/img-b9246609.png" alt="水墨画の女性" width="430" height="645">
@@ -531,16 +545,26 @@
 
 <div class="strip">
   <div class="strip-in">
-    <div class="cell"><b>100<small>超</small></b><span>お届けする電子書店</span></div>
-    <div class="cell"><b>60<small>%</small></b><span>作家さま還元率（本使用料に対して）</span></div>
-    <div class="cell"><b>0<small>円</small></b><span>登録料・月額費用</span></div>
-    <div class="cell"><b>年4<small>回</small></b><span>四半期ごとのお支払い</span></div>
-    <div class="cell"><b>1<small>年</small></b><span>契約期間・自動更新</span></div>
+    <div class="cell"><b>31<small>書店</small></b><span>成人向けが実際に並ぶ数<br>（全書店は100超）</span></div>
+    <div class="cell"><b>約20<small>%</small></b><span>作家さまの手取り<br>（売価に対して）</span></div>
+    <div class="cell"><b>約6<small>ヶ月後</small></b><span>初回のお振込<br>（配信開始から）</span></div>
+    <div class="cell"><b>0<small>円</small></b><span>登録料・月額費用<br>（初期費用なし）</span></div>
+    <div class="cell"><b>1<small>年</small></b><span>契約期間。1年後は<br>3ヶ月前通知で解約可</span></div>
   </div>
 </div>
 
 <section id="first" class="center">
   <div class="wrap">
+    <div class="mflow compact" style="max-width:1000px;margin:0 auto;text-align:left">
+      <div class="mf"><div class="mf-l">読者が支払う売価</div><div class="mf-v">100%</div><div class="mf-s">1,000円</div></div>
+      <div class="mf-arrow">→<small>書店が引く</small></div>
+      <div class="mf store"><div class="mf-l">書店手数料</div><div class="mf-v">約70%</div><div class="mf-s">700円ほど</div></div>
+      <div class="mf-arrow">→<small>好色堂に入る</small></div>
+      <div class="mf ks"><div class="mf-l">本使用料</div><div class="mf-v">約30%</div><div class="mf-s">300円ほど</div></div>
+      <div class="mf-arrow">→<small>その60%</small></div>
+      <div class="mf you"><div class="mf-l">作家さまの手取り</div><div class="mf-v">約20%</div><div class="mf-s">180〜200円ほど</div></div>
+    </div>
+    <p class="enote" style="margin-top:8px;margin-bottom:26px">売価1,000円の作品が一冊売れたときの例（書店手数料は書店により50〜70%）。本使用料は、書店が手数料を引いたあと好色堂に入るお金のこと。詳しくは <a href="money.html#share" style="color:var(--enji);text-decoration:underline;text-underline-offset:3px">手取りのしくみ</a> へ。</p>
     <span class="eyebrow">先に、この3点<span class="dash"></span></span>
     <div class="kp-grid" style="margin-top:26px">
       <div class="kp">
@@ -585,7 +609,7 @@
       <div class="pcard">
         <div class="idx">其の三</div><div class="gline"></div>
         <h3>従来の取次は、<br>還元が薄い</h3>
-        <p>一般的な取次では、作家さまへの還元は40%前後。手を尽くしても、手元にいくら残るのかが見えにくいものです。</p>
+        <p>取次とは、出版社や作者に代わって、電子書店へ作品を届ける会社・仕組みのこと。一般的な取次では、作家さまへの還元は40%前後で、手元にいくら残るのかが見えにくいものです。</p>
       </div>
     </div>
   </div>
@@ -597,9 +621,9 @@
     <h2 class="s-title">好色堂が、<br>すべてお引き受けします。</h2>
     <p class="s-sub">作家さまにしていただくのは、原稿と作品情報をお預けいただくことだけ。あとは、どうぞお任せください。</p>
     <div class="cards">
-      <div class="scard"><span class="badge seal-css serif">店</span><div><h3>100を超える書店へ</h3><div class="gline"></div><p>主要な電子書店をはじめ、100以上のストアへお届け。読者がどこで探しても、あなたの作品に出会えるようにします。</p></div></div>
+      <div class="scard"><span class="badge seal-css serif">店</span><div><h3>売れる書店へ、確実に</h3><div class="gline"></div><p>全年齢を含めると100を超える書店へ。成人向け作品が実際に並ぶのは31書店で、コミックシーモアをはじめ売れる店は押さえています。</p></div></div>
       <div class="scard"><span class="badge seal-css serif">全</span><div><h3>すべて代行します</h3><div class="gline"></div><p>書店との交渉・電子化・書誌づくり・表紙のデザイン。煩雑な工程は、すべて好色堂が引き受けます。</p></div></div>
-      <div class="scard"><span class="badge seal-css serif">還</span><div><h3>還元率60%</h3><div class="gline"></div><p>業界水準のおよそ1.5倍。手間を引いたあとに残る額で、きちんとお返しします。追加費用は一切なし。</p></div></div>
+      <div class="scard"><span class="badge seal-css serif">還</span><div><h3>手取りは、売価の約20%</h3><div class="gline"></div><p>本使用料に対する還元率は60%で、業界水準のおよそ1.5倍。手間を引いたあとに残る額で、きちんとお返しします。追加費用は一切なし。</p></div></div>
       <div class="scard"><span class="badge seal-css serif">粋</span><div><h3>大人の作品に強い</h3><div class="gline"></div><p>成人向けの漫画を専門に扱います。表現やジャンルの機微を理解したうえで、いちばん良い形で届けます。</p></div></div>
       <div class="scard"><span class="badge seal-css serif">伴</span><div><h3>密に、伴走します</h3><div class="gline"></div><p>作家さまごとに専用の窓口（Discord）をご用意。メール中心の取次と違い、連絡もお返事も早く。月末には売上の速報値を共有します。</p></div></div>
       <div class="scard"><span class="badge seal-css serif">誠</span><div><h3>正直に、お伝えします</h3><div class="gline"></div><p>できること・できないことを、盛らずにお話しします。数字の見せ方でごまかすようなことは、いたしません。</p></div></div>
@@ -645,7 +669,7 @@
     <p class="enote" style="text-align:left">※ この4書店は<strong>まだ配信が始まっていません</strong>。接続が完了しだい、お預かりしている作品を順次お届けします。開始時期は書店側の手続き次第のため、確約はいたしかねます。</p>
     <details class="fold">
       <summary>お預けの前に、配信先の全一覧をご覧になりたい方へ／海外・英語版について</summary>
-      <div>上の表が、成人向け作品が実際に並んでいる書店です。全配信先の一覧を事前にお渡しできるか、またその更新の頻度は <span class="tbc">【要確認】</span> のうえご案内します。海外の書店・英語版について（他社へ英語版を独占許諾済みの作品の日本語版をお預かりできるかを含め）も、確認のうえご案内します <span class="tbc">【要確認】</span>。</div>
+      <div>上の表が、成人向け作品が実際に並んでいる書店です。全配信先の一覧とその更新の頻度、海外の書店・英語版（他社へ英語版を独占許諾済みの作品の日本語版をお預かりできるかを含め）については、ご相談時に個別にご案内します。</div>
     </details>
   </div>
 </section>
@@ -657,7 +681,7 @@
     <p class="s-sub">気になる項目から、直接ご覧いただけます。</p>
     <div class="cards">
       <a class="scard" href="service.html"><span class="badge seal-css serif">品</span><div><h3>サービス内容<span class="arr" style="margin-left:6px">→</span></h3><div class="gline"></div><p>好色堂がお引き受けする仕事と、ご用意いただくもの。作品データのお渡し方法、扱う作品のジャンル。</p></div></a>
-      <a class="scard" href="money.html"><span class="badge seal-css serif">銭</span><div><h3>還元とお支払い<span class="arr" style="margin-left:6px">→</span></h3><div class="gline"></div><p>還元率60%の正直な内訳（手取りは販売額のおよそ20%）、初回のお振込の時期、売上のご報告の方法、業界水準との比較。</p></div></a>
+      <a class="scard" href="money.html"><span class="badge seal-css serif">銭</span><div><h3>手取りとお支払い<span class="arr" style="margin-left:6px">→</span></h3><div class="gline"></div><p>手取りは売価のおよそ20%（還元率60%の正直な内訳）、初回のお振込の時期、売上のご報告の方法、業界水準との比較。</p></div></a>
       <a class="scard" href="contract.html"><span class="badge seal-css serif">約</span><div><h3>契約について<span class="arr" style="margin-left:6px">→</span></h3><div class="gline"></div><p>一年契約の理由、独占の範囲（第11条）、価格の決め方と相場、ご署名前にご確認いただきたいこと。契約書の全文も掲載。</p></div></a>
       <a class="scard" href="flow.html"><span class="badge seal-css serif">順</span><div><h3>ご相談後の流れ<span class="arr" style="margin-left:6px">→</span></h3><div class="gline"></div><p>ご相談から契約、作品のお預かり、配信開始、お振込まで。どなたが何をするかを段ごとに。</p></div></a>
       <a class="scard" href="sales.html"><span class="badge seal-css serif">売</span><div><h3>売れ方と企画<span class="arr" style="margin-left:6px">→</span></h3><div class="gline"></div><p>売れるタイトルの付け方、モザイクと棒消し、価格の目安（ページ数×10円）、ジャンルの傾向、お預け前の企画相談。</p></div></a>
@@ -692,7 +716,7 @@
     </div>
     <div class="f-links">
       <div class="f-col"><h4>好色堂</h4><a href="#about">悩み</a><a href="#solution">できること</a><a href="flow.html#flow">お預かりの流れ</a><a href="about.html#editor">編集の姿勢</a></div>
-      <div class="f-col"><h4>ご相談</h4><a href="money.html#share">還元のしくみ</a><a href="money.html#compare">業界比較</a><a href="sales.html#sales">売れ方と企画</a><a href="faq.html#faq">よくあるご質問</a><a href="#contact">作品を相談する</a></div>
+      <div class="f-col"><h4>ご相談</h4><a href="money.html#share">手取りのしくみ</a><a href="money.html#compare">業界比較</a><a href="sales.html#sales">売れ方と企画</a><a href="faq.html#faq">よくあるご質問</a><a href="#contact">作品を相談する</a></div>
     </div>
   </div>
   <div class="f-bottom">

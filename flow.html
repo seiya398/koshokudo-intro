@@ -459,7 +459,10 @@
   .pay4>div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 12px;text-align:center}
   .pay4 b{display:block;font-family:var(--serif);font-size:20px;font-weight:800;color:var(--enji)}
   .pay4 span{font-size:12px;color:var(--sumi2)}
-  .sflow{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(136px,1fr));gap:10px;counter-reset:sf;margin:36px 0 0;text-align:left}
+  .sflow{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;counter-reset:sf;margin:36px 0 0;text-align:left}
+  .sflow li:nth-child(4n):after{display:none}
+  @media(max-width:860px){.sflow{grid-template-columns:repeat(2,1fr)}.sflow li:nth-child(4n):after{display:block}.sflow li:nth-child(2n):after{display:none}}
+  @media(max-width:480px){.sflow{grid-template-columns:1fr}.sflow li:after{display:none}}
   .sflow li{position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 14px 14px;counter-increment:sf;display:flex;flex-direction:column;min-height:150px}
   .sflow li:before{content:counter(sf,cjk-ideographic);width:30px;height:30px;border-radius:6px;background:var(--enji);color:#fbf3ea;font-family:var(--serif);font-weight:800;font-size:15px;display:grid;place-items:center;margin-bottom:10px}
   .sflow li:after{content:"›";position:absolute;right:-9px;top:50%;transform:translateY(-50%);width:18px;height:18px;border-radius:50%;background:var(--card);border:1px solid var(--line2);color:var(--muted);font-size:14px;font-weight:700;line-height:16px;text-align:center;z-index:1}
@@ -479,6 +482,17 @@
   table.ks th.kscol,table.ks td.kscol{background:var(--enji-soft);color:var(--sumi);font-weight:700}
   table.ks th.kscol{color:var(--enji)}
   @media(max-width:760px){.mflow{grid-template-columns:1fr}.mf-arrow{transform:rotate(90deg);padding:2px 0}}
+  /* 契約の期間タイムライン（2026-11 第3版: MANGA BUFF の .ctl を好色堂の装丁で） */
+  .ctl{background:var(--card);border:1px solid var(--line2);border-radius:12px;padding:24px 24px 16px;margin-top:0;text-align:left}
+  .ctl-track{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;position:relative}
+  .ctl-track:before{content:"";position:absolute;left:10%;right:10%;top:13px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--gold),var(--enji))}
+  .ctl-node{position:relative;text-align:center;padding-top:38px}
+  .ctl-node:before{content:"";position:absolute;left:50%;top:4px;transform:translateX(-50%);width:22px;height:22px;border-radius:50%;background:var(--card);border:4px solid var(--enji);box-sizing:border-box}
+  .ctl-node.hi:before{background:var(--enji)}
+  .ctl-node b{display:block;font-family:var(--serif);font-size:14.5px;font-weight:700;color:var(--sumi);line-height:1.45}
+  .ctl-node span{display:block;font-size:12px;color:var(--sumi2);line-height:1.65;margin-top:6px}
+  .ctl-note{margin-top:16px;padding-top:12px;border-top:1px solid var(--line);font-size:12.5px;color:var(--sumi2);line-height:1.8}
+  @media(max-width:760px){.ctl-track{grid-template-columns:1fr;gap:14px}.ctl-track:before{left:9px;right:auto;top:8px;bottom:8px;width:3px;height:auto}.ctl-node{text-align:left;padding:0 0 0 36px}.ctl-node:before{left:0;top:2px;transform:none}}
 </style>
 </head>
 <body>
@@ -492,7 +506,7 @@
     <nav class="nav-links" id="navLinks">
       <a class="lnk" href="index.html">ホーム</a>
       <a class="lnk" href="service.html">サービス内容</a>
-      <a class="lnk" href="money.html">お金のこと</a>
+      <a class="lnk" href="money.html">手取りとお支払い</a>
       <a class="lnk" href="contract.html">契約について</a>
       <a class="lnk on" href="flow.html">ご相談後の流れ</a>
       <a class="lnk" href="sales.html">売れ方と企画</a>
@@ -515,13 +529,13 @@
       <div class="kp"><div class="kp-tag">初回のお振込</div><div class="kp-big">約6<small>ヶ月後</small></div><div class="kp-head">配信開始から初回のお振込までの目安</div><p>以降は年4回。<a href="money.html#payment">お支払いの流れ</a></p></div>
     </div>
     <ol class="sflow">
-      <li class="you"><b>ご相談</b><span>オンライン（30分・Google Meet）またはテキストで。カメラ・マイクなし可。ご予約はペンネームで結構です。</span><em>作家さま</em></li>
-      <li class="you"><b>専用の窓口</b><span>Discord の ID を教えていただき、作家さま専用の窓口をご用意。以後のやり取りはここで。</span><em>作家さま → 好色堂</em></li>
-      <li class="you hi"><b>契約書・ご署名</b><span>マネーフォワードの電子契約をメールで。料率がお伝えした内容と違えばご署名前にお知らせを。口座名義（カナ）もご確認を。</span><em>好色堂 → 作家さま</em></li>
-      <li class="you hi"><b>原稿をお預かり</b><span>CLIP・PSD・JPG・PDF そのままで。JPGのZIPで十分。窓口・大容量便・Googleドライブのいずれかで。</span><em>作家さま</em></li>
-      <li><b>表紙・電子化・入稿</b><span>表紙・奥付・書影、EPUB化、書誌、白抜き・モザイク、各書店の審査対応。約一〜二週間。</span><em>好色堂</em></li>
-      <li><b>配信開始</b><span>審査の通った書店から順に公開。公開しましたら窓口でお知らせ。見当たらなければすぐお知らせください。</span><em>好色堂</em></li>
-      <li><b>ご報告・お振込</b><span>月末に売上（総額）の速報。年4回のお振込、初回は配信開始からおよそ6ヶ月後が目安。</span><em>好色堂</em></li>
+      <li class="you"><b>ご相談</b><span>オンラインかテキストで。カメラなしでも可。</span><em>作家さま</em></li>
+      <li class="you"><b>専用の窓口</b><span>Discord IDをいただき、専用窓口をご用意。</span><em>作家さま → 好色堂</em></li>
+      <li class="you hi"><b>契約書・ご署名</b><span>マネーフォワードの電子契約。スマホで数分。</span><em>好色堂 → 作家さま</em></li>
+      <li class="you hi"><b>原稿をお預かり</b><span>CLIP・PSD・JPG・PDF そのままで可。</span><em>作家さま</em></li>
+      <li><b>表紙・電子化・入稿</b><span>表紙・EPUB・書誌・モザイク・審査対応。</span><em>好色堂</em></li>
+      <li><b>配信開始</b><span>審査の通った書店から順に公開します。</span><em>好色堂</em></li>
+      <li><b>ご報告・お振込</b><span>月末に売上速報。初回のお振込は約6ヶ月後。</span><em>好色堂</em></li>
     </ol>
     <details class="fold" style="margin-top:28px">
       <summary>其の一〜三の補足（ご相談・窓口・契約書）</summary>
@@ -529,7 +543,7 @@
     </details>
     <details class="fold">
       <summary>其の四〜七の補足（お預かり・入稿・配信・お振込）</summary>
-      <div>本編データ（CLIP・PSD・JPG・PDF など。JPGをページ順にZIPでまとめていただく形で十分です）と表紙用の素材を、専用の窓口・大容量便・Googleドライブの共有フォルダのいずれかでお渡しください。奥付に載せる X のIDは配信後に変更できませんので、長くお使いのものをお知らせください。書影（書店に並ぶ表紙まわりの画像）は好色堂が制作します。表紙の制作、EPUB化、書誌情報の作成、白抜き・モザイクの処理、各書店への入稿・審査対応まで、すべてこちらで仕上げます（配信準備に約一〜二週間。その後は書店ごとの審査が通った順に配信が始まります。全書店の一斉公開日や、ご契約から初公開までの総日数はお約束できません）。<strong>配信が始まりましたら専用の窓口でお知らせします。</strong>ご自身でも書店で作品名を検索してご確認いただき、日が経っても見当たらない場合はすぐにお知らせください。売上（総額）は月末に速報値を共有し、四半期ごと（年4回）にお支払い。初回のお振込は配信開始からおよそ6ヶ月後が目安です。振込手数料は好色堂が負担します。</div>
+      <div>本編データ（CLIP・PSD・JPG・PDF など。JPGをページ順にZIPでまとめていただく形で十分です）と表紙用の素材を、専用の窓口・大容量便・Googleドライブの共有フォルダのいずれかでお渡しください。奥付に載せる X のIDは配信後に変更できませんので、長くお使いのものをお知らせください。書影（書店に並ぶ表紙まわりの画像）は好色堂が制作します。表紙の制作、EPUB化、書誌情報の作成、白抜き・モザイクの処理、各書店への入稿・審査対応まで、すべてこちらで仕上げます（配信準備に約一〜二週間。その後は書店ごとの審査が通った順に配信が始まります。全書店の一斉公開日や、ご契約から初公開までの総日数はお約束できません）。<strong>配信が始まりましたら専用の窓口でお知らせします。</strong>ご自身でも書店で作品名を検索してご確認いただき、日が経っても見当たらない場合はすぐにお知らせください。売上（総額）は月末に速報値を共有し、3ヶ月ごと（年4回）にお支払い。初回のお振込は配信開始からおよそ6ヶ月後が目安です。振込手数料は好色堂が負担します。</div>
     </details>
     <div class="note-box" style="margin-top:28px">
       <strong>棚に眠っている既刊も、どうぞまとめて。</strong>
@@ -563,7 +577,7 @@
     </div>
     <div class="f-links">
       <div class="f-col"><h4>好色堂</h4><a href="index.html#about">悩み</a><a href="index.html#solution">できること</a><a href="#flow">お預かりの流れ</a><a href="about.html#editor">編集の姿勢</a></div>
-      <div class="f-col"><h4>ご相談</h4><a href="money.html#share">還元のしくみ</a><a href="money.html#compare">業界比較</a><a href="sales.html#sales">売れ方と企画</a><a href="faq.html#faq">よくあるご質問</a><a href="#contact">作品を相談する</a></div>
+      <div class="f-col"><h4>ご相談</h4><a href="money.html#share">手取りのしくみ</a><a href="money.html#compare">業界比較</a><a href="sales.html#sales">売れ方と企画</a><a href="faq.html#faq">よくあるご質問</a><a href="#contact">作品を相談する</a></div>
     </div>
   </div>
   <div class="f-bottom">

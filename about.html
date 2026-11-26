@@ -459,7 +459,10 @@
   .pay4>div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 12px;text-align:center}
   .pay4 b{display:block;font-family:var(--serif);font-size:20px;font-weight:800;color:var(--enji)}
   .pay4 span{font-size:12px;color:var(--sumi2)}
-  .sflow{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(136px,1fr));gap:10px;counter-reset:sf;margin:36px 0 0;text-align:left}
+  .sflow{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;counter-reset:sf;margin:36px 0 0;text-align:left}
+  .sflow li:nth-child(4n):after{display:none}
+  @media(max-width:860px){.sflow{grid-template-columns:repeat(2,1fr)}.sflow li:nth-child(4n):after{display:block}.sflow li:nth-child(2n):after{display:none}}
+  @media(max-width:480px){.sflow{grid-template-columns:1fr}.sflow li:after{display:none}}
   .sflow li{position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 14px 14px;counter-increment:sf;display:flex;flex-direction:column;min-height:150px}
   .sflow li:before{content:counter(sf,cjk-ideographic);width:30px;height:30px;border-radius:6px;background:var(--enji);color:#fbf3ea;font-family:var(--serif);font-weight:800;font-size:15px;display:grid;place-items:center;margin-bottom:10px}
   .sflow li:after{content:"›";position:absolute;right:-9px;top:50%;transform:translateY(-50%);width:18px;height:18px;border-radius:50%;background:var(--card);border:1px solid var(--line2);color:var(--muted);font-size:14px;font-weight:700;line-height:16px;text-align:center;z-index:1}
@@ -479,6 +482,17 @@
   table.ks th.kscol,table.ks td.kscol{background:var(--enji-soft);color:var(--sumi);font-weight:700}
   table.ks th.kscol{color:var(--enji)}
   @media(max-width:760px){.mflow{grid-template-columns:1fr}.mf-arrow{transform:rotate(90deg);padding:2px 0}}
+  /* 契約の期間タイムライン（2026-11 第3版: MANGA BUFF の .ctl を好色堂の装丁で） */
+  .ctl{background:var(--card);border:1px solid var(--line2);border-radius:12px;padding:24px 24px 16px;margin-top:0;text-align:left}
+  .ctl-track{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;position:relative}
+  .ctl-track:before{content:"";position:absolute;left:10%;right:10%;top:13px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--gold),var(--enji))}
+  .ctl-node{position:relative;text-align:center;padding-top:38px}
+  .ctl-node:before{content:"";position:absolute;left:50%;top:4px;transform:translateX(-50%);width:22px;height:22px;border-radius:50%;background:var(--card);border:4px solid var(--enji);box-sizing:border-box}
+  .ctl-node.hi:before{background:var(--enji)}
+  .ctl-node b{display:block;font-family:var(--serif);font-size:14.5px;font-weight:700;color:var(--sumi);line-height:1.45}
+  .ctl-node span{display:block;font-size:12px;color:var(--sumi2);line-height:1.65;margin-top:6px}
+  .ctl-note{margin-top:16px;padding-top:12px;border-top:1px solid var(--line);font-size:12.5px;color:var(--sumi2);line-height:1.8}
+  @media(max-width:760px){.ctl-track{grid-template-columns:1fr;gap:14px}.ctl-track:before{left:9px;right:auto;top:8px;bottom:8px;width:3px;height:auto}.ctl-node{text-align:left;padding:0 0 0 36px}.ctl-node:before{left:0;top:2px;transform:none}}
 </style>
 </head>
 <body>
@@ -492,7 +506,7 @@
     <nav class="nav-links" id="navLinks">
       <a class="lnk" href="index.html">ホーム</a>
       <a class="lnk" href="service.html">サービス内容</a>
-      <a class="lnk" href="money.html">お金のこと</a>
+      <a class="lnk" href="money.html">手取りとお支払い</a>
       <a class="lnk" href="contract.html">契約について</a>
       <a class="lnk" href="flow.html">ご相談後の流れ</a>
       <a class="lnk" href="sales.html">売れ方と企画</a>
@@ -563,9 +577,8 @@
       <dl><dt>代表者</dt><dd>竹内 星陽</dd></dl>
       <dl><dt>所在地</dt><dd>東京都渋谷区宇田川町34番5号 サイトービルⅢ5階（契約書末尾の記載と同じ）</dd></dl>
       <dl><dt>事業内容</dt><dd>電子書籍の出版・配信代行、編集・制作支援</dd></dl>
-      <dl><dt>公式X</dt><dd><span class="tbc">【要確認：掲載するアカウント】</span></dd></dl>
       <dl><dt>会社サイト</dt><dd><a href="https://www.realize-llc.tokyo" target="_blank" rel="noopener">www.realize-llc.tokyo</a></dd></dl>
-      <dl><dt>お問い合わせ</dt><dd><a href="#contact">下記フォームより</a></dd></dl>
+      <dl><dt>お問い合わせ</dt><dd><a href="#contact">下記「作品を、相談する」より</a></dd></dl>
     </div>
   </div>
 </section>
@@ -595,7 +608,7 @@
     </div>
     <div class="f-links">
       <div class="f-col"><h4>好色堂</h4><a href="index.html#about">悩み</a><a href="index.html#solution">できること</a><a href="flow.html#flow">お預かりの流れ</a><a href="#editor">編集の姿勢</a></div>
-      <div class="f-col"><h4>ご相談</h4><a href="money.html#share">還元のしくみ</a><a href="money.html#compare">業界比較</a><a href="sales.html#sales">売れ方と企画</a><a href="faq.html#faq">よくあるご質問</a><a href="#contact">作品を相談する</a></div>
+      <div class="f-col"><h4>ご相談</h4><a href="money.html#share">手取りのしくみ</a><a href="money.html#compare">業界比較</a><a href="sales.html#sales">売れ方と企画</a><a href="faq.html#faq">よくあるご質問</a><a href="#contact">作品を相談する</a></div>
     </div>
   </div>
   <div class="f-bottom">

@@ -459,7 +459,10 @@
   .pay4>div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 12px;text-align:center}
   .pay4 b{display:block;font-family:var(--serif);font-size:20px;font-weight:800;color:var(--enji)}
   .pay4 span{font-size:12px;color:var(--sumi2)}
-  .sflow{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(136px,1fr));gap:10px;counter-reset:sf;margin:36px 0 0;text-align:left}
+  .sflow{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;counter-reset:sf;margin:36px 0 0;text-align:left}
+  .sflow li:nth-child(4n):after{display:none}
+  @media(max-width:860px){.sflow{grid-template-columns:repeat(2,1fr)}.sflow li:nth-child(4n):after{display:block}.sflow li:nth-child(2n):after{display:none}}
+  @media(max-width:480px){.sflow{grid-template-columns:1fr}.sflow li:after{display:none}}
   .sflow li{position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 14px 14px;counter-increment:sf;display:flex;flex-direction:column;min-height:150px}
   .sflow li:before{content:counter(sf,cjk-ideographic);width:30px;height:30px;border-radius:6px;background:var(--enji);color:#fbf3ea;font-family:var(--serif);font-weight:800;font-size:15px;display:grid;place-items:center;margin-bottom:10px}
   .sflow li:after{content:"›";position:absolute;right:-9px;top:50%;transform:translateY(-50%);width:18px;height:18px;border-radius:50%;background:var(--card);border:1px solid var(--line2);color:var(--muted);font-size:14px;font-weight:700;line-height:16px;text-align:center;z-index:1}
@@ -479,6 +482,17 @@
   table.ks th.kscol,table.ks td.kscol{background:var(--enji-soft);color:var(--sumi);font-weight:700}
   table.ks th.kscol{color:var(--enji)}
   @media(max-width:760px){.mflow{grid-template-columns:1fr}.mf-arrow{transform:rotate(90deg);padding:2px 0}}
+  /* 契約の期間タイムライン（2026-11 第3版: MANGA BUFF の .ctl を好色堂の装丁で） */
+  .ctl{background:var(--card);border:1px solid var(--line2);border-radius:12px;padding:24px 24px 16px;margin-top:0;text-align:left}
+  .ctl-track{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;position:relative}
+  .ctl-track:before{content:"";position:absolute;left:10%;right:10%;top:13px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--gold),var(--enji))}
+  .ctl-node{position:relative;text-align:center;padding-top:38px}
+  .ctl-node:before{content:"";position:absolute;left:50%;top:4px;transform:translateX(-50%);width:22px;height:22px;border-radius:50%;background:var(--card);border:4px solid var(--enji);box-sizing:border-box}
+  .ctl-node.hi:before{background:var(--enji)}
+  .ctl-node b{display:block;font-family:var(--serif);font-size:14.5px;font-weight:700;color:var(--sumi);line-height:1.45}
+  .ctl-node span{display:block;font-size:12px;color:var(--sumi2);line-height:1.65;margin-top:6px}
+  .ctl-note{margin-top:16px;padding-top:12px;border-top:1px solid var(--line);font-size:12.5px;color:var(--sumi2);line-height:1.8}
+  @media(max-width:760px){.ctl-track{grid-template-columns:1fr;gap:14px}.ctl-track:before{left:9px;right:auto;top:8px;bottom:8px;width:3px;height:auto}.ctl-node{text-align:left;padding:0 0 0 36px}.ctl-node:before{left:0;top:2px;transform:none}}
 </style>
 </head>
 <body>
@@ -492,7 +506,7 @@
     <nav class="nav-links" id="navLinks">
       <a class="lnk" href="index.html">ホーム</a>
       <a class="lnk" href="service.html">サービス内容</a>
-      <a class="lnk" href="money.html">お金のこと</a>
+      <a class="lnk" href="money.html">手取りとお支払い</a>
       <a class="lnk on" href="contract.html">契約について</a>
       <a class="lnk" href="flow.html">ご相談後の流れ</a>
       <a class="lnk" href="sales.html">売れ方と企画</a>
@@ -516,13 +530,25 @@
       </div>
       <div class="pcard">
         <div class="idx" style="text-align:center;letter-spacing:.16em">独占は、預けた作品だけ</div><div class="gline" style="margin:11px auto 15px"></div>
-        <p style="text-align:center">お預けいただいた作品を、他の取次経由で書店配信することだけがNG（第11条）。それ以外は、完全に自由です。</p>
+        <p style="text-align:center">お預けいただいた作品を、他の取次経由で書店配信することだけがNG（契約書第11条）。それ以外は、完全に自由です。</p>
       </div>
       <div class="pcard">
         <div class="idx" style="text-align:center;letter-spacing:.16em">まとめて、お預けを</div><div class="gline" style="margin:11px auto 15px"></div>
         <p style="text-align:center">お預けいただく作品が増えるほど、一作ごとの売上の波が平され、月々の還元は安定して積み上がります。棚に眠っている既刊も、どうぞまとめて。</p>
       </div>
     </div>
+    <h3 class="subhead">契約の期間を、一本の線で。</h3>
+    <div class="ctl">
+      <div class="ctl-track">
+        <div class="ctl-node"><b>ご署名</b><span>電子契約（マネーフォワード）。本名をお書きいただくのはここだけ。</span></div>
+        <div class="ctl-node"><b>配信開始</b><span>お預かりから約一〜二週間で準備し、書店ごとに順次公開。</span></div>
+        <div class="ctl-node hi"><b>配信開始から1年</b><span>最低配信期間。この間は配信が続き、条件も同じです。</span></div>
+        <div class="ctl-node"><b>1年経過後</b><span>3ヶ月前にお申し出いただけば解約できます（実質最短およそ13ヶ月）。</span></div>
+        <div class="ctl-node"><b>契約終了後</b><span>おおむね2ヶ月で各書店の配信が終了。売上は終了後1ヶ月以内に精算。</span></div>
+      </div>
+      <p class="ctl-note">対象はお預けいただいた作品だけ。お預けでない作品や、FANZA同人・DLsite・BOOTH・ご自身のサイトでの販売は自由です。5年縛りのような長期の拘束はありません。海外在住の方は、現状ご契約いただけません。</p>
+    </div>
+
     <h3 class="subhead">完全に、ご自由にできること</h3>
     <div class="tbl-wrap">
       <table class="ks">
@@ -537,9 +563,9 @@
       </table>
     </div>
     <div class="note-box">
-      <strong>第11条（取次独占）を、かみくだくと。</strong>
+      <strong>「取次独占」（契約書第11条）を、かみくだくと。</strong>
       <p>制限されるのは「好色堂にお預けいただいた作品を、ほかの取次を通して電子書店に出すこと」と「お預けいただいた作品と同じ内容を、同じ書店に重ねて出すこと」の二つだけです。FANZA同人・DLsite・BOOTH などでのご自身での販売、Kindle等のセルフパブリッシング、お預けでない別作品の他社委託は、すべて自由です。</p>
-      <p style="margin-top:10px">なお、ご自身で販売中の同人版と、好色堂が配信する商業版が同じ運営会社の書店になる場合（例：FANZA同人と FANZA Books）は、同人側の取り下げや専売解除が必要になることがあります。該当しそうな作品は、<strong>お預かりの前にご一緒に確認します</strong>（必須条件の詳細は <span class="tbc">【要確認】</span>）。</p>
+      <p style="margin-top:10px">なお、ご自身で販売中の同人版と、好色堂が配信する商業版が同じ運営会社の書店になる場合（例：FANZA同人と FANZA Books）は、同人側の取り下げや専売解除が必要になることがあります。該当しそうな作品は、<strong>お預かりの前にご一緒に確認します</strong>（必須条件の詳細は、ご相談時に個別にご案内します）。</p>
     </div>
 
     <h3 class="subhead">表紙・白抜き素材の、扱い</h3>
@@ -571,7 +597,7 @@
           <tr><td>決定権が好色堂にある理由</td><td>制作・配信の費用を先に負担するため。また、極端な安売りで市場全体が崩れるのを防ぐためです</td></tr>
           <tr><td>無断での極端な値下げ</td><td class="em">いたしません</td></tr>
           <tr><td>値引きが入る場面</td><td>書店主催のセールなど、露出が増える形に限ります</td></tr>
-          <tr><td>割引50%以上・無料キャンペーン</td><td class="em">必ず事前にご確認します（オプトイン）</td></tr>
+          <tr><td>割引50%以上・無料キャンペーン</td><td class="em">必ず事前にご連絡し、参加するかを確認します</td></tr>
         </tbody>
       </table>
     </div>
@@ -599,12 +625,12 @@
     <div class="tbl-wrap">
       <table class="ks">
         <tbody>
-          <tr><td style="width:210px"><b>第4条</b>　還元金・売上のご報告</td><td>売上は<strong>総額</strong>をお伝えします（書店別・ストア別の内訳は開示しておりません）。月末に速報、お振込月の前月に確定額をご通知。ご報告はご契約後の Discord 連絡用スレッドで行います。</td></tr>
-          <tr><td><b>第5条</b>　販売価格・セール</td><td>販売価格は好色堂が決定します（ご希望はうかがいます・相場はページ数×10円）。割引50%以上のセール・無料キャンペーンは、事前のご連絡とご確認（オプトイン）をお約束します。50%未満は、売上の状況に応じて好色堂の裁量で機動的に対応します。</td></tr>
-          <tr><td><b>第7条</b>　利用・改変</td><td>変更の際は、基本的に事前にご確認します。作品内容は校閲での誤字脱字の修正、タイトルは書店の審査に合わせた編集（一部伏字など）が中心です。40ページ以上は10ページ＝一話の話数売りが基本、モザイク処理は好色堂が対応して公開まで進めます。タイトル・価格・出し方は、お預かりの前にご相談いただけます。</td></tr>
-          <tr><td><b>第11条</b>　取次独占</td><td>お預けいただいた作品を他の取次経由で書店配信すること、同じ内容を同じ書店に重ねて出すことだけが制限です。同人プラットフォーム・BOOTH・セルフパブ・お預けでない作品は自由です。</td></tr>
-          <tr><td><b>第10条</b>　配信の中止・終了</td><td>好色堂の都合で配信を終了することは、基本的にありません。作家さまからの停止のご希望に対応します（最低配信期間中の停止は別途ご相談ください）。</td></tr>
-          <tr><td><b>第15条</b>　契約終了後</td><td>契約終了後、おおむね2ヶ月で各書店での配信が終了します。</td></tr>
+          <tr><td style="width:230px"><b>売上のご報告</b>（契約書第4条）</td><td>売上は<strong>総額</strong>をお伝えします（書店別・ストア別の内訳は開示しておりません）。月末に速報、お振込月の前月に確定額をご通知。ご報告はご契約後の Discord 連絡用スレッドで行います。</td></tr>
+          <tr><td><b>販売価格・セール</b>（契約書第5条）</td><td>販売価格は好色堂が決定します（ご希望はうかがいます・相場はページ数×10円）。割引50%以上のセール・無料キャンペーンは、事前にご連絡し、参加するかを確認することをお約束します。50%未満は、売上の状況に応じて好色堂の裁量で機動的に対応します。</td></tr>
+          <tr><td><b>作品の利用・改変</b>（契約書第7条）</td><td>変更の際は、基本的に事前にご確認します。作品内容は校閲での誤字脱字の修正、タイトルは書店の審査に合わせた編集（一部伏字など）が中心です。40ページ以上は10ページ＝一話の話数売りが基本、モザイク処理は好色堂が対応して公開まで進めます。タイトル・価格・出し方は、お預かりの前にご相談いただけます。</td></tr>
+          <tr><td><b>取次独占</b>（契約書第11条）</td><td>お預けいただいた作品を他の取次経由で書店配信すること、同じ内容を同じ書店に重ねて出すことだけが制限です。同人プラットフォーム・BOOTH・セルフパブ・お預けでない作品は自由です。</td></tr>
+          <tr><td><b>配信の中止・終了</b>（契約書第10条）</td><td>好色堂の都合で配信を終了することは、基本的にありません。作家さまからの停止のご希望に対応します（最低配信期間中の停止は別途ご相談ください）。</td></tr>
+          <tr><td><b>契約が終わったあと</b>（契約書第15条）</td><td>契約終了後、おおむね2ヶ月で各書店での配信が終了します。</td></tr>
           <tr><td>インボイス</td><td>未登録でも、ご契約・配信は可能です。登録のない期間は、経過措置により消費税相当分の一部を控除します（ご登録後は控除なし）。</td></tr>
         </tbody>
       </table>
@@ -815,7 +841,7 @@
     </div>
     <div class="f-links">
       <div class="f-col"><h4>好色堂</h4><a href="index.html#about">悩み</a><a href="index.html#solution">できること</a><a href="flow.html#flow">お預かりの流れ</a><a href="about.html#editor">編集の姿勢</a></div>
-      <div class="f-col"><h4>ご相談</h4><a href="money.html#share">還元のしくみ</a><a href="money.html#compare">業界比較</a><a href="sales.html#sales">売れ方と企画</a><a href="faq.html#faq">よくあるご質問</a><a href="#contact">作品を相談する</a></div>
+      <div class="f-col"><h4>ご相談</h4><a href="money.html#share">手取りのしくみ</a><a href="money.html#compare">業界比較</a><a href="sales.html#sales">売れ方と企画</a><a href="faq.html#faq">よくあるご質問</a><a href="#contact">作品を相談する</a></div>
     </div>
   </div>
   <div class="f-bottom">
